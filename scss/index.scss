@@ -1,1 +1,6 @@
+@import "compass";
 @import "reset";
+
+* {
+	@include box-sizing(border-box);
+}
