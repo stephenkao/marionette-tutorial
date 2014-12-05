@@ -1,0 +1,150 @@
+# Check this out: https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md
+linters:
+  BorderZero:
+    enabled: true
+
+  CapitalizationInSelector:
+    enabled: false
+
+  ColorKeyword:
+    enabled: true
+
+  Comment:
+    enabled: true
+
+  DebugStatement:
+    enabled: true
+
+  DeclarationOrder:
+    enabled: true
+
+  # This could be potentially problematic for cross-browser support
+  DuplicateProperty:
+    enabled: true
+
+  # Keeping this in line (heh heh) with JSCS
+  ElsePlacement:
+    enabled: true
+    style: same_line
+
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: false # UGLY
+
+  EmptyRule:
+    enabled: true
+
+  FinalNewline:
+    enabled: true
+    present: true
+
+  # Keep things consistent?
+  HexLength:
+    enabled: true
+    style: long
+
+  HexNotation:
+    enabled: true
+    style: lowercase
+
+  HexValidation:
+    enabled: true
+
+  # Well, modifier classes on id selectors...?
+  # BUT let's try to avoid id selectors in the first place!
+  IdWithExtraneousSelector:
+    enabled: true
+
+  Indentation:
+    enabled: true
+    character: tab
+    width: 1
+
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  # YES!  Cut down the redundancy!!!!
+  MergeableSelector:
+    enabled: true
+    force_nesting: true
+
+  # Maybe revisit this if we decide on BEM or another nomenclature
+  NameFormat:
+    enabled: true
+    convention: hyphenated_lowercase # or 'BEM', or a regex pattern
+
+  # YES!  No more extending straight rules
+  PlaceholderInExtend:
+    enabled: true
+
+  # @TODO: Revisit this when we all talk about thangs
+  PropertySortOrder:
+    enabled: false
+
+  PropertySpelling:
+    enabled: true
+
+  # Subjective as well, but we should really limit selector depth
+  # to make our rules more extensible and/or modular
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
+
+  Shorthand:
+    enabled: true
+
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: true
+
+  SingleLinePerSelector:
+    enabled: true
+
+  SpaceAfterComma:
+    enabled: true
+
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: one_space
+
+  SpaceAfterPropertyName:
+    enabled: true
+
+  SpaceBeforeBrace:
+    enabled: true
+    allow_single_line_padding: false
+
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  StringQuotes:
+    enabled: true
+    style: single_quotes
+
+  TrailingSemicolon:
+    enabled: true
+
+  TrailingZero:
+    enabled: true
+
+  UnnecessaryMantissa:
+    enabled: true
+
+  UnnecessaryParentReference:
+    enabled: true
+
+  UrlFormat:
+    enabled: true
+
+  UrlQuotes:
+    enabled: true
+
+  ZeroUnit:
+    enabled: true
+
+  # I'm not sure how much Compass support there is,
+  # but we should revisit this once we start using Compass 4realz/more heavily
+  Compass::*:
+    enabled: false

@@ -1,0 +1,21 @@
+{
+	"curly": true,
+	"eqeqeq": true,
+	"es3": true,
+	"forin": true,
+	"immed": true,
+	"indent": 1,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"trailing": true,
+	"maxlen": 160,
+	"maxerr": 999,
+	"white": true
+}
