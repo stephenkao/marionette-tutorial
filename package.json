@@ -1,0 +1,32 @@
+{
+  "name": "marionette-tutorial",
+  "description": "Marionette Tutorial",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gawkermedia/marionette-tutorial",
+  "author": {
+    "name": "Stephen Kao"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/git@github.com:gawkermedia/marionette-tutorial.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib-requirejs": "git+ssh://git@github.com:gawkermedia/grunt-contrib-requirejs.git#master",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jscs": "~0.7.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-notify": "~0.2.20",
+    "requirejs": "~2.1.11",
+    "grunt-scss-lint": "^0.3.3"
+  },
+  "keywords": [
+    "grunt"
+  ]
+}
