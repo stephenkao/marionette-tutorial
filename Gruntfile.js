@@ -52,13 +52,22 @@
 				}
 			},
 
+			////////// Development cycle
+			notify: {
+				compass: {
+					options: {
+						title: 'Compass task complete',
+						message: 'CSS files generated, no errors found'
+					}
+				}
+			},
 			watch: {
 				options: {
 					spawn: false,
 					interval: 5007
 				},
 
-				js: {
+				javascript: {
 					files: [
 						'javascripts/**/*.js',
 						'!javascripts/lib/**/*.js'
@@ -75,19 +84,31 @@
 						'compass:dev'
 					]
 				}
+			},
+			concurrent: {
+				options: {
+					logConcurrentOutput: true
+				},
+				tasks: [
+					'watch:javascript',
+					'watch:sass'
+				]
 			}
 		});
 
 		grunt.loadNpmTasks('grunt-contrib-compass');
 		grunt.loadNpmTasks('grunt-contrib-watch');
+		grunt.loadNpmTasks('grunt-concurrent');
+		grunt.loadNpmTasks('grunt-notify');
 
-		grunt.registerTask('default', [
+		////////// Development mode
+		grunt.registerTask('run', [
+			'concurrent'
+		]);
+		////////// 'Production' mode
+		grunt.registerTask('production', [
 			'compass:dev',
 			'jshint:dev'
-		]);
-		grunt.registerTask('run', [
-			'watch:sass',
-			'watch:js'
 		]);
 	};
 })();
