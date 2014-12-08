@@ -1,15 +1,12 @@
 /*global requirejs */
+'use strict';
 
-(function () {
-	'use strict';
-
-	requirejs.config({
-		paths: {
-			jquery: 'lib/jquery',
-			underscore: 'lib/underscore',
-			backbone: 'lib/backbone',
-			'backbone.marionette': 'lib/backbone.marionette'
-		},
-		urlArgs: 'bust=' + (new Date()).getTime()
-	});
-})();
+var require = {
+	paths: {
+		jquery: 'lib/jquery',
+		underscore: 'lib/underscore',
+		backbone: 'lib/backbone',
+		'backbone.marionette': 'lib/backbone.marionette'
+	},
+	urlArgs: 'bust=' + (new Date()).getTime()
+};

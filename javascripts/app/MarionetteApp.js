@@ -23,7 +23,7 @@ define([
 	//  5. Comment applet
 	// Regions that aren't 'global' like these should be instantiated in smaller/localized scopes.
 	// (Additionally, anything pre-rendered does not need to be bound to a top-level Region.)
-	MarionetteApp.addRegions({});
+//	MarionetteApp.addRegions({});
 
 	return MarionetteApp;
 });

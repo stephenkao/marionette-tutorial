@@ -1,5 +1,6 @@
 @import "compass";
-@import "reset";
+@import "lib/foundation/settings";
+@import "foundation";
 
 * {
 	@include box-sizing(border-box);
