@@ -9,6 +9,7 @@
 			underscore: 'lib/underscore',
 			backbone: 'lib/backbone',
 			'backbone.marionette': 'lib/backbone.marionette'
-		}
+		},
+		urlArgs: 'bust=' + (new Date()).getTime()
 	});
-});
+})();
