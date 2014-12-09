@@ -25,7 +25,8 @@
     "grunt-notify": "^0.4.1",
     "requirejs": "~2.1.11",
     "grunt-scss-lint": "^0.3.3",
-    "grunt-concurrent": "^1.0.0"
+    "grunt-concurrent": "^1.0.0",
+    "jshint-stylish": "^1.0.0"
   },
   "keywords": [
     "grunt"

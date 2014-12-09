@@ -16,14 +16,13 @@
 				options: {
 					jshintrc: '.jshintrc',
 					reporter: require('jshint-stylish'),
-					reporterOutput: 'output/contrib-jshint.xml',
+					ignores: [
+						'javascripts/lib'
+					],
 					force: true
 				},
 				dev: {
-					src: [
-						'javascripts',
-						'!javascripts/lib'
-					]
+					src: ['javascripts']
 				}
 			},
 
@@ -73,7 +72,7 @@
 						'!javascripts/lib/**/*.js'
 					],
 					tasks: [
-						'jshint:dev'
+						'jshint'
 					]
 				},
 				sass: {
@@ -96,13 +95,16 @@
 			}
 		});
 
+		grunt.loadNpmTasks('grunt-contrib-requirejs');
 		grunt.loadNpmTasks('grunt-contrib-compass');
 		grunt.loadNpmTasks('grunt-contrib-watch');
+		grunt.loadNpmTasks('grunt-contrib-jshint');
+		grunt.loadNpmTasks('grunt-jscs');
 		grunt.loadNpmTasks('grunt-concurrent');
 		grunt.loadNpmTasks('grunt-notify');
 
 		////////// Development mode
-		grunt.registerTask('run', [
+		grunt.registerTask('dev', [
 			'concurrent'
 		]);
 		////////// 'Production' mode
