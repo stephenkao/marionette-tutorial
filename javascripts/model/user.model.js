@@ -1,13 +1,15 @@
 /*global define */
 
 /**
- * A simplified UserModel
+ * A Model that represents a user
  *
  * @author Stephen Kao
  */
 define([
+	// Libraries
 	'backbone'
 ], function (
+	// Libraries
 	Backbone
 ) {
 	'use strict';
