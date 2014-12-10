@@ -6,8 +6,10 @@
  * @author Stephen Kao
  */
 define([
+	// Libraries
 	'backbone.marionette'
 ], function (
+	// Libraries
 	Marionette
 ) {
 	'use strict';
