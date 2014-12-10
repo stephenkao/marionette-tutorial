@@ -19,7 +19,7 @@ define([
 		////////// Fields
 		defaults: {
 			title: '',
-			taskCollection: null,
+			phaseCollection: null,
 			updateCollection: null,
 			userCollection: null,
 			progress: 0,
@@ -35,7 +35,7 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
-			this.taskCollection = new Backbone.Collection();
+			this.phaseCollection = new Backbone.Collection();
 			this.updateCollection = new Backbone.Collection();
 			this.taskCollection = new Backbone.Collection();
 		},
@@ -83,7 +83,18 @@ define([
 		 *
 		 * @type {number}
 		 */
-		priorityStep: 10
+		priorityStep: 10,
+		/**
+		 * A dictionary of roadmap categories
+		 *
+		 * @type {!Object.<!string, number>}
+		 */
+		roadmapTypes: {
+			READING: 1,
+			HUB: 2,
+			EDITOR: 3,
+			STANDALONE: 4
+		}
 	});
 
 	return ProjectModel;
