@@ -17,7 +17,8 @@
 					jshintrc: '.jshintrc',
 					reporter: require('jshint-stylish'),
 					ignores: [
-						'javascripts/lib'
+						'javascripts/lib',
+						'javascripts/test'
 					],
 					force: true
 				},
@@ -48,6 +49,14 @@
 						sassDir: 'scss',
 						cssDir: 'css'
 					}
+				}
+			},
+
+			////////// Soy
+			soy: {
+				templates: {
+					src: ['closure/**/*.soy'],
+					outputPathFormat: 'template/{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js'
 				}
 			},
 
@@ -82,6 +91,14 @@
 					tasks: [
 						'compass:dev'
 					]
+				},
+				soy: {
+					files: [
+						'closure/**/*.soy'
+					],
+					tasks: [
+						'closureSoys:all'
+					]
 				}
 			},
 			concurrent: {
@@ -90,7 +107,8 @@
 				},
 				tasks: [
 					'watch:javascript',
-					'watch:sass'
+					'watch:sass',
+					'watch:soy'
 				]
 			}
 		});
@@ -102,6 +120,7 @@
 		grunt.loadNpmTasks('grunt-jscs');
 		grunt.loadNpmTasks('grunt-concurrent');
 		grunt.loadNpmTasks('grunt-notify');
+		grunt.loadNpmTasks('grunt-soy');
 
 		////////// Development mode
 		grunt.registerTask('dev', [
