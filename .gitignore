@@ -6,4 +6,4 @@ node_modules/
 
 npm-debug.log
 .DS_Store
-javascripts/test/
+public/javascripts/test/

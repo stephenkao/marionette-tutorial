@@ -17,13 +17,13 @@
 					jshintrc: '.jshintrc',
 					reporter: require('jshint-stylish'),
 					ignores: [
-						'javascripts/lib',
-						'javascripts/test'
+						'public/javascripts/lib',
+						'public/javascripts/test'
 					],
 					force: true
 				},
 				dev: {
-					src: ['javascripts']
+					src: ['public/javascripts']
 				}
 			},
 
@@ -38,25 +38,25 @@
 					force: true
 				},
 				dev: {
-					src: [
-						'scss'
-					]
+					src: ['build/tiger/scss']
 				}
 			},
 			compass: {
 				dev: {
 					options: {
-						sassDir: 'scss',
-						cssDir: 'css'
+						sassDir: 'build/tiger/scss',
+						cssDir: 'target/css'
 					}
 				}
 			},
 
 			////////// Soy
 			soy: {
-				templates: {
-					src: ['closure/**/*.soy'],
-					outputPathFormat: 'template/{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js'
+				dev: {
+					src: ['app/**/*.soy'],
+					inputPrefix: 'app/views/closure',
+					outputPathFormat: 'target/templates/{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js',
+					classpath: './resources/closure/soyplugins_2.10-0.4.7.jar'
 				}
 			},
 
@@ -77,8 +77,8 @@
 
 				javascript: {
 					files: [
-						'javascripts/**/*.js',
-						'!javascripts/lib/**/*.js'
+						'public/javascripts/**/*.js',
+						'!public/javascripts/lib/**/*.js'
 					],
 					tasks: [
 						'jshint'
@@ -86,7 +86,7 @@
 				},
 				sass: {
 					files: [
-						'scss/**/*.scss'
+						'build/tiger/scss/**/*.scss'
 					],
 					tasks: [
 						'compass:dev'
