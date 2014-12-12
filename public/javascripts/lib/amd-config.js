@@ -6,7 +6,8 @@ var require = {
 		jquery: 'lib/jquery',
 		underscore: 'lib/underscore',
 		backbone: 'lib/backbone',
-		'backbone.marionette': 'lib/backbone.marionette'
+		'backbone.marionette': 'lib/backbone.marionette',
+		templates: '../../target/templates'
 	},
 	urlArgs: 'bust=' + (new Date()).getTime()
 };

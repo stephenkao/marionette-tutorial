@@ -1,0 +1,32 @@
+{namespace lesir.ListApp}
+
+/**
+ * A container for a list in a specific roadmap
+ *
+ * @param roadmapName
+ */
+{template .projectRoadmapList}
+	<h2>{$roadmapName}</h2>
+	<ul></ul>
+{/template}
+
+/**
+ * An individual project item in the ListApp view
+ *
+ * @param title
+ * @param progress
+ */
+{template .projectListItem}
+	<li class="project-listitem">
+		<div class="row">
+			<h3 class="columns large-3">{$title}</h3>
+			<p class="columns large-4"></p>
+			<p class="columns large-2"></p>
+			<p class="columns large-1">50%</p>
+		</div>
+
+		<div class="row">
+			<progress value={$progress}></progress>
+		</div>
+	</li>
+{/template}

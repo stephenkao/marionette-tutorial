@@ -1,3 +1,4 @@
+
 /*global module, require */
 
 /**
@@ -52,11 +53,11 @@
 
 			////////// Soy
 			soy: {
-				dev: {
+				build: {
 					src: ['app/**/*.soy'],
-					inputPrefix: 'app/views/closure',
-					outputPathFormat: 'target/templates/{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js',
-					classpath: './resources/closure/soyplugins_2.10-0.4.7.jar'
+					inputPrefix: 'app/views/closure/',
+					outputPathFormat: 'target/templates/{INPUT_DIRECTORY}/{INPUT_FILE_NAME_NO_EXT}.js',
+					classpath: 'app/views/closure/SoyToJsSrcCompiler.jar'
 				}
 			},
 
@@ -94,10 +95,10 @@
 				},
 				soy: {
 					files: [
-						'closure/**/*.soy'
+						'app/**/*.soy'
 					],
 					tasks: [
-						'closureSoys:all'
+						'soy:build'
 					]
 				}
 			},
@@ -122,14 +123,15 @@
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.loadNpmTasks('grunt-soy');
 
-		////////// Development mode
+		////////// 'Development' mode
 		grunt.registerTask('dev', [
 			'concurrent'
 		]);
 		////////// 'Production' mode
 		grunt.registerTask('production', [
 			'compass:dev',
-			'jshint:dev'
+			'jshint:dev',
+			'soy:build'
 		]);
 	};
 })();
