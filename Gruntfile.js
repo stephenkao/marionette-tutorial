@@ -57,7 +57,17 @@
 					src: ['app/**/*.soy'],
 					inputPrefix: 'app/views/closure/',
 					outputPathFormat: 'target/templates/{INPUT_DIRECTORY}/{INPUT_FILE_NAME_NO_EXT}.js',
-					classpath: 'app/views/closure/SoyToJsSrcCompiler.jar'
+					classpath: 'app/views/closure/SoyToJsSrcCompiler.jar',
+					codeStyle: 'stringbuilder',
+					shouldGenerateJsdoc: false,
+					shouldProvideRequireSoyNamespaces: false,
+					compileTimeGlobalsFile: undefined,
+					shouldGenerateGoogMsgDefs: false,
+					bidiGlobalDir: 0,
+					googMsgsAreExternal: true,
+					isUsingIjData: true,
+					shouldDeclareTopLevelNamespaces: undefined,
+					useGoogIsRtlForBidiGlobalDir: false
 				}
 			},
 

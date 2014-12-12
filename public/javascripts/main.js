@@ -8,12 +8,15 @@ define([
 	'app/MarionetteApp',
 	'model/project.model',
 	'app/list/projectList.view',
+	// Non-returning
+	'lib/soyutils',
 	// TEST
 	'test/test'
 ], function (
 	// Libraries
 	$,
 	Backbone,
+	soy,
 	// Components
 	MarionetteApp,
 	ProjectModel,
@@ -22,8 +25,6 @@ define([
 	testThing
 ) {
 	'use strict';
-
-	MarionetteApp.start();
 
 	// TEST
 	MarionetteApp.userCollection = new Backbone.Collection(testThing.users);
