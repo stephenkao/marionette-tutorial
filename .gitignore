@@ -2,7 +2,8 @@ todo.org
 
 css/
 node_modules/
-.sass-cache
+.sass-cache/
+target/
 
 npm-debug.log
 .DS_Store
