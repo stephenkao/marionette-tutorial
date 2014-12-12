@@ -1,4 +1,4 @@
-/*global define */
+/*global define, window */
 
 define([
 	// Libraries
@@ -7,6 +7,7 @@ define([
 	// Components
 	'app/MarionetteApp',
 	'model/project.model',
+	'app/list/projectList.view',
 	// TEST
 	'test/test'
 ], function (
@@ -16,6 +17,7 @@ define([
 	// Components
 	MarionetteApp,
 	ProjectModel,
+	ProjectListView,
 	// TEST
 	testThing
 ) {
