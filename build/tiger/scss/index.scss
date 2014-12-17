@@ -2,6 +2,66 @@
 @import "lib/foundation/settings";
 @import "foundation";
 
+//@import "normalize";
+@import "compass/reset";
+
+@import "fonts";
+
 * {
 	@include box-sizing(border-box);
+	text-rendering: optimizeLegibility;
+}
+
+
+////////////////////////////////////////////////// Variables
+$vertical-rhythm: 30px;
+
+////////////////////////////////////////////////// Header
+.navbar {
+	border-bottom: 1px solid black;
+
+	.row {
+		position: relative;
+	}
+
+	////////// Header text
+	h1 a {
+		@extend %font--oswald-regular;
+
+		font-size: 36px;
+		text-transform: uppercase;
+		color: #333;
+		letter-spacing: 2px;
+	}
+
+	////////// 'Welcome' thang
+	.welcome {
+		@extend %font--oswald-regular;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		font-size: 14px;
+	}
+
+	////////// Navigational buttons
+	nav {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+
+		.inline-list {
+			// @override Foundation
+			margin-bottom: 0;
+
+			li {
+				width: 21px;
+				height: 20px;
+				margin-left: 13px;
+
+				background-color: black;
+			}
+		}
+	}
 }

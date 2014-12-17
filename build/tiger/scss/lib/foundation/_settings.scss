@@ -123,6 +123,17 @@ $black       : #000000;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
 
+$planning-color: #1cbeb1;
+$research-color: #0077a1;
+$design-color: #72d0f4;
+$implementation-color: #00a453;
+$followup-color: #0d014b;
+$grey-color: #d6d6d6;
+$black-color: #000000;
+$globalcta-color: #f6d744;
+$highpriority-color: #eb212e;
+$mediumpriority-color: #f59331;
+
 // We use these to control various global styles
 // $body-bg: $white;
 // $body-font-color: $jet;
@@ -131,7 +142,7 @@ $black       : #000000;
 // $body-font-style: normal;
 
 // We use this to control font-smoothing
-// $font-smoothing: antialiased;
+$font-smoothing: antialiased;
 
 // We use these to control text direction settings
 // $text-direction: ltr;
