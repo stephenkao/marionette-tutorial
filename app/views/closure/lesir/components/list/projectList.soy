@@ -1,4 +1,4 @@
-{namespace lesir.components.list}
+{namespace lesir.components.listapp}
 
 /**
  * A container for a list in a specific roadmap
@@ -14,19 +14,47 @@
  * An individual project item in the ListApp view
  *
  * @param title
- * @param progress
+ * @param startDate
+ * @param endDate
+ * @param duration
+ * @param usernames
+ * @param progressPercentage
+ * @param progressString
  */
 {template .projectListItem}
-	<li class="project-listitem">
+	<div class="project__marker"></div>
+
+	<section class="project__data columns">
 		<div class="row">
-			<h3 class="columns large-3">{$title}</h3>
-			<p class="columns large-4"></p>
-			<p class="columns large-2"></p>
-			<p class="columns large-1">50%</p>
+			<h3 class="columns large-2 project__datum project__title">{$title}</h3>
+
+			<div class="columns large-1 project__datum"></div>
+
+			<div class="columns large-3 project__datum">
+				<span class="project__datum--key">Start</span>
+				<span class="project__datum--value">{$startDate}</span>
+				—
+				<span class="project__datum--key">End</span>
+				<span class="project__datum--value">{$endDate}</span>
+			</div>
+
+			<div class="columns large-1 project__datum">
+				<span class="project__datum--key">{$duration}</span>
+			</div>
+
+			<div class="columns large-2 project__datum"></div>
+
+			<div class="columns large-2 project__datum">
+				<span class="project__datum--value">{$usernames}</span>
+			</div>
+
+			<div class="columns large-1 project__datum">
+				<span class="project__datum--key">{$progressString}</span>
+			</div>
 		</div>
 
 		<div class="row">
-			<progress value={$progress}></progress>
+			<progress class="columns small-12 project__progress" value="{$progressPercentage}" max="1">{$progressString}</progress>
 		</div>
-	</li>
+	</section>
 {/template}

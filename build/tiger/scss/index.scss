@@ -95,9 +95,46 @@ $vertical-rhythm: 30px;
 	// @override Foundation's .row .row margin
 	margin-bottom: 64px !important;
 
+	position: relative;
+
 	&:last-child {
 		// @override my overriding Foundation's .row .row margin
 		margin-bottom: 47px !important;
+	}
+
+	// Diamond marker
+	.project__marker {
+		$marker-size: 6px; // "radius"
+		$marker-color: green;
+
+		&.high {
+			$marker-color: red;
+		}
+		&.medium {
+			$marker-color: orange;
+		}
+
+		width: 0;
+		height: 0;
+		border: $marker-size solid transparent;
+		border-bottom-color: $marker-color;
+
+		position: absolute;
+		top: -4px;
+		left: -26px;
+
+		&:after {
+			width: 0;
+			height: 0;
+			border: $marker-size solid transparent;
+			border-top-color: $marker-color;
+
+			position: absolute;
+			left: -$marker-size;
+			top: $marker-size;
+
+			content: '';
+		}
 	}
 
 	.project__data .column,
@@ -137,5 +174,34 @@ $vertical-rhythm: 30px;
 
 		background-image: none;
 		background-color: black;
+
+		&[value],
+		&[value]::-moz-progress-bar {
+			height: 4px;
+			border: none;
+
+			position: relative;
+
+			color: black;
+		}
+
+		&[value],
+		&[value]::-webkit-progress-bar,
+		&[value]::-moz-progress-bar {
+			background-color: rgb(214, 214, 214);
+		}
+
+		&[value],
+		&[value]::-webkit-progress-value,
+		&[value]::-moz-progress-bar {
+			border: none;
+
+			position: relative;
+
+			color: black;
+			background-color: black;
+
+			appearance: none;
+		}
 	}
 }
