@@ -196,7 +196,44 @@
 	font-style: normal;
 }
 
-////////////////////////////////////////////////// Placeholders
+////////////////////////////////////////////////// Generic placeholders
 %font--oswald-regular {
 	font-family: 'oswaldbook';
+	letter-spacing: 1px;
+}
+%font--playfair-bolditalic {
+	font-family: 'playfair_displaybold_italic';
+	letter-spacing: 1px;
+}
+%font--playfair-italic {
+	font-family: 'playfair_displayitalic';
+	letter-spacing: 1px;
+}
+%font--playfair-regular {
+	font-family: 'playfair_displayregular';
+	letter-spacing: 1px;
+}
+
+////////////////////////////////////////////////// Hierarchy placeholders
+// 'Roadmap'
+%font--roadmap__title {
+	@extend %font--playfair-bolditalic;
+
+	font-size: 14px;
+	color: $black;
+}
+
+// User list, progress percentage, et cetera
+%font--project__datumkey {
+	@extend %font--playfair-italic;
+
+	font-size: 14px;
+	color: $black;
+}
+%font--project__datumvalue {
+	@extend %font--oswald-regular;
+
+	font-size: 14px;
+	letter-spacing: 2px;
+	color: $black;
 }

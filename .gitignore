@@ -4,6 +4,8 @@ css/
 templates/
 node_modules/
 .sass-cache/
+target/resolution-cache/
+target/streams/
 
 npm-debug.log
 .DS_Store

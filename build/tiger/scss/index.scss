@@ -12,15 +12,24 @@
 	text-rendering: optimizeLegibility;
 }
 
+.column,
+.columns {
+	min-height: 1px; // Prevent empty columsn from collapsing
+}
 
 ////////////////////////////////////////////////// Variables
 $vertical-rhythm: 30px;
 
 ////////////////////////////////////////////////// Header
 .navbar {
-	border-bottom: 1px solid black;
+	$vertical-padding: 10px;
 
-	.row {
+	border-bottom: 1px solid black;
+	margin-bottom: 76px;
+
+	.navbar__contents {
+		padding: 50px 0 $vertical-padding 0;
+
 		position: relative;
 	}
 
@@ -34,22 +43,23 @@ $vertical-rhythm: 30px;
 		letter-spacing: 2px;
 	}
 
+	.welcome,
+	nav {
+		position: absolute;
+		right: 0;
+	}
 	////////// 'Welcome' thang
 	.welcome {
 		@extend %font--oswald-regular;
 
-		position: absolute;
-		top: 0;
-		right: 0;
+		top: $vertical-padding;
 
 		font-size: 14px;
 	}
 
 	////////// Navigational buttons
 	nav {
-		position: absolute;
-		bottom: 0;
-		right: 0;
+		bottom: $vertical-padding;
 
 		.inline-list {
 			// @override Foundation
@@ -63,5 +73,69 @@ $vertical-rhythm: 30px;
 				background-color: black;
 			}
 		}
+	}
+}
+
+////////////////////////////////////////////////// ListApp
+.roadmap--listitem {
+	border-bottom: 1px solid rgb(229, 229, 229);
+	margin-bottom: 26px;
+
+	.roadmap__title {
+		@extend %font--playfair-bolditalic;
+
+		margin-bottom: 20px;
+
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+}
+
+.project--listitem {
+	// @override Foundation's .row .row margin
+	margin-bottom: 64px !important;
+
+	&:last-child {
+		// @override my overriding Foundation's .row .row margin
+		margin-bottom: 47px !important;
+	}
+
+	.project__data .column,
+	.project__data .columns {
+		// @override Foundation's .row .column padding
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.project__datum {
+		@include ellipsis();
+
+		&:last-child {
+			text-align: right;
+		}
+	}
+
+	.project__datum--key {
+		@extend %font--project__datumkey;
+	}
+	.project__datum--value {
+		@extend %font--project__datumvalue;
+	}
+
+	.project__title {
+		@extend %font--oswald-regular;
+
+		margin-bottom: 10px;
+
+		font-size: 18px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.project__progress {
+		height: 4px;
+
+		background-image: none;
+		background-color: black;
 	}
 }
