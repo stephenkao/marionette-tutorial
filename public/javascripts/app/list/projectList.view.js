@@ -7,7 +7,7 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Templates
-	'templates/lesir/components/list/projectList'
+	'templates/lesir/components/list/project'
 ], function (
 	// Libraries
 	Marionette
