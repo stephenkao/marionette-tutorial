@@ -1,7 +1,7 @@
 /*global define */
 
 /**
- * A page application that manages the 'list' view
+ * A page application that manages the 'project' view
  *
  * @author Stephen Kao
  */
@@ -14,14 +14,14 @@ define([
 ) {
 	'use strict';
 
-	var ListApp, listApp;
+	var ProjectApp, projectApp;
 
-	ListApp = Marionette.Controller.extend({
+	ProjectApp = Marionette.Controller.extend({
 		initialize: function () {
 		}
 	});
 
-	listApp = new ListApp();
+	projectApp = new ProjectApp();
 
-	return listApp;
+	return projectApp;
 });

@@ -1,7 +1,7 @@
 /*global define */
 
 /**
- * A page application that manages the 'list' view
+ * A page application that manages the 'gantt' view
  *
  * @author Stephen Kao
  */
@@ -14,14 +14,14 @@ define([
 ) {
 	'use strict';
 
-	var ListApp, listApp;
+	var GanttApp, ganttApp;
 
-	ListApp = Marionette.Controller.extend({
+	GanttApp = Marionette.Controller.extend({
 		initialize: function () {
 		}
 	});
 
-	listApp = new ListApp();
+	ganttApp = new GanttApp();
 
-	return listApp;
+	return ganttApp;
 });

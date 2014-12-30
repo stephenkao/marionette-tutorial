@@ -1,7 +1,7 @@
 /*global define */
 
 /**
- * A page application that manages the 'list' view
+ * A page application that manages the 'yearbook' view
  *
  * @author Stephen Kao
  */
@@ -14,14 +14,14 @@ define([
 ) {
 	'use strict';
 
-	var ListApp, listApp;
+	var YearbookApp, yearbookApp;
 
-	ListApp = Marionette.Controller.extend({
+	YearbookApp = Marionette.Controller.extend({
 		initialize: function () {
 		}
 	});
 
-	listApp = new ListApp();
+	yearbookApp = new YearbookApp();
 
-	return listApp;
+	return yearbookApp;
 });
