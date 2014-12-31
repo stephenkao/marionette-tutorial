@@ -8,12 +8,8 @@ define([
 	// Components
 	'router/mainRouter',
 	'app/marionetteApp',
-	'model/project.model',
-	'app/list/projectList.view',
 	// Non-returning
-	'lib/soyutils',
-	// TEST
-	'test/test'
+	'lib/soyutils'
 ], function (
 	// Libraries
 	$,
@@ -21,13 +17,7 @@ define([
 	Marionette,
 	// Components
 	MainRouter,
-	MarionetteApp,
-	ProjectModel,
-	ProjectListView,
-	// Non-returning
-	soy,
-	// TEST
-	testThing
+	MarionetteApp
 ) {
 	'use strict';
 
@@ -36,10 +26,10 @@ define([
 	Backbone.history.start();
 
 	// TEST
-	MarionetteApp.userCollection = new Backbone.Collection(testThing.users);
-	MarionetteApp.projectCollection = new Backbone.Collection(testThing.projects, {
-		model: ProjectModel
-	});
+//	MarionetteApp.userCollection = new Backbone.Collection(testThing.users);
+//	MarionetteApp.projectCollection = new Backbone.Collection(testThing.projects, {
+//		model: ProjectModel
+//	});
 
 	MarionetteApp.start();
 

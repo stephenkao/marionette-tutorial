@@ -119,8 +119,14 @@
 				tasks: [
 					'watch:javascript',
 					'watch:sass',
-					'watch:soy'
+					'watch:soy',
+					'nodemon:run'
 				]
+			},
+			nodemon: {
+				run: {
+					script: 'server.js'
+				}
 			}
 		});
 
@@ -132,11 +138,13 @@
 		grunt.loadNpmTasks('grunt-concurrent');
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.loadNpmTasks('grunt-soy');
+		grunt.loadNpmTasks('grunt-nodemon');
 
 		////////// 'Development' mode
-		grunt.registerTask('dev', [
-			'concurrent'
-		]);
+		grunt.registerTask('run', function () {
+			grunt.task.run('concurrent');
+		});
+
 		////////// 'Production' mode
 		grunt.registerTask('production', [
 			'compass:dev',

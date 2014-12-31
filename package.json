@@ -27,9 +27,13 @@
     "grunt-scss-lint": "^0.3.3",
     "grunt-concurrent": "^1.0.0",
     "jshint-stylish": "^1.0.0",
-    "grunt-soy": "^0.3.0"
+    "grunt-soy": "^0.3.0",
+    "grunt-nodemon": "^0.3.0"
   },
   "keywords": [
     "grunt"
-  ]
+  ],
+  "dependencies": {
+    "express": "^4.10.6"
+  }
 }

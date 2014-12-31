@@ -30,8 +30,8 @@ define([
 		 * VOID->VOID
 		 */
 		initializeListPageApp: function () {
-			require(['app/list/list.app'], function (ListApp) {
-				ListApp.initialize();
+			require(['app/list/list.app'], function (listApp) {
+				listApp.initialize();
 			});
 		},
 		/**
@@ -40,8 +40,8 @@ define([
 		 * VOID->VOID
 		 */
 		initializeYearbookPageApp: function () {
-			require(['app/yearbook/yearbook.app'], function (YearbookApp) {
-				YearbookApp.initialize();
+			require(['app/yearbook/yearbook.app'], function (yearbookApp) {
+				yearbookApp.initialize();
 			});
 		},
 		/**
