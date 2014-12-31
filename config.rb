@@ -1,5 +1,5 @@
 require 'zurb-foundation'
-css_dir = "css"
-sass_dir = "scss"
-javascripts_dir = "javascripts"
+css_dir = 'target/css'
+sass_dir = 'build/tiger/scss'
+javascripts_dir = 'public/javascripts'
 output_style = :expanded
