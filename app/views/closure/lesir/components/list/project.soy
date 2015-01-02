@@ -1,4 +1,12 @@
-{namespace lesir.components.listapp}
+{namespace lesir.components.listApp}
+
+/**
+ * @param roadmapTitle
+ */
+{template .projectList}
+	<h2 class="row roadmap__title">{$roadmapTitle}</h2>
+	<ul class="project-list"></ul>
+{/template}
 
 /**
  * An individual project item in the ListApp view
@@ -12,15 +20,15 @@
  * @param progressString
  */
 {template .projectListItem}
-	<div class="project__marker"></div>
-
 	<section class="project__data columns">
+		<div class="project__marker"></div>
+
 		<div class="row">
 			<h3 class="columns large-2 project__datum project__title">{$title}</h3>
 
 			<div class="columns large-1 project__datum"></div>
 
-			<div class="columns large-3 project__datum">
+			<div class="columns large-4 project__datum">
 				<span class="project__datum--key">Start</span>
 				<span class="project__datum--value">{$startDate}</span>
 				—
@@ -32,7 +40,7 @@
 				<span class="project__datum--key">{$duration}</span>
 			</div>
 
-			<div class="columns large-2 project__datum"></div>
+			<div class="columns large-1 project__datum"></div>
 
 			<div class="columns large-2 project__datum">
 				<span class="project__datum--value">{$usernames}</span>
@@ -42,7 +50,6 @@
 				<span class="project__datum--key">{$progressString}</span>
 			</div>
 		</div>
-
 		<div class="row">
 			<progress class="columns small-12 project__progress" value="{$progressPercentage}" max="1">{$progressString}</progress>
 		</div>

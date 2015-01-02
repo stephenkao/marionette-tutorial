@@ -8,6 +8,8 @@ define([
 	// Components
 	'router/mainRouter',
 	'app/marionetteApp',
+	'collection/user.collection',
+	'collection/project.collection',
 	// Non-returning
 	'lib/soyutils'
 ], function (
@@ -17,21 +19,25 @@ define([
 	Marionette,
 	// Components
 	MainRouter,
-	MarionetteApp
+	MarionetteApp,
+	UserCollection,
+	ProjectCollection
 ) {
 	'use strict';
 
+	var router;
+
 	// Set up the router
-	var router = new MainRouter();
+	router = new MainRouter();
 	Backbone.history.start();
 
-	// TEST
-//	MarionetteApp.userCollection = new Backbone.Collection(testThing.users);
-//	MarionetteApp.projectCollection = new Backbone.Collection(testThing.projects, {
-//		model: ProjectModel
-//	});
-
 	MarionetteApp.start();
+
+	// Fetch collections
+	MarionetteApp.userCollection = new UserCollection();
+	MarionetteApp.userCollection.fetch();
+	MarionetteApp.projectCollection = new ProjectCollection();
+	MarionetteApp.projectCollection.fetch();
 
 	window.MarionetteApp = MarionetteApp;
 });

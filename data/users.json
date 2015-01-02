@@ -2,21 +2,25 @@
 	{
 		"id": 1,
 		"displayName": "Margaret Taormina",
-		"type": 1
+		"type": 1,
+		"imageUrl": "http://lorempixel.com/200/200/animals/"
 	},
 	{
 		"id": 2,
 		"displayName": "Grace Robertson",
-		"type": 1
+		"type": 1,
+		"imageUrl": "http://lorempixel.com/200/200/animals/"
 	},
 	{
 		"id": 3,
 		"displayName": "Stephen Kao",
-		"type": 1
+		"type": 1,
+		"imageUrl": "http://lorempixel.com/200/200/animals/"
 	},
 	{
 		"id": 4,
 		"displayName": "Bob Bert",
-		"type": 2
+		"type": 2,
+		"imageUrl": "http://lorempixel.com/200/200/animals/"
 	}
 ]

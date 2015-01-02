@@ -7,17 +7,36 @@
  */
 define([
 	// Libraries
-	'backbone.marionette'
+	'backbone.marionette',
+	// Components
+	'app/marionetteApp',
+	'app/list/projectList.view',
+	'collection/project.collection'
 ], function (
 	// Libraries
-	Marionette
+	Marionette,
+	// Components
+	MarionetteApp,
+	ProjectListView,
+	ProjectCollection
 ) {
 	'use strict';
 
 	var ListApp, listApp;
 
 	ListApp = Marionette.Controller.extend({
+		projectCollection: null,
+
 		initialize: function () {
+			var projectCollection, projectListView;
+
+			projectCollection = new ProjectCollection();
+			projectListView = new ProjectListView({
+				collection: projectCollection
+			});
+			projectCollection.fetch({reset: true});
+			window.projectCollection = projectCollection;
+			MarionetteApp.contentRegion.show(projectListView);
 		}
 	});
 
