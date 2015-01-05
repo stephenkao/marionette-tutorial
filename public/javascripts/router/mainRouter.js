@@ -1,10 +1,14 @@
 /*global define, require */
 define([
 	// Libraries
-	'backbone'
+	'backbone',
+	// Components
+	'app/marionetteApp'
 ], function (
 	// Libraries
-	Backbone
+	Backbone,
+	// Components
+	MarionetteApp
 ) {
 	'use strict';
 
@@ -16,7 +20,7 @@ define([
 			'yearbook': 'initializeYearbookPageApp',
 			'project/:id': 'initializeProjectPageApp',
 			'gantt': 'initializeGanttPageApp',
-			// Default
+			// Default -- go to 'list' view
 			'': 'initializeListApp'
 		},
 
@@ -30,8 +34,9 @@ define([
 		 * VOID->VOID
 		 */
 		initializeListPageApp: function () {
-			require(['app/list/list.app'], function (listApp) {
-				listApp.initialize();
+			require(['app/list/list.app'], function (ListApp) {
+				var listApp = new ListApp();
+				MarionetteApp.contentRegion.show(listApp);
 			});
 		},
 		/**
@@ -40,8 +45,9 @@ define([
 		 * VOID->VOID
 		 */
 		initializeYearbookPageApp: function () {
-			require(['app/yearbook/yearbook.app'], function (yearbookApp) {
-				yearbookApp.initialize();
+			require(['app/yearbook/yearbook.app'], function (YearbookApp) {
+				var yearbookApp = new YearbookApp();
+				MarionetteApp.contentRegion.show(yearbookApp);
 			});
 		},
 		/**
@@ -51,9 +57,7 @@ define([
 		 * @param {!string} projectId
 		 */
 		initializeProjectPageApp: function (projectId) {
-			require(['app/project/project.app'], function (ProjectApp) {
-				ProjectApp.initialize(projectId);
-			});
+			require(['app/project/project.app'], function (ProjectApp) {});
 		},
 		/**
 		 * Start up the 'Gantt' page app
@@ -61,9 +65,7 @@ define([
 		 * VOID->VOID
 		 */
 		initializeGanttPageApp: function () {
-			require(['app/gantt/gantt.app'], function (GanttApp) {
-				GanttApp.initialize();
-			});
+			require(['app/gantt/gantt.app'], function (GanttApp) {});
 		}
 	});
 

@@ -1,4 +1,4 @@
-/*global define */
+/*global define, lesir */
 
 /**
  * A page application that manages the 'yearbook' view
@@ -7,21 +7,48 @@
  */
 define([
 	// Libraries
-	'backbone.marionette'
+	'backbone.marionette',
+	// Components
+	'collection/user.collection',
+	'app/yearbook/userList.view'
 ], function (
 	// Libraries
-	Marionette
+	Marionette,
+	// Components
+	UserCollection,
+	UserListView
 ) {
 	'use strict';
 
-	var YearbookApp, yearbookApp;
+	var YearbookPageLayout;
 
-	YearbookApp = Marionette.Controller.extend({
+	YearbookPageLayout = Marionette.Layout.extend({
+
+		////////// App components
+		userCollection: null,
+		userListView: null,
+
+		////////// Initialization
+		className: 'app app-yearbook',
+		template: lesir.components.yearbook.app,
+		regions: {
+			contentRegion: '.content-region'
+		},
+		/**
+		 * Initialize the app-specific components
+		 *
+		 * VOID->VOID
+		 */
 		initialize: function () {
+			this.userCollection = new UserCollection();
+			this.userListView = new UserListView({
+				collection: this.userCollection
+			});
+		},
+		onRender: function () {
+			this.userCollection.fetch({reset: true});
 		}
 	});
 
-	yearbookApp = new YearbookApp();
-
-	return yearbookApp;
+	return YearbookPageLayout;
 });

@@ -83,7 +83,8 @@
 			watch: {
 				options: {
 					spawn: false,
-					interval: 5007
+					interval: 5007,
+					debounceDelay: 500
 				},
 
 				javascript: {

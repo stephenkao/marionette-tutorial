@@ -19,10 +19,7 @@ define([
 		////////// Fields
 		defaults: {
 			displayName: 'D. Fault'
-		},
-
-		////////// Authentication
-		authenticate: function () {}
+		}
 	}, {
 		// Static/class variables
 		/**

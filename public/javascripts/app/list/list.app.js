@@ -1,4 +1,4 @@
-/*global define */
+/*global define, lesir */
 
 /**
  * A page application that manages the 'list' view
@@ -10,37 +10,50 @@ define([
 	'backbone.marionette',
 	// Components
 	'app/marionetteApp',
-	'app/list/projectList.view',
-	'collection/project.collection'
+	'app/list/roadmapList.view',
+	'collection/project.collection',
+	// Templates
+	'templates/lesir/components/list/app'
 ], function (
 	// Libraries
 	Marionette,
 	// Components
 	MarionetteApp,
-	ProjectListView,
+	RoadmapListView,
 	ProjectCollection
 ) {
 	'use strict';
 
-	var ListApp, listApp;
+	var ListPageLayout;
 
-	ListApp = Marionette.Controller.extend({
+	ListPageLayout = Marionette.Layout.extend({
+
+		////////// App components
 		projectCollection: null,
+		roadmapListView: null,
 
+		////////// Initialization
+		className: 'app app--list',
+		template: lesir.components.list.app,
+		regions: {
+			contentRegion: '.content-region'
+		},
+		/**
+		 * Initialize the app-specific components
+		 *
+		 * VOID->VOID
+		 */
 		initialize: function () {
-			var projectCollection, projectListView;
-
-			projectCollection = new ProjectCollection();
-			projectListView = new ProjectListView({
-				collection: projectCollection
+			this.projectCollection = new ProjectCollection();
+			this.roadmapListView = new RoadmapListView({
+				collection: this.projectCollection
 			});
-			projectCollection.fetch({reset: true});
-			window.projectCollection = projectCollection;
-			MarionetteApp.contentRegion.show(projectListView);
+		},
+		onRender: function () {
+			this.contentRegion.show(this.roadmapListView);
+			this.projectCollection.fetch({reset: true});
 		}
 	});
 
-	listApp = new ListApp();
-
-	return listApp;
+	return ListPageLayout;
 });

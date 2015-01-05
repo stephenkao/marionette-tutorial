@@ -7,31 +7,32 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Components
-	'app/list/projectListItem.view',
+	'app/list/roadmapListItem.view',
 	// Templates
-	'templates/lesir/components/list/project'
+	'templates/lesir/components/list/roadmap'
 ], function (
 	// Libraries
 	Marionette,
 	// Components
-	ProjectListItemView
+	RoadmapListItemView
 ) {
 	'use strict';
 
-	var ProjectListView = Marionette.CompositeView.extend({
+	var RoadmapListView = Marionette.CompositeView.extend({
 
 		////////// Initialization
-		template: lesir.components.list.projectList,
+		template: lesir.components.list.roadmapList,
 		tagName: 'section',
-		className: 'column roadmap roadmap--listitem',
-		itemViewContainer: '.project-list',
-		itemView: ProjectListItemView,
+		className: 'column',
+		itemViewContainer: '.roadmap-list',
+		itemView: RoadmapListItemView,
 
 		serializeData: function () {
 			// Group all projects by 'roadmap' for ~visual organization~
+			// This is a bit of a workaround for Backbone's inability to have nested Collections
 			return this.collection.groupBy('roadmap');
 		}
 	});
 
-	return ProjectListView;
+	return RoadmapListView;
 });

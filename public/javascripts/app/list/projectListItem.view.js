@@ -17,7 +17,7 @@ define([
 	var ProjectListItemView = Marionette.ItemView.extend({
 
 		////////// Initialization
-		template: lesir.components.listApp.projectListItem,
+		template: lesir.components.list.projectListItem,
 		tagName: 'li',
 		className: 'row project--listitem'
 	});
