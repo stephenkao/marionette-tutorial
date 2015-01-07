@@ -9,12 +9,16 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Components
+	'collection/project.collection',
 	'collection/user.collection',
-	'app/yearbook/userList.view'
+	'app/yearbook/userList.view',
+	// Templates
+	'templates/lesir/components/yearbook/app'
 ], function (
 	// Libraries
 	Marionette,
 	// Components
+	ProjectCollection,
 	UserCollection,
 	UserListView
 ) {
@@ -40,13 +44,19 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
+			this.projectCollection = new ProjectCollection();
 			this.userCollection = new UserCollection();
 			this.userListView = new UserListView({
 				collection: this.userCollection
 			});
 		},
 		onRender: function () {
-			this.userCollection.fetch({reset: true});
+			var that = this;
+
+			that.projectCollection.fetch({reset: true}).done(function () {
+				that.userCollection.fetch({reset: true});
+				that.contentRegion.show(that.userListView);
+			});
 		}
 	});
 

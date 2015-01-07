@@ -23,7 +23,6 @@ define([
 		////////// Initialization
 		template: lesir.components.yearbook.userList,
 		tagName: 'section',
-		className: 'column',
 		itemViewContainer: '.user-list',
 		itemView: UserListItemView
 	});

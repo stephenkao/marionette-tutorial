@@ -1,0 +1,24 @@
+{namespace lesir.components.yearbook}
+
+/**
+ * A container for users in the 'yearbook' view
+ */
+{template .userList}
+	<ul class="user-list small-block-grid-2 medium-block-grid-3 large-block-grid-6"></ul>
+{/template}
+
+/**
+ * A single user in the 'yearbook' view list
+ *
+ * @param displayName
+ * @param imageUrl
+ */
+{template .userListItem}
+	<div>
+		<p class="user__name">{$displayName}</p>
+		<div class="user__image-wrap">
+			<img class="user__image" src={$imageUrl} />
+		</div>
+		<ul class="projectlist"></ul>
+	</div>
+{/template}

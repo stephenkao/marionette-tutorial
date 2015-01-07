@@ -1,0 +1,55 @@
+////////////////////////////////////////////////// Header
+.navbar {
+	$vertical-padding: 10px;
+
+	border-bottom: 1px solid black;
+	margin-bottom: 76px;
+
+	.navbar__contents {
+		padding: 50px 0 $vertical-padding 0;
+
+		position: relative;
+	}
+
+	////////// Header text
+	h1 a {
+		@extend %font--oswald-regular;
+
+		font-size: 36px;
+		text-transform: uppercase;
+		color: #333;
+		letter-spacing: 2px;
+	}
+
+	.welcome,
+	nav {
+		position: absolute;
+		right: 0;
+	}
+	////////// 'Welcome' thang
+	.welcome {
+		@extend %font--oswald-regular;
+
+		top: $vertical-padding;
+
+		font-size: 14px;
+	}
+
+	////////// Navigational buttons
+	nav {
+		bottom: $vertical-padding;
+
+		.inline-list {
+			// @override Foundation
+			margin-bottom: 0;
+
+			li {
+				width: 21px;
+				height: 20px;
+				margin-left: 13px;
+
+				background-color: black;
+			}
+		}
+	}
+}

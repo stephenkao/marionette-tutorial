@@ -214,6 +214,13 @@
 	letter-spacing: 1px;
 }
 
+////////////////////////////////////////////////// Text helpers
+%ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 ////////////////////////////////////////////////// Hierarchy placeholders
 // 'Roadmap'
 %font--roadmap__title {
@@ -228,6 +235,7 @@
 	@extend %font--playfair-italic;
 
 	font-size: 14px;
+	line-height: 18px;
 	color: $black;
 }
 %font--project__datumvalue {

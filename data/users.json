@@ -3,24 +3,49 @@
 		"id": 1,
 		"displayName": "Margaret Taormina",
 		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/animals/"
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [1, 2, 3]
 	},
 	{
 		"id": 2,
 		"displayName": "Grace Robertson",
 		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/animals/"
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [1, 2, 3]
 	},
 	{
 		"id": 3,
 		"displayName": "Stephen Kao",
 		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/animals/"
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [1, 2, 3]
 	},
 	{
 		"id": 4,
 		"displayName": "Bob Bert",
 		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/animals/"
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [1]
+	},
+	{
+		"id": 5,
+		"displayName": "Bob Bert",
+		"type": 2,
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [2]
+	},
+	{
+		"id": 6,
+		"displayName": "Bob Bert",
+		"type": 2,
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [3]
+	},
+	{
+		"id": 7,
+		"displayName": "Bob Bert",
+		"type": 2,
+		"imageUrl": "http://lorempixel.com/200/200/animals/",
+		"projects": [4]
 	}
 ]

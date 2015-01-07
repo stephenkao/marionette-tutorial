@@ -1,0 +1,23 @@
+////////////////////////////////////////////////// YearbookApp
+.user--yearbook {
+	@media #{$small-only} {
+		text-align: center;
+	}
+
+	.user__name {
+		@extend %font--project__datumkey;
+		@extend %ellipsis;
+
+		margin-bottom: 6px;
+	}
+
+	.user__image {
+		@media #{$medium-up} {
+			max-width: 105px;
+		}
+	}
+
+	.projectlist {
+		height: 94px;
+	}
+}
