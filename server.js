@@ -2,32 +2,47 @@
 
 (function () {
 	var express = require('express'),
+		_ = require('underscore'),
 		app = express(),
 		httpConfig = {
 			PORT: 8888,
 			ADDRESS: '127.0.0.1'
 		},
-	    _getUsers, _getProjects;
-
-	app.use(require('express-promise')());
-
-	_getUsers = function () {
-		return require(__dirname + '/data/users.json');
-	};
-	_getProjects = function () {
-		return require(__dirname + '/data/projects.json');
-	};
+		// Simulated AJAX
+		usersJson = require(__dirname + '/data/users.json'),
+		usersLookup = _.indexBy(usersJson, 'id'),
+		projectsJson = require(__dirname + '/data/projects.json'),
+		projectsLookup = _.indexBy(projectsJson, 'id');
 
 	////////// AJAX calls
 	app
 		////////// Simple AJAX calls
 		.get('/users', function (request, response) {
+			var newUsersJson, userProjects;
+
+			// Swap project ids for project objects
+			newUsersJson = _.map(usersJson, function (userObj, key, list) {
+				if (userObj.hasOwnProperty('projects')) {
+					var projectIds = _.uniq(userObj.projects),
+						userProjects = [];
+
+					_.each(projectIds, function (id) {
+						userProjects.push(projectsLookup[id]);
+						console.log(projectsLookup[id]);
+					});
+
+					userObj.projects = userProjects;
+				}
+
+				return userObj;
+			});
+
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(_getUsers()));
+			response.end(JSON.stringify(newUsersJson));
 		})
 		.get('/projects', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(_getProjects()));
+			response.end(JSON.stringify(projectsJson));
 		});
 
 	////////// Static files

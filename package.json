@@ -29,7 +29,7 @@
     "jshint-stylish": "^1.0.0",
     "requirejs": "~2.1.11",
     "grunt-soy": "git+ssh://git@github.com:gawkermedia/soy-grunt-task.git#master",
-    "express-promise": "^0.4.0"
+    "underscore": "^1.7.0"
   },
   "keywords": [
     "grunt"
