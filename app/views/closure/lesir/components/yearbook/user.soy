@@ -12,13 +12,25 @@
  *
  * @param displayName
  * @param imageUrl
+ * @param projects
  */
 {template .userListItem}
-	<div>
+	<div class="user__contents">
 		<p class="user__name">{$displayName}</p>
 		<div class="user__image-wrap">
 			<img class="user__image" src={$imageUrl} />
 		</div>
-		<ul class="projectlist"></ul>
+
+		{if $projects and length($projects)}
+			<ul class="projectlist">
+				{foreach $project in $projects}
+					{call .project}
+						{param title: $project.title /}
+						{param currentPhase: $project.currentPhase /}
+						{param priority: $project.priority /}
+					{/call}
+				{/foreach}
+			</ul>
+		{/if}
 	</div>
 {/template}

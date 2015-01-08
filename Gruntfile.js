@@ -143,6 +143,9 @@
 
 		////////// 'Development' mode
 		grunt.registerTask('run', function () {
+			// Generate all existing assets
+			grunt.task.run('production');
+
 			grunt.task.run('concurrent');
 		});
 

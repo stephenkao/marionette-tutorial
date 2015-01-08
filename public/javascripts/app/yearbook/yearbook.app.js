@@ -44,7 +44,6 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
-			this.projectCollection = new ProjectCollection();
 			this.userCollection = new UserCollection();
 			this.userListView = new UserListView({
 				collection: this.userCollection
@@ -53,10 +52,8 @@ define([
 		onRender: function () {
 			var that = this;
 
-			that.projectCollection.fetch({reset: true}).done(function () {
-				that.userCollection.fetch({reset: true});
-				that.contentRegion.show(that.userListView);
-			});
+			that.userCollection.fetch({reset: true});
+			that.contentRegion.show(that.userListView);
 		}
 	});
 

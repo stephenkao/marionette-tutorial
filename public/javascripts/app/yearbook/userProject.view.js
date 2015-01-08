@@ -19,7 +19,11 @@ define([
 		////////// Initialization
 		template: lesir.components.yearbook.project,
 		tagName: 'li',
-		className: 'project'
+		className: 'project',
+
+		serializeData: function () {
+			debugger;
+		}
 	});
 
 	return UserProjectView;

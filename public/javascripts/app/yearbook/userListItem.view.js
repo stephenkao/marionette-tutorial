@@ -9,7 +9,8 @@ define([
 	// Components
 	'app/yearbook/userProject.view',
 	// Templates
-	'templates/lesir/components/yearbook/user'
+	'templates/lesir/components/yearbook/user',
+	'templates/lesir/components/yearbook/project'
 ], function (
 	// Libraries
 	Marionette,
@@ -18,14 +19,12 @@ define([
 ) {
 	'use strict';
 
-	var UserListItemView = Marionette.CompositeView.extend({
+	var UserListItemView = Marionette.ItemView.extend({
 
 		////////// Initialization
 		template: lesir.components.yearbook.userListItem,
 		tagName: 'li',
-		className: 'user--yearbook centered',
-		itemViewContainer: '.projectlist',
-		itemView: UserProjectView
+		className: 'user--yearbook'
 	});
 
 	return UserListItemView;

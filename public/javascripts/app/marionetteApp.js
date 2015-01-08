@@ -1,4 +1,4 @@
-/*global define */
+/*global define, window */
 
 /**
  * A top-level Marionette.Application
@@ -7,10 +7,14 @@
  */
 define([
 	// Libraries
-	'backbone.marionette'
+	'backbone.marionette',
+	// Singletons
+	'singleton/const'
 ], function (
 	// Libraries
-	Marionette
+	Marionette,
+	// Singletons
+	constants
 ) {
 	'use strict';
 
@@ -23,6 +27,12 @@ define([
 	MarionetteApp.addRegions({
 		contentRegion: '#js_content'
 	});
+
+	// Override the inherent render function for all Marionette.View extensions
+	// in order to get some global injected data stufffffffff in it
+	Marionette.Renderer.render = function (template, data, injected) {
+		return window.soy.renderAsFragment(template, data, undefined, constants);
+	};
 
 	return MarionetteApp;
 });

@@ -25,41 +25,6 @@
 		margin-bottom: 47px !important;
 	}
 
-	// Diamond marker
-	.project__marker {
-		$marker-size: 6px; // "radius"
-		$marker-color: green;
-
-		&.high {
-			$marker-color: red;
-		}
-		&.medium {
-			$marker-color: orange;
-		}
-
-		width: 0;
-		height: 0;
-		border: $marker-size solid transparent;
-		border-bottom-color: $marker-color;
-
-		position: absolute;
-		top: -4px;
-		left: -26px;
-
-		&:after {
-			width: 0;
-			height: 0;
-			border: $marker-size solid transparent;
-			border-top-color: $marker-color;
-
-			position: absolute;
-			left: -$marker-size;
-			top: $marker-size;
-
-			content: '';
-		}
-	}
-
 	.project__data .column,
 	.project__data .columns {
 		// @override Foundation's .row .column padding

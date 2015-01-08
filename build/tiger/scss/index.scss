@@ -17,6 +17,89 @@
 	min-height: 1px; // Prevent empty columns from collapsing
 }
 
+////////////////////////////////////////////////// Phases
+.planning {
+	background-color: $planning-color;
+}
+.research {
+	background-color: $research-color;
+}
+.design {
+	background-color: $design-color;
+}
+.implementation {
+	background-color: $implementation-color;
+}
+.followup {
+	background-color: $followup-color;
+}
+
+////////////////////////////////////////////////// Project
+@mixin shape($shape, $size, $color){
+	@if $shape == square {
+		width: $size;
+		height: $size;
+
+		background-color: $color;
+	}
+
+	@if $shape == circle {
+		width: $size;
+		height: $size;
+
+		border-radius: 50%;
+
+		background-color: $color;
+	}
+
+	@if $shape == triangle {
+		width: 0;
+		height: 0;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size*1.5 solid $color;
+	}
+
+	@if $shape == right-triangle {
+		width: 0;
+		height: 0;
+		border-bottom: $size solid $color;
+		border-right: $size solid transparent;
+	}
+
+	@if $shape == diamond {
+		width: 0;
+		height: 0;
+		border: $size solid transparent;
+		border-bottom-color: $color;
+
+		&:after {
+			width: 0;
+			height: 0;
+			border: $size solid transparent;
+			border-top-color: $color;
+
+			position: absolute;
+			left: -$size;
+			top: $size;
+
+			content: '';
+		}
+	}
+}
+
+.project__marker {
+	position: absolute;
+
+	&.medium {
+		@include shape(diamond, 6px, orange);
+	}
+
+	&.high {
+		@include shape(diamond, 6px, red);
+	}
+}
+
 @import "components/header";
 @import "components/listapp";
 @import "components/yearbookapp";

@@ -22,19 +22,21 @@
 
 			// Swap project ids for project objects
 			newUsersJson = _.map(usersJson, function (userObj, key, list) {
-				if (userObj.hasOwnProperty('projects')) {
-					var projectIds = _.uniq(userObj.projects),
+				// Don't overwrite the original object
+				var newUserObj = _.clone(userObj);
+
+				if (newUserObj.hasOwnProperty('projects')) {
+					var projectIds = _.uniq(newUserObj.projects),
 						userProjects = [];
 
 					_.each(projectIds, function (id) {
 						userProjects.push(projectsLookup[id]);
-						console.log(projectsLookup[id]);
 					});
 
-					userObj.projects = userProjects;
+					newUserObj.projects = userProjects;
 				}
 
-				return userObj;
+				return newUserObj;
 			});
 
 			response.setHeader('Content-Type', 'application/json');
