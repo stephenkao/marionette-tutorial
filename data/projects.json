@@ -10,7 +10,7 @@
 		"currentPhase": "research",
 		"updates": [],
 		"users": [],
-		"roadmap": 1
+		"roadmap": "reading"
 	},
 	{
 		"id": 2,
@@ -23,7 +23,7 @@
 		"currentPhase": "implementation",
 		"updates": [],
 		"users": [],
-		"roadmap": 1
+		"roadmap": "reading"
 	},
 	{
 		"id": 3,
@@ -36,7 +36,7 @@
 		"currentPhase": "planning",
 		"updates": [],
 		"users": [],
-		"roadmap": 1
+		"roadmap": "reading"
 	},
 	{
 		"id": 4,
@@ -49,7 +49,7 @@
 		"currentPhase": "implementation",
 		"updates": [],
 		"users": [],
-		"roadmap": 4
+		"roadmap": "standalone"
 	},
 	{
 		"id": 5,
@@ -62,7 +62,7 @@
 		"currentPhase": "followup",
 		"updates": [],
 		"users": [],
-		"roadmap": 4
+		"roadmap": "standalone"
 	},
 	{
 		"id": 6,
@@ -75,6 +75,6 @@
 		"currentPhase": "design",
 		"updates": [],
 		"users": [],
-		"roadmap": 4
+		"roadmap": "standalone"
 	}
 ]
