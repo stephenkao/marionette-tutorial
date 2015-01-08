@@ -21,6 +21,7 @@ define([
 	var RoadmapListView = Marionette.CollectionView.extend({
 
 		////////// Initialization
+		tagName: 'ul',
 		itemView: RoadmapListItemView
 	});
 

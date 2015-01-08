@@ -22,7 +22,7 @@ define([
 
 		////////// Initialization
 		template: lesir.components.list.roadmapList,
-		tagName: 'section',
+		tagName: 'li',
 		className: 'column',
 		itemViewContainer: '.roadmap__projectlist',
 		itemView: ProjectListItemView,

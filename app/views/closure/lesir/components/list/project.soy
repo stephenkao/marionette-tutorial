@@ -1,14 +1,6 @@
 {namespace lesir.components.list}
 
 /**
- * @param roadmapTitle
- */
-{template .projectList}
-	<h2 class="row roadmap__title">{$roadmapTitle} roadmap</h2>
-	<ul class="projectlist"></ul>
-{/template}
-
-/**
  * An individual project item in the ListApp view
  *
  * @param title
@@ -37,7 +29,7 @@
 			</div>
 
 			<div class="columns large-1 project__datum">
-				<span class="project__datum--key">{$duration}</span>
+				<span class="project__datum--key">{$duration} months</span>
 			</div>
 
 			<div class="columns large-1 project__datum"></div>

@@ -23,8 +23,8 @@ define([
 			updateCollection: null,
 			userCollection: null,
 			progress: 0,
-			startTime: new Date().getTime(),
-			endTime: new Date().getTime(),
+			startTime: 0,
+			endTime: 0,
 			priority: 0 // This does NOT have a set limit (currently)
 		},
 
@@ -35,6 +35,11 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
+			// Translate timestamps into milliseconds for JavaScript
+			var startTime = this.get('startTime'),
+				endTime = this.get('endTime');
+			this.set('startTime', startTime * 1000);
+			this.set('endTime', endTime * 1000);
 			this.phaseCollection = new Backbone.Collection();
 			this.updateCollection = new Backbone.Collection();
 			this.taskCollection = new Backbone.Collection();

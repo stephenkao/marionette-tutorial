@@ -42,6 +42,8 @@
 
 	.project__datum--key {
 		@extend %font--project__datumkey;
+
+		margin-right: 4px;
 	}
 	.project__datum--value {
 		@extend %font--project__datumvalue;
