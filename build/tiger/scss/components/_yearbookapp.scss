@@ -3,6 +3,8 @@
 	padding-bottom: 0 !important;  // @override Foundation's block-grid padding
 	margin-bottom: 106px;
 
+
+
 	.user__contents {
 		margin-left: auto;
 		margin-right: auto;
@@ -20,8 +22,8 @@
 	}
 
 	.user__image {
-		width: 100%;
-		height: 100%;
+		min-width: 126px;
+		min-height: 126px;
 
 		vertical-align: bottom;
 	}

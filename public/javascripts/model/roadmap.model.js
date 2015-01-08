@@ -9,10 +9,14 @@
  */
 define([
 	// Libraries
-	'backbone'
+	'backbone',
+	// Components
+	'collection/project.collection'
 ], function (
 	// Libraries
-	Backbone
+	Backbone,
+	// Components
+	ProjectCollection
 ) {
 	'use strict';
 
@@ -21,7 +25,7 @@ define([
 		////////// Fields
 		defaults: {
 			title: '',
-			projectCollection: null
+			projects: null
 		},
 
 		////////// Initialization
@@ -31,6 +35,12 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
+			var projects = this.get('projects');
+
+			// Nested ProjectCollection
+			if (projects && projects.length) {
+				this.set('projects', new ProjectCollection(projects));
+			}
 		}
 	});
 

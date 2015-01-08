@@ -9,7 +9,7 @@
 		"phases": [],
 		"currentPhase": "research",
 		"updates": [],
-		"users": [],
+		"users": [1, 2, 3],
 		"roadmap": "reading"
 	},
 	{
@@ -22,7 +22,7 @@
 		"phases": [],
 		"currentPhase": "implementation",
 		"updates": [],
-		"users": [],
+		"users": [1, 2, 3],
 		"roadmap": "reading"
 	},
 	{

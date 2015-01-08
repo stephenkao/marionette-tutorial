@@ -18,20 +18,10 @@ define([
 ) {
 	'use strict';
 
-	var RoadmapListView = Marionette.CompositeView.extend({
+	var RoadmapListView = Marionette.CollectionView.extend({
 
 		////////// Initialization
-		template: lesir.components.list.roadmapList,
-		tagName: 'section',
-		className: 'column',
-		itemViewContainer: '.roadmap-list',
-		itemView: RoadmapListItemView,
-
-		serializeData: function () {
-			// Group all projects by 'roadmap' for ~visual organization~
-			// This is a bit of a workaround for Backbone's inability to have nested Collections
-			return this.collection.groupBy('roadmap');
-		}
+		itemView: RoadmapListItemView
 	});
 
 	return RoadmapListView;

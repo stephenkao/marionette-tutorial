@@ -9,7 +9,6 @@
 	<li class="project {$currentPhase}">
 		{if $priority and $priority > 30}
 			{let $priorityClass: $priority > 50 ? 'high' : 'medium' /}
-			{$priorityClass /}
 			<div class="project__marker {$priorityClass}"></div>
 		{/if}
 		<p class="project__title ellipsis">{$title}</p>

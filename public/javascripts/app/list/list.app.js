@@ -10,8 +10,8 @@ define([
 	'backbone.marionette',
 	// Components
 	'app/marionetteApp',
+	'collection/roadmap.collection',
 	'app/list/roadmapList.view',
-	'collection/project.collection',
 	// Templates
 	'templates/lesir/components/list/app'
 ], function (
@@ -19,8 +19,8 @@ define([
 	Marionette,
 	// Components
 	MarionetteApp,
-	RoadmapListView,
-	ProjectCollection
+	RoadmapCollection,
+	RoadmapListView
 ) {
 	'use strict';
 
@@ -44,14 +44,14 @@ define([
 		 * VOID->VOID
 		 */
 		initialize: function () {
-			this.projectCollection = new ProjectCollection();
+			this.roadmapCollection = new RoadmapCollection();
 			this.roadmapListView = new RoadmapListView({
-				collection: this.projectCollection
+				collection: this.roadmapCollection
 			});
 		},
 		onRender: function () {
 			this.contentRegion.show(this.roadmapListView);
-			this.projectCollection.fetch({reset: true});
+			this.roadmapCollection.fetch({reset: true});
 		}
 	});
 

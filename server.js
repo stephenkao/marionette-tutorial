@@ -16,13 +16,12 @@
 
 	////////// AJAX calls
 	app
-		////////// Simple AJAX calls
 		.get('/users', function (request, response) {
 			var newUsersJson, userProjects;
 
 			// Swap project ids for project objects
 			newUsersJson = _.map(usersJson, function (userObj, key, list) {
-				// Don't overwrite the original object
+				// Don't overwrite the original object, you dum dum!
 				var newUserObj = _.clone(userObj);
 
 				if (newUserObj.hasOwnProperty('projects')) {
@@ -45,7 +44,20 @@
 		.get('/projects', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
 			response.end(JSON.stringify(projectsJson));
+		})
+		.get('/roadmaps', function (request, response) {
+			var groupedProjects = _.groupBy(projectsJson, 'roadmap'),
+				roadmapsJson = _.map(groupedProjects, function (projects, title) {
+					return {
+						title: title,
+						projects: projects
+					};
+				});
+
+			response.setHeader('Content-Type', 'application/json');
+			response.end(JSON.stringify(roadmapsJson, 'roadmap'));
 		});
+
 
 	////////// Static files
 	app.get(/^(.+)$/, function(request, response){

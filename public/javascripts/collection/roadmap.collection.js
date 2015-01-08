@@ -4,21 +4,21 @@ define([
 	// Libraries
 	'backbone',
 	// Components
-	'model/project.model'
+	'model/roadmap.model'
 ], function (
 	// Libraries
 	Backbone,
 	// Components
-	ProjectModel
+	RoadmapModel
 ) {
 	'use strict';
 
-	var ProjectCollection = Backbone.Collection.extend({
+	var RoadmapCollection = Backbone.Collection.extend({
 
 		////////// Initialization
-		url: '/projects',
-		model: ProjectModel
+		url: '/roadmaps',
+		model: RoadmapModel
 	});
 
-	return ProjectCollection;
+	return RoadmapCollection;
 });
