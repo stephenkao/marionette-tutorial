@@ -13,6 +13,9 @@
 	}
 }
 
+.roadmap__projectlist {
+	margin-left: 0; // @override Foundation ul li ul, ul li ol margin
+}
 
 .project--listitem {
 	// @override Foundation's .row .row margin
@@ -21,7 +24,7 @@
 	position: relative;
 
 	&:last-child {
-		// @override my overriding Foundation's .row .row margin
+		// @override Foundation's .row .row margin
 		margin-bottom: 47px !important;
 	}
 

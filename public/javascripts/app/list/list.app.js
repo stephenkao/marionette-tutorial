@@ -24,9 +24,7 @@ define([
 ) {
 	'use strict';
 
-	var ListPageLayout;
-
-	ListPageLayout = Marionette.Layout.extend({
+	var ListPageLayout = Marionette.Layout.extend({
 
 		////////// App components
 		projectCollection: null,

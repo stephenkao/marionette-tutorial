@@ -1,4 +1,4 @@
-/*global define */
+/*global define, lesir */
 
 /**
  * A page application that manages the 'project' view
@@ -7,21 +7,52 @@
  */
 define([
 	// Libraries
-	'backbone.marionette'
+	'backbone.marionette',
+	// Components
+	'app/marionetteApp',
+	'model/project.model',
+	'app/project/updateList.view',
+	// Templates
+	'templates/lesir/components/project/app'
 ], function (
 	// Libraries
-	Marionette
+	Marionette,
+	// Components
+	MarionetteApp,
+	ProjectModel,
+	UpdateListView
 ) {
 	'use strict';
 
-	var ProjectApp, projectApp;
+	var ProjectAppLayout = Marionette.Layout.extend({
 
-	ProjectApp = Marionette.Controller.extend({
-		initialize: function () {
+		////////// App components
+		className: 'app app--project',
+		template: lesir.components.project.app,
+		regions: {
+			timelineRegion: '.timeline-region',
+			documentationRegion: '.documentation-region',
+			historyRegion: '.history-region'
+		},
+
+		////////// Initialization
+		/**
+		 * Initialize the app-specific components
+		 *
+		 * @param {number} projectId
+		 */
+		initialize: function (projectId) {
+			this.projectModel = new ProjectModel(projectId);
+			this.updateListView = new UpdateListView({collection: this.projectModel.get('updates')});
+		},
+		onRender: function () {
+			var that = this;
+			this.projectModel.fetch().done(function () {
+				console.log(that.projectModel.attributes);
+			});
+			this.historyRegion.show(this.updateListView);
 		}
 	});
 
-	projectApp = new ProjectApp();
-
-	return projectApp;
+	return ProjectAppLayout;
 });

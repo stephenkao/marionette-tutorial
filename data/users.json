@@ -68,12 +68,5 @@
 		"type": 2,
 		"imageUrl": "http://lorempixel.com/200/200/city/",
 		"projects": [6]
-	},
-	{
-		"id": 11,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/nightlife/",
-		"projects": [1, 5]
 	}
 ]

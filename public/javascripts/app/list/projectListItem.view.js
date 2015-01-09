@@ -28,8 +28,6 @@ define([
 			change: 'render'
 		},
 		serializeData: function () {
-			window['view' + this.cid] = this;
-			window['model' + this.model.cid] = this.model;
 			var project = this.model.attributes;
 
 			return {

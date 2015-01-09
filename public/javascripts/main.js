@@ -33,11 +33,5 @@ define([
 
 	MarionetteApp.start();
 
-	// Fetch collections
-	MarionetteApp.userCollection = new UserCollection();
-	MarionetteApp.userCollection.fetch();
-	MarionetteApp.projectCollection = new ProjectCollection();
-	MarionetteApp.projectCollection.fetch();
-
 	window.MarionetteApp = MarionetteApp;
 });

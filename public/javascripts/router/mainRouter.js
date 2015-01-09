@@ -57,7 +57,10 @@ define([
 		 * @param {!string} projectId
 		 */
 		initializeProjectPageApp: function (projectId) {
-			require(['app/project/project.app'], function (ProjectApp) {});
+			require(['app/project/project.app'], function (ProjectApp) {
+				var projectApp = new ProjectApp({id: projectId});
+				MarionetteApp.contentRegion.show(projectApp);
+			});
 		},
 		/**
 		 * Start up the 'Gantt' page app

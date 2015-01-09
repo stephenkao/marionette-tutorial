@@ -19,9 +19,9 @@ define([
 		////////// Fields
 		defaults: {
 			title: '',
-			phaseCollection: null,
-			updateCollection: null,
-			userCollection: null,
+			phases: null,
+			updates: null,
+			tasks: null,
 			progress: 0,
 			startTime: 0,
 			endTime: 0,
@@ -29,6 +29,9 @@ define([
 		},
 
 		////////// Initialization
+		url: function () {
+			return '/project/' + this.get('id');
+		},
 		/**
 		 * Initialize this Model and instantiate the nested Collections/Models
 		 *
@@ -40,9 +43,19 @@ define([
 				endTime = this.get('endTime');
 			this.set('startTime', startTime * 1000);
 			this.set('endTime', endTime * 1000);
-			this.phaseCollection = new Backbone.Collection();
-			this.updateCollection = new Backbone.Collection();
-			this.taskCollection = new Backbone.Collection();
+
+			this.set('phases', new Backbone.Collection());
+			this.set('tasks', new Backbone.Collection());
+			this.set('updates', new Backbone.Collection());
+		},
+		parse: function (response) {
+			var updates = response.updates,
+				updateCollection = this.get('updates');
+
+			for (var i = 0, len = updates.length; i < len; ++i) {
+				var thisUpdate = updates[i];
+				updateCollection.add(thisUpdate);
+			}
 		},
 
 		////////// Personnel

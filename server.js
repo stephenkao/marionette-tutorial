@@ -3,12 +3,26 @@
 (function () {
 	var express = require('express'),
 		_ = require('underscore'),
+		fs = require('fs'),
 		app = express(),
 		httpConfig = {
 			PORT: 8888,
 			ADDRESS: '127.0.0.1'
 		},
 		// Simulated AJAX
+		_readFile = function (filename, onSuccess, onError) {
+			fs.readFile(filename, function (error, data) {
+				if (error) {
+					if (onError) {
+						onError(error);
+					} else {
+						console.log(error);
+					}
+				} else {
+					onSuccess(data);
+				}
+			});
+		},
 		usersJson = require(__dirname + '/data/users.json'),
 		usersLookup = _.indexBy(usersJson, 'id'),
 		projectsJson = require(__dirname + '/data/projects.json'),
@@ -44,6 +58,10 @@
 		.get('/projects', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
 			response.end(JSON.stringify(projectsJson));
+		})
+		.get('/project/:id', function (request, response) {
+			response.setHeader('Content-Type', 'application/json');
+			response.end(JSON.stringify(projectsLookup[request.params.id]));
 		})
 		.get('/roadmaps', function (request, response) {
 			var groupedProjects = _.groupBy(projectsJson, 'roadmap'),

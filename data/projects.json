@@ -8,7 +8,28 @@
 		"priority": 70,
 		"phases": [],
 		"currentPhase": "research",
-		"updates": [],
+		"updates": [
+			{
+				"action": "created",
+				"timestamp": 1417737600,
+				"user": "Margaret"
+			},
+			{
+				"action": "created",
+				"timestamp": 1417737600,
+				"user": "Margaret"
+			},
+			{
+				"action": "created",
+				"timestamp": 1417737600,
+				"user": "Margaret"
+			},
+			{
+				"action": "created",
+				"timestamp": 1417737600,
+				"user": "Margaret"
+			}
+		],
 		"users": [1, 2, 3],
 		"roadmap": "reading"
 	},
