@@ -3,6 +3,7 @@
 /**
  * An individual project item in the ListApp view
  *
+ * @param id
  * @param title
  * @param startDate
  * @param endDate
@@ -13,37 +14,39 @@
  */
 {template .projectListItem}
 	<section class="project__data columns">
-		<div class="project__marker"></div>
+		<a href="#project/{$id}">
+			<div class="project__marker"></div>
 
-		<div class="row">
-			<h3 class="columns large-2 project__datum project__title">{$title}</h3>
+			<div class="row">
+				<h3 class="columns large-2 project__datum project__title">{$title}</h3>
 
-			<div class="columns large-1 project__datum"></div>
+				<div class="columns large-1 project__datum"></div>
 
-			<div class="columns large-4 project__datum">
-				<span class="project__datum--key">Start</span>
-				<span class="project__datum--value">{$startDate}</span>
-				—
-				<span class="project__datum--key">End</span>
-				<span class="project__datum--value">{$endDate}</span>
+				<div class="columns large-4 project__datum">
+					<span class="project__datum--key">Start</span>
+					<span class="project__datum--value">{$startDate}</span>
+					—
+					<span class="project__datum--key">End</span>
+					<span class="project__datum--value">{$endDate}</span>
+				</div>
+
+				<div class="columns large-1 project__datum">
+					<span class="project__datum--key">{$duration} months</span>
+				</div>
+
+				<div class="columns large-1 project__datum"></div>
+
+				<div class="columns large-2 project__datum">
+					<span class="project__datum--value">{$usernames}</span>
+				</div>
+
+				<div class="columns large-1 project__datum">
+					<span class="project__datum--key">{$progressString}</span>
+				</div>
 			</div>
-
-			<div class="columns large-1 project__datum">
-				<span class="project__datum--key">{$duration} months</span>
+			<div class="row">
+				<progress class="columns small-12 project__progress" value="{$progressPercentage}" max="1">{$progressString}</progress>
 			</div>
-
-			<div class="columns large-1 project__datum"></div>
-
-			<div class="columns large-2 project__datum">
-				<span class="project__datum--value">{$usernames}</span>
-			</div>
-
-			<div class="columns large-1 project__datum">
-				<span class="project__datum--key">{$progressString}</span>
-			</div>
-		</div>
-		<div class="row">
-			<progress class="columns small-12 project__progress" value="{$progressPercentage}" max="1">{$progressString}</progress>
-		</div>
+		</a>
 	</section>
 {/template}

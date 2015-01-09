@@ -31,6 +31,7 @@ define([
 			var project = this.model.attributes;
 
 			return {
+				id: project.id,
 				title: project.title,
 				startDate: stringUtils.formatDate(project.startTime),
 				endDate: stringUtils.formatDate(project.endTime),
