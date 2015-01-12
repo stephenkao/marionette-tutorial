@@ -1,6 +1,44 @@
 .app--project {
 
+	.row {
+		@include margin-trailer(1);
+	}
+
 	.content-region {
+		@include margin-trailer(1);
+
 		border-bottom: 1px solid #bbb;
+	}
+
+	////////// Graph section
+	h2 {
+		font-size: 18px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.roadmap__row {
+		@include padding-trailer(1);
+		@include margin-trailer(1);
+
+		border-bottom: 1px solid rgb(239, 239, 239);
+	}
+
+	.project__marker {
+		top: -4px;
+		left: -6px;
+	}
+	.graph {
+		height: 300px;
+	}
+
+	////////// Documentation section
+	.documentation-region button {
+		width: 100%;
+	}
+
+	////////// Updates section
+	.project__updateitem span {
+		margin-right: 0.4em;
 	}
 }

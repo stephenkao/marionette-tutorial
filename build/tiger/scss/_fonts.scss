@@ -213,6 +213,9 @@
 	font-family: 'playfair_displayregular';
 	letter-spacing: 1px;
 }
+%font--playfair-bold {
+	font-family: 'playfair_display_scbold';
+}
 
 ////////////////////////////////////////////////// Text helpers
 %ellipsis {
@@ -225,6 +228,73 @@
 }
 
 ////////////////////////////////////////////////// Hierarchy placeholders
+%font--alpha {
+	@extend %font--oswald-regular;
+
+	font-size: 14px;
+	letter-spacing: 2px;
+	color: $black;
+}
+%font--beta {
+	@extend %font--playfair-bolditalic;
+
+	font-size: 14px;
+	color: $black;
+}
+%font--gamma {
+	@extend %font--playfair-italic;
+
+	font-size: 14px;
+	color: $black;
+}
+%font--delta {
+	@extend %font--oswald-regular;
+
+	font-size: 14px;
+	color: #010101;
+}
+%font--epsilon {
+	@extend %font--playfair-regular;
+
+	font-size: 14px;
+	color: $black;
+}
+%font--zeta {
+	@extend %font--oswald-regular;
+
+	font-size: 11px;
+	color: $black;
+}
+%font--eta {
+	@extend %font--playfair-bold;
+
+	font-size: 14px;
+	color: $black;
+}
+
+.alpha {
+	@extend %font--alpha;
+}
+.beta {
+	@extend %font--beta;
+}
+.gamma {
+	@extend %font--gamma;
+}
+.delta {
+	@extend %font--delta;
+}
+.epsilon {
+	@extend %font--epsilon;
+}
+.zeta {
+	@extend %font--zeta;
+}
+.eta {
+	@extend %font--eta;
+}
+
+
 // 'Roadmap'
 %font--roadmap__title {
 	@extend %font--playfair-bolditalic;

@@ -76,12 +76,13 @@ $include-html-global-classes: $include-html-classes;
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-grid-classes: $include-html-classes;
-// $include-xl-html-grid-classes: false;
+$include-html-grid-classes: $include-html-classes;
+$include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(1000);
-$total-columns: 12;
-$column-gutter: rem-calc(30);
+$row-width: rem-calc(1008);
+$column-gutter: rem-calc(36);
+$column-padding: rem-calc(36) / 2;
+//$total-columns: 12;
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -162,11 +163,11 @@ $font-smoothing: antialiased;
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$small-range: (0em, 40em);
-$medium-range: (40.063em, 64em);
-$large-range: (64.063em, 90em);
-$xlarge-range: (90.063em, 120em);
-$xxlarge-range: (120.063em, 99999999em);
+$small-range: (0, 37.4375em); // - 599
+$medium-range: (37.5em, 49.9em); // 600 - 799
+$large-range: (50em, 63.9em); // 800 - 1023
+$xlarge-range: (64em, 66.25em); // 1024 - 1060
+$xxlarge-range: (66.3em); // 1061 -
 
 $screen: "only screen";
 
@@ -189,9 +190,9 @@ $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
 
 // Legacy
-$small: $medium-up;
-$medium: $medium-up;
-$large: $large-up;
+// $small: $medium-up;
+// $medium: $medium-up;
+// $large: $large-up;
 
 // We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 $cursor-crosshair-value: crosshair;
@@ -1454,10 +1455,6 @@ $topbar-link-color-active-hover: $jet;
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
 // $include-accessibility-classes: true;
-
-
-////////////////////////////////////////////////// Vertical rhythm
-$vertical-rhythm: 30px;
 
 .centered {
 	text-align: center;

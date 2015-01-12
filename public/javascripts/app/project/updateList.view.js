@@ -19,6 +19,8 @@ define([
 	var UpdateListView = Marionette.CollectionView.extend({
 
 		////////// Initialization
+		tagName: 'ul',
+		className: 'updatelist',
 		itemView: UpdateListItemView
 	});
 

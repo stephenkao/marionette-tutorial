@@ -29,8 +29,6 @@ define([
 		template: lesir.components.project.graph,
 
 		onRender: function () {
-			debugger;
-
 			var tasks = [
 				{"startDate":new Date("Sun Dec 09 01:36:45 EST 2012"),"endDate":new Date("Sun Dec 09 02:36:45 EST 2012"),"taskName":"E Job","status":"RUNNING"},
 				{"startDate":new Date("Sun Dec 09 04:56:32 EST 2012"),"endDate":new Date("Sun Dec 09 06:35:47 EST 2012"),"taskName":"A Job","status":"RUNNING"},
@@ -81,7 +79,9 @@ define([
 			var gantt = d3.gantt().taskTypes(taskNames).taskStatus(taskStatus).tickFormat(format);
 			gantt(tasks, '.graph');
 		}
+
 	});
+
 
 	return GraphView;
 });
