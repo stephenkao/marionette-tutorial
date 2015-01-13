@@ -39,13 +39,13 @@
 					force: true
 				},
 				dev: {
-					src: ['build/tiger/scss']
+					src: ['build/lesir/scss']
 				}
 			},
 			compass: {
 				dev: {
 					options: {
-						sassDir: 'build/tiger/scss',
+						sassDir: 'build/lesir/scss',
 						cssDir: 'target/css'
 					}
 				}
@@ -98,7 +98,7 @@
 				},
 				sass: {
 					files: [
-						'build/tiger/scss/**/*.scss'
+						'build/lesir/scss/**/*.scss'
 					],
 					tasks: [
 						'compass:dev'
