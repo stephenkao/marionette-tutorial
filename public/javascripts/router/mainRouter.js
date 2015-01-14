@@ -37,6 +37,7 @@ define([
 			require(['app/list/list.app'], function (ListApp) {
 				var listApp = new ListApp();
 				MarionetteApp.contentRegion.show(listApp);
+				MarionetteApp.trigger('list:dom:added');
 			});
 		},
 		/**
@@ -48,6 +49,7 @@ define([
 			require(['app/yearbook/yearbook.app'], function (YearbookApp) {
 				var yearbookApp = new YearbookApp();
 				MarionetteApp.contentRegion.show(yearbookApp);
+				MarionetteApp.trigger('yearbook:dom:added');
 			});
 		},
 		/**
@@ -60,6 +62,7 @@ define([
 			require(['app/project/project.app'], function (ProjectApp) {
 				var projectApp = new ProjectApp({id: projectId});
 				MarionetteApp.contentRegion.show(projectApp);
+				MarionetteApp.trigger('project:dom:added');
 			});
 		},
 		/**

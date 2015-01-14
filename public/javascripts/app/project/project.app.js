@@ -12,6 +12,7 @@ define([
 	'app/marionetteApp',
 	'model/project.model',
 	'app/project/graph.view',
+	'app/project/documentation.view',
 	'app/project/updateList.view',
 	// Templates
 	'templates/lesir/components/project/app'
@@ -22,6 +23,7 @@ define([
 	MarionetteApp,
 	ProjectModel,
 	GraphView,
+	DocumentationView,
 	UpdateListView
 ) {
 	'use strict';
@@ -45,16 +47,18 @@ define([
 		 */
 		initialize: function (projectId) {
 			this.projectModel = new ProjectModel(projectId);
-			this.updateListView = new UpdateListView({
-				collection: this.projectModel.get('updates')
-			});
 			this.graphView = new GraphView({
 				model: this.projectModel
+			});
+			this.documentationView = new DocumentationView();
+			this.updateListView = new UpdateListView({
+				collection: this.projectModel.get('updates')
 			});
 		},
 		onRender: function () {
 			this.projectModel.fetch();
 			this.timelineRegion.show(this.graphView);
+			this.documentationRegion.show(this.documentationView);
 			this.historyRegion.show(this.updateListView);
 		}
 	});

@@ -6,7 +6,38 @@
 		"startTime": 1417737600,
 		"endTime": 1429747200,
 		"priority": 70,
-		"phases": [],
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421268608,
+				"endTime": 1423947008,
+				"status": "RUNNING"
+			},
+			{
+				"title": "research",
+				"startTime": 1421700608,
+				"endTime": 1424379008,
+				"status": "RUNNING"
+			},
+			{
+				"title": "design",
+				"startTime": 1422564608,
+				"endTime": 1425243008,
+				"status": "RUNNING"
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423774208,
+				"endTime": 1426193408,
+				"status": "RUNNING"
+			},
+			{
+				"title": "followup",
+				"startTime": 1424811008,
+				"endTime": 1427230208,
+				"status": "RUNNING"
+			}
+		],
 		"currentPhase": "research",
 		"updates": [
 			{

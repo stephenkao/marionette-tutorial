@@ -7,9 +7,11 @@
  */
 define([
 	// Libraries
+	'underscore',
 	'backbone'
 ], function (
 	// Libraries
+	_,
 	Backbone
 ) {
 	'use strict';
@@ -49,13 +51,29 @@ define([
 			this.set('updates', new Backbone.Collection());
 		},
 		parse: function (response) {
-			var updates = response.updates,
-				updateCollection = this.get('updates');
+			var i, len,
+				updateRecords = response.updates,
+				updateCollection = this.get('updates'),
+				phaseRecords = response.phases,
+			    	phaseCollection = this.get('phases');
 
-			for (var i = 0, len = updates.length; i < len; ++i) {
-				var thisUpdate = updates[i];
-				updateCollection.add(thisUpdate);
-			}
+			// Save updates
+			updateRecords.forEach(function (updateRecord) {
+				updateCollection.add(updateRecord);
+			});
+			updateCollection.trigger('reset');
+
+			// Save phases
+			phaseRecords.forEach(function (phaseRecord) {
+				// Extend the phase record so the D3 Gantt library can understand it
+				phaseRecord = _.extend(phaseRecord, {
+					startDate: new Date(phaseRecord.startTime * 1000),
+					endDate: new Date(phaseRecord.endTime * 1000),
+					taskName: phaseRecord.title
+				});
+				phaseCollection.add(phaseRecord);
+			});
+			phaseCollection.trigger('reset');
 		},
 
 		////////// Personnel

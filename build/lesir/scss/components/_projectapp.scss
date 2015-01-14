@@ -32,6 +32,24 @@
 		height: 300px;
 	}
 
+	////////////////////////////////////////////////// SVG styles
+	.planning {
+		fill: $planning-color;
+	}
+	.research {
+		fill: $research-color;
+	}
+	.design {
+		fill: $design-color;
+	}
+	.implementation {
+		fill: $implementation-color;
+	}
+	.followup {
+		fill: $followup-color;
+	}
+
+
 	////////// Documentation section
 	.documentation-region button {
 		width: 100%;
