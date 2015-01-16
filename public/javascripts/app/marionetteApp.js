@@ -9,7 +9,9 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Singletons
-	'singleton/const'
+	'singleton/const',
+	// Non-returning
+	'lib/soyutils'
 ], function (
 	// Libraries
 	Marionette,
