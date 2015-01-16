@@ -1,4 +1,4 @@
-/*global define, lesir */
+/*global define */
 
 /**
  * @author Stephen Kao

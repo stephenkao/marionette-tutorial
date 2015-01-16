@@ -21,7 +21,7 @@ define(['lib/d3'], function (d3) {
 		var timeDomainStart = d3.time.day.offset(new Date(),-3);
 		var timeDomainEnd = d3.time.hour.offset(new Date(),+3);
 		var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
-		var tasks = [];
+		var tasks = [];n
 		var taskTypes = [];
 		var taskStatus = [];
 		var height = parseInt(selection.style('height'), 10) - margin.top - margin.bottom;
@@ -47,7 +47,7 @@ define(['lib/d3'], function (d3) {
 			xAxis = d3.svg.axis()
 				.scale(x)
 				.orient('top')
-				.ticks(d3.time.months, 2)
+				.ticks(d3.time.months, 1)
 				.tickFormat(d3.time.format('%M \'%y'))
 				.tickSubdivide(true)
 				.tickSize(8)
@@ -108,25 +108,9 @@ define(['lib/d3'], function (d3) {
 				.attr('height', height + margin.top + margin.bottom)
 				.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
 
-			// svg.selectAll('.chart')
-			// 	.data(tasks, keyFunction).enter()
-			// 	.append('rect')
-			// 		.attr('class', function(d) {
-			// 			return d.title;
-			// 		})
-			// 		.attr('y', 0)
-			// 		.attr('transform', rectTransform)
-			// 		.attr('height', function(d) {
-			// 			return y.rangeBand();
-			// 		})
-			// 		.attr('width', function(d) {
-			// 			return (x(d.endDate) - x(d.startDate));
-			// 		});
-
 			var svgTasks = svg.selectAll('.chart').data(tasks, keyFunction).enter().append('g')
 				.classed('gantt-task', true)
 				.attr('transform', function (d) {
-					console.log(d.title, rectTransform(d));
 					return rectTransform(d);
 				})
 				.attr('width', function(d) {

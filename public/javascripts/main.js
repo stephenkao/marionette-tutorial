@@ -7,11 +7,7 @@ define([
 	'backbone.marionette',
 	// Components
 	'router/mainRouter',
-	'app/marionetteApp',
-	'collection/user.collection',
-	'collection/project.collection',
-	// Non-returning
-	'lib/soyutils'
+	'app/marionetteApp'
 ], function (
 	// Libraries
 	$,
@@ -19,9 +15,7 @@ define([
 	Marionette,
 	// Components
 	MainRouter,
-	MarionetteApp,
-	UserCollection,
-	ProjectCollection
+	MarionetteApp
 ) {
 	'use strict';
 

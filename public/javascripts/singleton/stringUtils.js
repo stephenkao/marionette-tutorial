@@ -19,7 +19,7 @@ define([
 
 			return [month, day, year].join(' / ');
 		},
-		getTimeDifference: function (startTime, endTime, units) {
+		getTimeDifference: function (startTime, endTime) {
 			var startDate = new Date(startTime),
 			    endDate = new Date(endTime),
 			    months = (endDate.getFullYear() - startDate.getFullYear()) * 12;

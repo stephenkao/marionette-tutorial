@@ -6,16 +6,12 @@
 define([
 	// Libraries
 	'backbone.marionette',
-	// Components
-	'app/yearbook/userProject.view',
 	// Templates
 	'templates/lesir/components/yearbook/user',
 	'templates/lesir/components/yearbook/project'
 ], function (
 	// Libraries
-	Marionette,
-	// Components
-	UserProjectView
+	Marionette
 ) {
 	'use strict';
 

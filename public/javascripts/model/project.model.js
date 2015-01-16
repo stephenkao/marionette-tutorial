@@ -51,8 +51,7 @@ define([
 			this.set('updates', new Backbone.Collection());
 		},
 		parse: function (response) {
-			var i, len,
-				updateRecords = response.updates,
+			var updateRecords = response.updates,
 				updateCollection = this.get('updates'),
 				phaseRecords = response.phases,
 			    	phaseCollection = this.get('phases');

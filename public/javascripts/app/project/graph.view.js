@@ -9,8 +9,6 @@ define([
 	'backbone.marionette',
 	// Components
 	'app/marionetteApp',
-	// Singletons
-	'singleton/stringUtils',
 	// Templates
 	'templates/lesir/components/project/graph',
 	// Non-returning
@@ -20,9 +18,7 @@ define([
 	d3,
 	Marionette,
 	// Components
-	MarionetteApp,
-	// Singletons
-	stringUtils
+	MarionetteApp
 ) {
 	'use strict';
 

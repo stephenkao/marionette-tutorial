@@ -68,10 +68,14 @@ define([
 		/**
 		 * Start up the 'Gantt' page app
 		 *
-		 * VOID->VOID
+		 * @param {!string} projectId
 		 */
-		initializeGanttPageApp: function () {
-			require(['app/gantt/gantt.app'], function (GanttApp) {});
+		initializeGanttPageApp: function (projectId) {
+			require(['app/gantt/gantt.app'], function (GanttApp) {
+				var projectApp = new GanttApp({id: projectId});
+				MarionetteApp.contentRegion.show(projectApp);
+				MarionetteApp.trigger('project:dom:added');
+			});
 		}
 	});
 

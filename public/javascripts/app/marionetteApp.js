@@ -30,7 +30,7 @@ define([
 
 	// Override the inherent render function for all Marionette.View extensions
 	// in order to get some global injected data stufffffffff in it
-	Marionette.Renderer.render = function (template, data, injected) {
+	Marionette.Renderer.render = function (template, data) {
 		return window.soy.renderAsFragment(template, data, undefined, constants);
 	};
 
