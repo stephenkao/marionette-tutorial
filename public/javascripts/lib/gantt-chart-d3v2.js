@@ -133,8 +133,9 @@ define(['lib/d3'], function (d3) {
 					.tickFormat('')
 				);
 			svg.selectAll('.grid line')
-				.attr('stroke-dasharray', '4, 4')
-				.attr('y2', 264);
+				.attr('stroke-dasharray', '2, 8')
+				.attr('y1', margin.top)
+				.attr('y2', 300 - margin.bottom); // WHAT?
 
 			var svgTasks = svg.selectAll('.chart').data(tasks, keyFunction).enter().append('g')
 				.classed('gantt-task', true)
@@ -168,6 +169,7 @@ define(['lib/d3'], function (d3) {
 					return d.title;
 				});
 
+			// Add axis
 			svg.append('g')
 				.attr('class', 'axis--x')
 				.attr('transform', 'translate(0, 0)')
@@ -182,7 +184,7 @@ define(['lib/d3'], function (d3) {
 				.attr('class', 'spotlight')
 				.attr('transform', 'translate(' + x(new Date().getTime()) + ', 0)')
 				.attr('width', dayWidth)
-				.attr('height', height - margin.top - 4) // WHAT?
+				.attr('height', height - margin.top) // WHAT?
 				.style('fill', 'yellow')
 				.style('opacity', 0.4);
 
