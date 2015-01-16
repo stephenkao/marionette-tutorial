@@ -28,11 +28,20 @@
 		top: -4px;
 		left: -6px;
 	}
+
+	////////////////////////////////////////////////// SVG styles
 	.graph {
 		height: 300px;
 	}
+	.axis--x {
+		text {
+			@extend %font--eta;
+		}
 
-	////////////////////////////////////////////////// SVG styles
+		.domain {
+			display: none;
+		}
+	}
 	.planning {
 		fill: $planning-color;
 	}
@@ -48,15 +57,43 @@
 	.followup {
 		fill: $followup-color;
 	}
-
+	.grid line {
+		stroke: lightGray;
+	}
 
 	////////// Documentation section
 	.documentation-region button {
 		width: 100%;
+		height: 74px;
+	}
+
+	.button--kickoff {
+		background-color: $black;
+
+		&:hover {
+			background-color: #404040;
+		}
+
+		span {
+			margin-right: 0.3em;
+
+			color: white;
+		}
+	}
+	.button--complete {
+		color: #F7e279;
 	}
 
 	////////// Updates section
-	.project__updateitem span {
-		margin-right: 0.4em;
+	.project__updateitem {
+		@include margin-trailer(0.6);
+
+		list-style-type: disc;
+		list-style-position: inside;
+
+		span {
+			margin-right: 0.4em;
+		}
 	}
+
 }

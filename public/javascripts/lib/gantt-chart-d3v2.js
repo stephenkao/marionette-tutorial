@@ -21,7 +21,7 @@ define(['lib/d3'], function (d3) {
 		var timeDomainStart = d3.time.day.offset(new Date(),-3);
 		var timeDomainEnd = d3.time.hour.offset(new Date(),+3);
 		var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
-		var tasks = [];n
+		var tasks = [];
 		var taskTypes = [];
 		var taskStatus = [];
 		var height = parseInt(selection.style('height'), 10) - margin.top - margin.bottom;
@@ -47,19 +47,31 @@ define(['lib/d3'], function (d3) {
 			xAxis = d3.svg.axis()
 				.scale(x)
 				.orient('top')
-				.ticks(d3.time.months, 1)
-				.tickFormat(d3.time.format('%M \'%y'))
-				.tickSubdivide(true)
-				.tickSize(8)
-				.tickPadding(8);
+				.ticks(d3.time.months)
+				.tickFormat(function (datum) {
+					var months = [
+						'Jan',
+						'Feb',
+						'Mar',
+						'Apr',
+						'May',
+						'June',
+						'July',
+						'Aug',
+						'Sep',
+						'Oct',
+						'Nov',
+						'Dec'
+					];
 
-			yAxis = d3.svg.axis()
-				.scale(y)
-				.orient('left')
-				.tickSize(0);
+					return [
+						months[datum.getMonth()],
+						(datum.getFullYear() + '').slice(2)
+					].join(' \'');
+				});
 		};
 
-		var x, y, xAxis, yAxis;
+		var x, y, xAxis;
 		initAxis();
 
 		var initTimeDomain = function() {
@@ -108,6 +120,22 @@ define(['lib/d3'], function (d3) {
 				.attr('height', height + margin.top + margin.bottom)
 				.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
 
+			// Add grid lines
+			svg.append('g')
+				.attr('class', 'grid')
+				.call(function () {
+					return d3.svg.axis()
+						.scale(x)
+						.orient('top')
+						.ticks(d3.time.days);
+					}()
+					.tickSize(-height, 0, 0)
+					.tickFormat('')
+				);
+			svg.selectAll('.grid line')
+				.attr('stroke-dasharray', '4, 4')
+				.attr('y2', 264);
+
 			var svgTasks = svg.selectAll('.chart').data(tasks, keyFunction).enter().append('g')
 				.classed('gantt-task', true)
 				.attr('transform', function (d) {
@@ -117,6 +145,7 @@ define(['lib/d3'], function (d3) {
 					return (x(d.endDate) - x(d.startDate));
 				});
 
+			// Add task rectangles
 			svgTasks.append('rect')
 				.attr('class', function(datum) {
 					return datum.title;
@@ -125,9 +154,10 @@ define(['lib/d3'], function (d3) {
 					return y.rangeBand();
 				})
 				.attr('width', function(d) {
+					console.log([d.endDate, d.startDate, x(d.endDate) - x(d.startDate)]);
 					return (x(d.endDate) - x(d.startDate));
 				});
-
+			// Add task labels
 			svgTasks.append('text')
 				.attr('x', '1em')
 				.attr('y', '1.4em')
@@ -139,18 +169,29 @@ define(['lib/d3'], function (d3) {
 				});
 
 			svg.append('g')
-				.attr('class', 'x axis')
+				.attr('class', 'axis--x')
 				.attr('transform', 'translate(0, 0)')
 				.transition()
 				.call(xAxis);
+
+			// Add 'today'
+			var today = new Date(),
+				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
+				dayWidth = x(tomorrow) - x(today);
+			svg.append('rect')
+				.attr('class', 'spotlight')
+				.attr('transform', 'translate(' + x(new Date().getTime()) + ', 0)')
+				.attr('width', dayWidth)
+				.attr('height', height - margin.top - 4) // WHAT?
+				.style('fill', 'yellow')
+				.style('opacity', 0.4);
 
 			return gantt;
 
 		};
 
+/*
 		gantt.redraw = function(tasks) {
-			debugger;
-
 			initTimeDomain();
 			initAxis();
 
@@ -188,10 +229,10 @@ define(['lib/d3'], function (d3) {
 			rect.exit().remove();
 
 			svg.select(".x").transition().call(xAxis);
-//			svg.select(".y").transition().call(yAxis);
 
 			return gantt;
 		};
+*/
 
 		gantt.margin = function(value) {
 			if (!arguments.length)
