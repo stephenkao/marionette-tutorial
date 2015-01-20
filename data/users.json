@@ -1,72 +1,227 @@
 [
 	{
-		"id": 1,
-		"displayName": "Margaret Taormina",
-		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/animals/",
-		"projects": [1, 2, 3]
+		"_id": "54bece4500c54f3a7e3b9927",
+		"index": 0,
+		"imageUrl": "http://lorempixel.com/200/200/nature",
+		"displayName": "Slater Calderon",
+		"email": "slatercalderon@assurity.com",
+		"projects": [
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project5"
+			}
+		]
 	},
 	{
-		"id": 2,
-		"displayName": "Grace Robertson",
-		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/fashion/",
-		"projects": [1, 2, 3]
+		"_id": "54bece45d35dffe833d79d6f",
+		"index": 1,
+		"imageUrl": "http://lorempixel.com/200/200/nature",
+		"displayName": "Joseph Phillips",
+		"email": "josephphillips@assurity.com",
+		"projects": [
+			{
+				"_id": "project5"
+			},
+			{
+				"_id": "project1"
+			}
+		]
 	},
 	{
-		"id": 3,
-		"displayName": "Stephen Kao",
-		"type": 1,
-		"imageUrl": "http://lorempixel.com/200/200/abstract/",
-		"projects": [1, 2, 3]
+		"_id": "54bece45a22fd80b22c39d59",
+		"index": 2,
+		"imageUrl": "http://lorempixel.com/200/200/sports",
+		"displayName": "Atkins Raymond",
+		"email": "atkinsraymond@assurity.com",
+		"projects": [
+			{
+				"_id": "project2"
+			},
+			{
+				"_id": "project4"
+			}
+		]
 	},
 	{
-		"id": 4,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/food/",
-		"projects": [1]
+		"_id": "54bece45ffc061e3f6ef8797",
+		"index": 3,
+		"imageUrl": "http://lorempixel.com/200/200/nature",
+		"displayName": "Frye Mckenzie",
+		"email": "fryemckenzie@assurity.com",
+		"projects": [
+			{
+				"_id": "project1"
+			},
+			{
+				"_id": "project2"
+			},
+			{
+				"_id": "project3"
+			}
+		]
 	},
 	{
-		"id": 5,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/business/",
-		"projects": [2]
+		"_id": "54bece45de7f868e31bf4cf2",
+		"index": 4,
+		"imageUrl": "http://lorempixel.com/200/200/cats",
+		"displayName": "Wells Gaines",
+		"email": "wellsgaines@assurity.com",
+		"projects": [
+			{
+				"_id": "project3"
+			}
+		]
 	},
 	{
-		"id": 6,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/city/",
-		"projects": [3]
+		"_id": "54bece45ef9ab8c6d140e919",
+		"index": 5,
+		"imageUrl": "http://lorempixel.com/200/200/transport",
+		"displayName": "Wright Ayers",
+		"email": "wrightayers@assurity.com",
+		"projects": [
+			{
+				"_id": "project5"
+			},
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project5"
+			}
+		]
 	},
 	{
-		"id": 7,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/nature/",
-		"projects": [4]
+		"_id": "54bece452651e94527cd3948",
+		"index": 6,
+		"imageUrl": "http://lorempixel.com/200/200/city",
+		"displayName": "Padilla Alvarez",
+		"email": "padillaalvarez@assurity.com",
+		"projects": [
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project0"
+			}
+		]
 	},
 	{
-		"id": 8,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/technics/",
-		"projects": [5, 6]
+		"_id": "54bece450dfaecde77ec2053",
+		"index": 7,
+		"imageUrl": "http://lorempixel.com/200/200/nightlife",
+		"displayName": "Carolyn Nelson",
+		"email": "carolynnelson@assurity.com",
+		"projects": [
+			{
+				"_id": "project2"
+			}
+		]
 	},
 	{
-		"id": 9,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/sports/",
-		"projects": [5]
+		"_id": "54bece4551e567385f9dfbc0",
+		"index": 8,
+		"imageUrl": "http://lorempixel.com/200/200/people",
+		"displayName": "Mia Warren",
+		"email": "miawarren@assurity.com",
+		"projects": [
+			{
+				"_id": "project0"
+			},
+			{
+				"_id": "project3"
+			},
+			{
+				"_id": "project5"
+			}
+		]
 	},
 	{
-		"id": 10,
-		"displayName": "Bob Bert",
-		"type": 2,
-		"imageUrl": "http://lorempixel.com/200/200/city/",
-		"projects": [6]
+		"_id": "54bece452684e2be840d0156",
+		"index": 9,
+		"imageUrl": "http://lorempixel.com/200/200/nightlife",
+		"displayName": "Louisa Mcneil",
+		"email": "louisamcneil@assurity.com",
+		"projects": [
+			{
+				"_id": "project2"
+			},
+			{
+				"_id": "project2"
+			}
+		]
+	},
+	{
+		"_id": "54bece45a33659b8813eaedf",
+		"index": 10,
+		"imageUrl": "http://lorempixel.com/200/200/sports",
+		"displayName": "Pitts Ellis",
+		"email": "pittsellis@assurity.com",
+		"projects": [
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project2"
+			}
+		]
+	},
+	{
+		"_id": "54bece4517189b232e039eba",
+		"index": 11,
+		"imageUrl": "http://lorempixel.com/200/200/people",
+		"displayName": "Cynthia Bates",
+		"email": "cynthiabates@assurity.com",
+		"projects": [
+			{
+				"_id": "project1"
+			},
+			{
+				"_id": "project3"
+			},
+			{
+				"_id": "project3"
+			}
+		]
+	},
+	{
+		"_id": "54bece455df0fdf20eab61e4",
+		"index": 12,
+		"imageUrl": "http://lorempixel.com/200/200/business",
+		"displayName": "Stanton Woodward",
+		"email": "stantonwoodward@assurity.com",
+		"projects": [
+			{
+				"_id": "project2"
+			},
+			{
+				"_id": "project2"
+			},
+			{
+				"_id": "project2"
+			}
+		]
+	},
+	{
+		"_id": "54bece45e7303b1e55a01822",
+		"index": 13,
+		"imageUrl": "http://lorempixel.com/200/200/nature",
+		"displayName": "Mcfadden Cline",
+		"email": "mcfaddencline@assurity.com",
+		"projects": [
+			{
+				"_id": "project1"
+			},
+			{
+				"_id": "project4"
+			},
+			{
+				"_id": "project2"
+			}
+		]
 	}
 ]

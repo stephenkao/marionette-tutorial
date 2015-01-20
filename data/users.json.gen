@@ -1,0 +1,38 @@
+[
+  '{{repeat(5, 7)}}',
+  {
+    _id: '{{objectId()}}',
+    index: '{{index()}}',
+    imageUrl: function () {
+      var url = 'http://lorempixel.com/200/200/',
+          categories = [
+            'abstract',
+            'animals',
+            'business',
+            'cats',
+            'city',
+            'food',
+            'nightlife',
+            'fashion',
+            'people',
+            'nature',
+            'sports',
+            'technics',
+            'transport'
+          ];
+		return url + categories[Math.floor(Math.random() * categories.length)];
+    },
+    displayName: '{{firstName()}} {{surname()}}',
+    email: '{{email()}}',
+    projects: [
+      '{{repeat(1, 4)}}',
+      {
+        _id: '{{integer(0, 5)}}',
+        role: function () {
+            var roles = ['pm', 'dev', 'ui', 'ux'];
+            return roles[Math.floor(Math.random() * roles.length)];
+        }
+      }
+    ]
+  }
+]
