@@ -20,6 +20,7 @@ define([
 
 		////////// Fields
 		defaults: {
+			_id: '',
 			title: '',
 			phases: null,
 			updates: null,

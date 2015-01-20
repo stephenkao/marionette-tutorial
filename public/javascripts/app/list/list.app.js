@@ -50,6 +50,8 @@ define([
 		onRender: function () {
 			this.contentRegion.show(this.roadmapListView);
 			this.roadmapCollection.fetch({reset: true});
+
+			window.roadmapCollection = this.roadmapCollection;
 		}
 	});
 

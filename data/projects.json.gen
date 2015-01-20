@@ -1,7 +1,7 @@
 [
-	'{{repeat(5, 10)}}',
+	'{{repeat(10)}}',
 	{
-		_id: '{{objectId()}}',
+		_id: 'project' + '{{index()}}',
 		title: '{{lorem(2, "words")}}',
 		progress: '{{floating(0.0, 1.0, 1, 0.0)}}',
 		startTime: 1421193600, // all projects start 1/14/2015 (because it's easier this way)
@@ -30,7 +30,7 @@
 			var actionTitles = ['created', 'doc_edited', 'updated'],
 			actionTitlesLen = actionTitles.length,
 			allActions = [],
-			numActions = Math.floor(Math.random() * 4),
+			numActions = Math.floor(Math.random() * 6) + 2,
 			startTime = 1421193600000,
 			endTime = 1425513600000;
 

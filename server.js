@@ -24,9 +24,9 @@
 			});
 		},
 		usersJson = require(__dirname + '/data/users.json'),
-		usersLookup = _.indexBy(usersJson, 'id'),
+		usersLookup = _.indexBy(usersJson, '_id'),
 		projectsJson = require(__dirname + '/data/projects.json'),
-		projectsLookup = _.indexBy(projectsJson, 'id');
+		projectsLookup = _.indexBy(projectsJson, '_id');
 
 	////////// AJAX calls
 	app
@@ -39,13 +39,14 @@
 				var newUserObj = _.clone(userObj);
 
 				if (newUserObj.hasOwnProperty('projects')) {
-					var projectIds = _.uniq(newUserObj.projects),
+					var projectIds = _.uniq(_.pluck(newUserObj.projects, '_id')),
 						userProjects = [];
 
 					_.each(projectIds, function (id) {
 						userProjects.push(projectsLookup[id]);
 					});
 
+					console.log(userProjects);
 					newUserObj.projects = userProjects;
 				}
 

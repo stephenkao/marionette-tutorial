@@ -50,10 +50,8 @@ define([
 			});
 		},
 		onRender: function () {
-			var that = this;
-
-			that.userCollection.fetch({reset: true});
-			that.contentRegion.show(that.userListView);
+			this.userCollection.fetch({reset: true});
+			this.contentRegion.show(this.userListView);
 		}
 	});
 

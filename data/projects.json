@@ -1,145 +1,11 @@
 [
 	{
-		"_id": "54bed27bc24cb9f51cd1de2d",
-		"title": "ad nostrud",
-		"progress": 0.5,
+		"_id": "project0",
+		"title": "dolor in",
+		"progress": 0.7,
 		"startTime": 1421193600,
 		"endTime": 1425513600,
-		"priority": 83,
-		"phases": [
-			{
-				"title": "planning",
-				"startTime": 1421193600,
-				"endTime": 1422403200
-			},
-			{
-				"title": "research",
-				"startTime": 1422057600,
-				"endTime": 1423267200
-			},
-			{
-				"title": "design",
-				"startTime": 1422921600,
-				"endTime": 1424131200
-			},
-			{
-				"title": "implementation",
-				"startTime": 1423785600,
-				"endTime": 1424995200
-			},
-			{
-				"title": "followup",
-				"startTime": 1424649600,
-				"endTime": 1425859200
-			}
-		],
-		"updates": [],
-		"users": [
-			{
-				"role": "pm",
-				"_id": "user11"
-			},
-			{
-				"role": "ui",
-				"_id": "user5"
-			},
-			{
-				"role": "ux",
-				"_id": "user8"
-			},
-			{
-				"role": "pm",
-				"_id": "user7"
-			},
-			{
-				"role": "ux",
-				"_id": "user3"
-			},
-			{
-				"role": "pm",
-				"_id": "user0"
-			},
-			{
-				"role": "ui",
-				"_id": "user1"
-			}
-		],
-		"roadmap": "editor"
-	},
-	{
-		"_id": "54bed27b5210e71653aea744",
-		"title": "cillum fugiat",
-		"progress": 0.9,
-		"startTime": 1421193600,
-		"endTime": 1425513600,
-		"priority": 25,
-		"phases": [
-			{
-				"title": "planning",
-				"startTime": 1421193600,
-				"endTime": 1422403200
-			},
-			{
-				"title": "research",
-				"startTime": 1422057600,
-				"endTime": 1423267200
-			},
-			{
-				"title": "design",
-				"startTime": 1422921600,
-				"endTime": 1424131200
-			},
-			{
-				"title": "implementation",
-				"startTime": 1423785600,
-				"endTime": 1424995200
-			},
-			{
-				"title": "followup",
-				"startTime": 1424649600,
-				"endTime": 1425859200
-			}
-		],
-		"updates": [],
-		"users": [
-			{
-				"role": "dev",
-				"_id": "user13"
-			},
-			{
-				"role": "pm",
-				"_id": "user7"
-			},
-			{
-				"role": "ui",
-				"_id": "user9"
-			},
-			{
-				"role": "pm",
-				"_id": "user8"
-			},
-			{
-				"role": "ui",
-				"_id": "user12"
-			},
-			{
-				"role": "dev",
-				"_id": "user5"
-			},
-			{
-				"role": "ui",
-				"_id": "user2"
-			}
-		],
-		"roadmap": "standalone"
-	},
-	{
-		"_id": "54bed27b7f4496e8cf0e1594",
-		"title": "mollit magna",
-		"progress": 0.9,
-		"startTime": 1421193600,
-		"endTime": 1425513600,
-		"priority": 55,
+		"priority": 47,
 		"phases": [
 			{
 				"title": "planning",
@@ -170,39 +36,269 @@
 		"updates": [
 			{
 				"title": "created",
-				"timestamp": 1422815897,
+				"timestamp": 1424963174,
+				"user": "user8"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1423537263,
+				"user": "user7"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1424508181,
+				"user": "user3"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1422388279,
+				"user": "user5"
+			},
+			{
+				"title": "created",
+				"timestamp": 1423573350,
 				"user": "user12"
 			},
 			{
 				"title": "created",
-				"timestamp": 1422364119,
-				"user": "user1"
+				"timestamp": 1424792563,
+				"user": "user13"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1421739041,
+				"user": "user2"
 			}
 		],
 		"users": [
+			{
+				"role": "ui",
+				"_id": "user4"
+			},
+			{
+				"role": "ui",
+				"_id": "user0"
+			},
+			{
+				"role": "ux",
+				"_id": "user8"
+			},
+			{
+				"role": "dev",
+				"_id": "user5"
+			},
+			{
+				"role": "dev",
+				"_id": "user7"
+			},
+			{
+				"role": "ux",
+				"_id": "user3"
+			},
+			{
+				"role": "pm",
+				"_id": "user6"
+			}
+		],
+		"roadmap": "editor"
+	},
+	{
+		"_id": "project1",
+		"title": "magna ipsum",
+		"progress": 1,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 34,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "doc_edited",
+				"timestamp": 1425497984,
+				"user": "user0"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1422806751,
+				"user": "user8"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1424242616,
+				"user": "user13"
+			},
+			{
+				"title": "created",
+				"timestamp": 1422444723,
+				"user": "user1"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1423727057,
+				"user": "user4"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1424942820,
+				"user": "user11"
+			}
+		],
+		"users": [
+			{
+				"role": "ui",
+				"_id": "user8"
+			},
+			{
+				"role": "ux",
+				"_id": "user12"
+			},
+			{
+				"role": "dev",
+				"_id": "user3"
+			},
+			{
+				"role": "dev",
+				"_id": "user0"
+			},
+			{
+				"role": "ui",
+				"_id": "user5"
+			}
+		],
+		"roadmap": "stability"
+	},
+	{
+		"_id": "project2",
+		"title": "dolore adipisicing",
+		"progress": 0.8,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 89,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "updated",
+				"timestamp": 1424444025,
+				"user": "user0"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1423850909,
+				"user": "user1"
+			},
+			{
+				"title": "created",
+				"timestamp": 1423722324,
+				"user": "user0"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1425051968,
+				"user": "user4"
+			},
+			{
+				"title": "created",
+				"timestamp": 1423269462,
+				"user": "user6"
+			},
+			{
+				"title": "created",
+				"timestamp": 1422321824,
+				"user": "user1"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1423399920,
+				"user": "user7"
+			}
+		],
+		"users": [
+			{
+				"role": "pm",
+				"_id": "user4"
+			},
+			{
+				"role": "pm",
+				"_id": "user11"
+			},
+			{
+				"role": "dev",
+				"_id": "user8"
+			},
 			{
 				"role": "ux",
 				"_id": "user11"
 			},
 			{
 				"role": "pm",
+				"_id": "user6"
+			},
+			{
+				"role": "ui",
 				"_id": "user0"
 			},
 			{
-				"role": "dev",
+				"role": "ux",
 				"_id": "user0"
-			},
-			{
-				"role": "dev",
-				"_id": "user11"
 			}
 		],
-		"roadmap": "stability"
+		"roadmap": "editor"
 	},
 	{
-		"_id": "54bed27b069fb8e5e07450cc",
-		"title": "incididunt qui",
-		"progress": 0.7,
+		"_id": "project3",
+		"title": "ullamco enim",
+		"progress": 0.9,
 		"startTime": 1421193600,
 		"endTime": 1425513600,
 		"priority": 68,
@@ -233,42 +329,125 @@
 				"endTime": 1425859200
 			}
 		],
-		"updates": [],
+		"updates": [
+			{
+				"title": "created",
+				"timestamp": 1423892141,
+				"user": "user3"
+			},
+			{
+				"title": "created",
+				"timestamp": 1423410747,
+				"user": "user13"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1424604508,
+				"user": "user9"
+			}
+		],
 		"users": [
 			{
-				"role": "ux",
-				"_id": "user6"
-			},
-			{
-				"role": "dev",
-				"_id": "user6"
-			},
-			{
 				"role": "ui",
-				"_id": "user2"
-			},
-			{
-				"role": "pm",
-				"_id": "user12"
+				"_id": "user0"
 			},
 			{
 				"role": "ux",
 				"_id": "user11"
 			},
 			{
+				"role": "pm",
+				"_id": "user0"
+			}
+		],
+		"roadmap": "reading"
+	},
+	{
+		"_id": "project4",
+		"title": "do consectetur",
+		"progress": 0.9,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 35,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "updated",
+				"timestamp": 1424011592,
+				"user": "user9"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1421392356,
+				"user": "user10"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1421858466,
+				"user": "user4"
+			}
+		],
+		"users": [
+			{
+				"role": "ux",
+				"_id": "user10"
+			},
+			{
+				"role": "ux",
+				"_id": "user2"
+			},
+			{
 				"role": "ui",
-				"_id": "user4"
+				"_id": "user6"
+			},
+			{
+				"role": "ui",
+				"_id": "user8"
+			},
+			{
+				"role": "ui",
+				"_id": "user12"
+			},
+			{
+				"role": "ux",
+				"_id": "user11"
 			}
 		],
 		"roadmap": "stability"
 	},
 	{
-		"_id": "54bed27b0c63c6861e2e31c8",
-		"title": "labore fugiat",
-		"progress": 1,
+		"_id": "project5",
+		"title": "ipsum aute",
+		"progress": 0.5,
 		"startTime": 1421193600,
 		"endTime": 1425513600,
-		"priority": 64,
+		"priority": 92,
 		"phases": [
 			{
 				"title": "planning",
@@ -299,23 +478,294 @@
 		"updates": [
 			{
 				"title": "created",
-				"timestamp": 1422235069,
+				"timestamp": 1424276737,
+				"user": "user3"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1421795670,
+				"user": "user10"
+			},
+			{
+				"title": "created",
+				"timestamp": 1423368974,
+				"user": "user7"
+			},
+			{
+				"title": "created",
+				"timestamp": 1425424728,
+				"user": "user13"
+			},
+			{
+				"title": "created",
+				"timestamp": 1421583498,
+				"user": "user13"
+			}
+		],
+		"users": [
+			{
+				"role": "dev",
+				"_id": "user11"
+			},
+			{
+				"role": "ui",
+				"_id": "user7"
+			},
+			{
+				"role": "ux",
+				"_id": "user12"
+			},
+			{
+				"role": "pm",
+				"_id": "user11"
+			}
+		],
+		"roadmap": "standalone"
+	},
+	{
+		"_id": "project6",
+		"title": "commodo occaecat",
+		"progress": 0.5,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 9,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "doc_edited",
+				"timestamp": 1425087842,
+				"user": "user3"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1421194775,
+				"user": "user12"
+			}
+		],
+		"users": [
+			{
+				"role": "ux",
+				"_id": "user8"
+			},
+			{
+				"role": "ux",
+				"_id": "user0"
+			},
+			{
+				"role": "pm",
+				"_id": "user12"
+			},
+			{
+				"role": "dev",
+				"_id": "user10"
+			}
+		],
+		"roadmap": "reading"
+	},
+	{
+		"_id": "project7",
+		"title": "eiusmod tempor",
+		"progress": 0.6,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 18,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "created",
+				"timestamp": 1421472372,
 				"user": "user2"
 			},
 			{
 				"title": "updated",
-				"timestamp": 1425248893,
+				"timestamp": 1424197084,
+				"user": "user4"
+			},
+			{
+				"title": "created",
+				"timestamp": 1422153795,
+				"user": "user5"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1422356257,
+				"user": "user10"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1423905514,
+				"user": "user0"
+			},
+			{
+				"title": "created",
+				"timestamp": 1422106380,
+				"user": "user13"
+			},
+			{
+				"title": "created",
+				"timestamp": 1424673538,
 				"user": "user6"
 			}
 		],
 		"users": [
 			{
+				"role": "ux",
+				"_id": "user2"
+			},
+			{
 				"role": "ui",
+				"_id": "user6"
+			},
+			{
+				"role": "ux",
 				"_id": "user11"
 			},
 			{
 				"role": "ui",
-				"_id": "user9"
+				"_id": "user7"
+			}
+		],
+		"roadmap": "stability"
+	},
+	{
+		"_id": "project8",
+		"title": "ut veniam",
+		"progress": 0.4,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 36,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "doc_edited",
+				"timestamp": 1422492802,
+				"user": "user6"
+			},
+			{
+				"title": "created",
+				"timestamp": 1424974953,
+				"user": "user6"
+			},
+			{
+				"title": "created",
+				"timestamp": 1422081812,
+				"user": "user13"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1421886693,
+				"user": "user9"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1422385364,
+				"user": "user1"
+			},
+			{
+				"title": "created",
+				"timestamp": 1424918668,
+				"user": "user5"
+			},
+			{
+				"title": "doc_edited",
+				"timestamp": 1422887909,
+				"user": "user11"
+			}
+		],
+		"users": [
+			{
+				"role": "ui",
+				"_id": "user0"
+			},
+			{
+				"role": "ux",
+				"_id": "user0"
+			},
+			{
+				"role": "ui",
+				"_id": "user1"
+			},
+			{
+				"role": "ux",
+				"_id": "user5"
 			},
 			{
 				"role": "dev",
@@ -323,11 +773,81 @@
 			},
 			{
 				"role": "ui",
-				"_id": "user3"
+				"_id": "user1"
+			},
+			{
+				"role": "pm",
+				"_id": "user4"
+			}
+		],
+		"roadmap": "stability"
+	},
+	{
+		"_id": "project9",
+		"title": "fugiat nisi",
+		"progress": 0.7,
+		"startTime": 1421193600,
+		"endTime": 1425513600,
+		"priority": 99,
+		"phases": [
+			{
+				"title": "planning",
+				"startTime": 1421193600,
+				"endTime": 1422403200
+			},
+			{
+				"title": "research",
+				"startTime": 1422057600,
+				"endTime": 1423267200
+			},
+			{
+				"title": "design",
+				"startTime": 1422921600,
+				"endTime": 1424131200
+			},
+			{
+				"title": "implementation",
+				"startTime": 1423785600,
+				"endTime": 1424995200
+			},
+			{
+				"title": "followup",
+				"startTime": 1424649600,
+				"endTime": 1425859200
+			}
+		],
+		"updates": [
+			{
+				"title": "updated",
+				"timestamp": 1422065689,
+				"user": "user10"
+			},
+			{
+				"title": "updated",
+				"timestamp": 1421289603,
+				"user": "user3"
+			}
+		],
+		"users": [
+			{
+				"role": "pm",
+				"_id": "user10"
 			},
 			{
 				"role": "ui",
-				"_id": "user7"
+				"_id": "user2"
+			},
+			{
+				"role": "dev",
+				"_id": "user1"
+			},
+			{
+				"role": "pm",
+				"_id": "user8"
+			},
+			{
+				"role": "ui",
+				"_id": "user9"
 			}
 		],
 		"roadmap": "editor"

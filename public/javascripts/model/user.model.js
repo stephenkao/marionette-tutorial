@@ -18,7 +18,11 @@ define([
 
 		////////// Fields
 		defaults: {
-			displayName: 'D. Fault'
+			_id: '',
+			imageUrl: '',
+			displayName: '',
+			email: '',
+			projects: null
 		}
 	}, {
 		// Static/class variables
