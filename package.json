@@ -35,6 +35,8 @@
     "grunt"
   ],
   "dependencies": {
-    "express": "^4.10.6"
+    "express": "^4.10.6",
+    "jsonfile": "^2.0.0",
+    "node-eden": "0.0.3"
   }
 }

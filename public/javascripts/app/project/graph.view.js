@@ -28,11 +28,11 @@ define([
 		template: lesir.components.project.graph,
 		initialize: function () {
 			this.listenTo(MarionetteApp, 'project:dom:added', this.onDomAdded);
-			this.listenTo(this.model.get('phases'), 'reset', this.onDomAdded);
+			this.listenTo(this.model.get('tasks'), 'reset', this.onDomAdded);
 		},
 
 		onDomAdded: function () {
-			var phaseCollection = this.model.get('phases');
+			var phaseCollection = this.model.get('tasks');
 
 			if (!phaseCollection.length) {
 				return;

@@ -27,9 +27,9 @@ define([
 
 		serializeData: function () {
 			return {
-				action: this.model.get('action'),
+				title: this.model.get('title'),
 				date: stringUtils.formatDate(this.model.get('timestamp') * 1000),
-				user: this.model.get('user')
+				user: this.model.get('user').displayName
 			};
 		}
 	});

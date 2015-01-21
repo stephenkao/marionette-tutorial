@@ -22,9 +22,8 @@ define([
 		defaults: {
 			_id: '',
 			title: '',
-			phases: null,
-			updates: null,
 			tasks: null,
+			updates: null,
 			progress: 0,
 			startTime: 0,
 			endTime: 0,
@@ -47,15 +46,15 @@ define([
 			this.set('startTime', startTime * 1000);
 			this.set('endTime', endTime * 1000);
 
-			this.set('phases', new Backbone.Collection());
+			this.set('tasks', new Backbone.Collection());
 			this.set('tasks', new Backbone.Collection());
 			this.set('updates', new Backbone.Collection());
 		},
 		parse: function (response) {
 			var updateRecords = response.updates,
 				updateCollection = this.get('updates'),
-				phaseRecords = response.phases,
-			    	phaseCollection = this.get('phases');
+				taskRecords = response.tasks,
+			    	taskCollection = this.get('tasks');
 
 			// Save updates
 			updateRecords.forEach(function (updateRecord) {
@@ -63,17 +62,17 @@ define([
 			});
 			updateCollection.trigger('reset');
 
-			// Save phases
-			phaseRecords.forEach(function (phaseRecord) {
-				// Extend the phase record so the D3 Gantt library can understand it
-				phaseRecord = _.extend(phaseRecord, {
-					startDate: new Date(phaseRecord.startTime * 1000),
-					endDate: new Date(phaseRecord.endTime * 1000),
-					taskName: phaseRecord.title
+			// Save tasks
+			taskRecords.forEach(function (taskRecord) {
+				// Extend the task record so the D3 Gantt library can understand it
+				taskRecord = _.extend(taskRecord, {
+					startDate: new Date(taskRecord.startTime * 1000),
+					endDate: new Date(taskRecord.endTime * 1000),
+					taskName: taskRecord.title
 				});
-				phaseCollection.add(phaseRecord);
+				taskCollection.add(taskRecord);
 			});
-			phaseCollection.trigger('reset');
+			taskCollection.trigger('reset');
 		},
 
 		////////// Personnel

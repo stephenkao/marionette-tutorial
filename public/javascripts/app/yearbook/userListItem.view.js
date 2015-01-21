@@ -32,20 +32,20 @@ define([
 				displayName: user.displayName,
 				imageUrl: user.imageUrl,
 				projects: _.each(user.projects, function (project) {
-					var phasesLen = project.phases.length,
-						currentPhase;
+					var tasksLen = project.tasks.length,
+						currentTask;
 
-					// Determine the current phase of the project
-					currentPhase = _.findWhere(project.phases, function (phase) {
-						return (today < phase.endTime && today > phase.startTime);
+					// Determine the current task of the project
+					currentTask = _.findWhere(project.tasks, function (task) {
+						return (today < task.endTime && today > task.startTime);
 					});
 
-					// ...or default to the last phase
-					if (!currentPhase) {
-						currentPhase = project.phases[phasesLen - 1];
+					// ...or default to the last task
+					if (!currentTask) {
+						currentTask = project.tasks[tasksLen - 1];
 					}
 
-					project.currentPhase = currentPhase.title;
+					project.currentTask = currentTask.title;
 
 					return project;
 				})
