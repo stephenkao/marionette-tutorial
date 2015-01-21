@@ -1,864 +1,532 @@
 [
         {
-                "_id": "project0",
-                "title": "illuminative cloverleaf",
-                "progress": 0.8056247066939249,
-                "startTime": 1419135083,
-                "endTime": 1420517483,
-                "priority": 76,
+                "_id": "projectundefined",
+                "title": "disapprove maturate",
+                "progress": "1.1",
+                "startTime": 1419014358,
+                "endTime": 1423247958,
+                "priority": 74,
                 "tasks": [
                         {
                                 "title": "planning",
-                                "startTime": 1419135083,
-                                "endTime": 1420690283
+                                "startTime": 1419014358,
+                                "endTime": 1420915158
                         },
                         {
                                 "title": "research",
-                                "startTime": 1420344683,
-                                "endTime": 1420258283
+                                "startTime": 1419619158,
+                                "endTime": 1421260758
                         },
                         {
                                 "title": "design",
-                                "startTime": 1421554283,
-                                "endTime": 1420776683
+                                "startTime": 1420223958,
+                                "endTime": 1422815958
                         },
                         {
                                 "title": "implementation",
-                                "startTime": 1422763883,
-                                "endTime": 1420603883
+                                "startTime": 1420828758,
+                                "endTime": 1422038358
                         },
                         {
                                 "title": "followup",
-                                "startTime": 1423973483,
-                                "endTime": 1420517483
+                                "startTime": 1421433558,
+                                "endTime": 1423247958
                         }
                 ],
                 "updates": [
                         {
                                 "type": "document uploaded",
-                                "created": 2439375450,
-                                "user_id": "user15"
+                                "created": 1420522875
                         },
                         {
                                 "type": "project updated",
-                                "created": 1517393668,
-                                "user_id": "user15"
+                                "created": 1423029836
                         }
                 ],
-                "roadmap": "standalone",
-                "users": [
-                        {
-                                "role": "dev",
-                                "user_id": "user3"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user6"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user7"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user15"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user18"
-                        }
-                ]
+                "roadmap": "reading",
+                "users": []
         },
         {
-                "_id": "project1",
-                "title": "insomnia cabinetwork",
-                "progress": 0.5836725066648797,
-                "startTime": 1417320683,
-                "endTime": 1418271083,
-                "priority": 77,
+                "_id": "projectundefined",
+                "title": "nitrile infirmity",
+                "progress": "0.1",
+                "startTime": 1418841558,
+                "endTime": 1422556758,
+                "priority": 28,
                 "tasks": [
                         {
                                 "title": "planning",
-                                "startTime": 1417320683,
-                                "endTime": 1418011883
+                                "startTime": 1418841558,
+                                "endTime": 1421692758
                         },
                         {
                                 "title": "research",
-                                "startTime": 1418530283,
-                                "endTime": 1418962283
+                                "startTime": 1419446358,
+                                "endTime": 1421433558
                         },
                         {
                                 "title": "design",
-                                "startTime": 1419739883,
-                                "endTime": 1418011883
+                                "startTime": 1420051158,
+                                "endTime": 1421433558
                         },
                         {
                                 "title": "implementation",
-                                "startTime": 1420949483,
-                                "endTime": 1418357483
+                                "startTime": 1420655958,
+                                "endTime": 1422902358
                         },
                         {
                                 "title": "followup",
-                                "startTime": 1422159083,
-                                "endTime": 1418271083
+                                "startTime": 1421260758,
+                                "endTime": 1422556758
+                        }
+                ],
+                "updates": [
+                        {
+                                "type": "document uploaded",
+                                "created": 1418897344
+                        },
+                        {
+                                "type": "document edited",
+                                "created": 1420324157
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1422458842
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1422466337
+                        }
+                ],
+                "roadmap": "stability",
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "pinxit intestate",
+                "progress": "1.1",
+                "startTime": 1418841558,
+                "endTime": 1423161558,
+                "priority": 90,
+                "tasks": [
+                        {
+                                "title": "planning",
+                                "startTime": 1418841558,
+                                "endTime": 1420310358
+                        },
+                        {
+                                "title": "research",
+                                "startTime": 1419446358,
+                                "endTime": 1421692758
+                        },
+                        {
+                                "title": "design",
+                                "startTime": 1420051158,
+                                "endTime": 1422383958
+                        },
+                        {
+                                "title": "implementation",
+                                "startTime": 1420655958,
+                                "endTime": 1422729558
+                        },
+                        {
+                                "title": "followup",
+                                "startTime": 1421260758,
+                                "endTime": 1423161558
+                        }
+                ],
+                "updates": [
+                        {
+                                "type": "project updated",
+                                "created": 1420708481
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1421773032
+                        },
+                        {
+                                "type": "document edited",
+                                "created": 1419796017
+                        },
+                        {
+                                "type": "document edited",
+                                "created": 1421064793
+                        },
+                        {
+                                "type": "project updated",
+                                "created": 1418903589
+                        }
+                ],
+                "roadmap": "standalone",
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "mucin croquette",
+                "progress": "0.1",
+                "startTime": 1418582358,
+                "endTime": 1423334358,
+                "priority": 55,
+                "tasks": [
+                        {
+                                "title": "planning",
+                                "startTime": 1418582358,
+                                "endTime": 1420569558
+                        },
+                        {
+                                "title": "research",
+                                "startTime": 1419187158,
+                                "endTime": 1421001558
+                        },
+                        {
+                                "title": "design",
+                                "startTime": 1419791958,
+                                "endTime": 1421606358
+                        },
+                        {
+                                "title": "implementation",
+                                "startTime": 1420396758,
+                                "endTime": 1422815958
+                        },
+                        {
+                                "title": "followup",
+                                "startTime": 1421001558,
+                                "endTime": 1423334358
+                        }
+                ],
+                "updates": [
+                        {
+                                "type": "document uploaded",
+                                "created": 1419342612
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1418738099
+                        }
+                ],
+                "roadmap": "stability",
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "vesica letup",
+                "progress": "1.1",
+                "startTime": 1419532758,
+                "endTime": 1423420758,
+                "priority": 30,
+                "tasks": [
+                        {
+                                "title": "planning",
+                                "startTime": 1419532758,
+                                "endTime": 1422038358
+                        },
+                        {
+                                "title": "research",
+                                "startTime": 1420137558,
+                                "endTime": 1423161558
+                        },
+                        {
+                                "title": "design",
+                                "startTime": 1420742358,
+                                "endTime": 1422988758
+                        },
+                        {
+                                "title": "implementation",
+                                "startTime": 1421347158,
+                                "endTime": 1423679958
+                        },
+                        {
+                                "title": "followup",
+                                "startTime": 1421951958,
+                                "endTime": 1423420758
+                        }
+                ],
+                "updates": [
+                        {
+                                "type": "project updated",
+                                "created": 1422410762
+                        },
+                        {
+                                "type": "project updated",
+                                "created": 1419627048
+                        },
+                        {
+                                "type": "document edited",
+                                "created": 1420888246
+                        },
+                        {
+                                "type": "document edited",
+                                "created": 1422958011
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1423098414
+                        }
+                ],
+                "roadmap": "reading",
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "condone viviparous",
+                "progress": "0.1",
+                "startTime": 1418927958,
+                "endTime": 1423766358,
+                "priority": 70,
+                "tasks": [
+                        {
+                                "title": "planning",
+                                "startTime": 1418927958,
+                                "endTime": 1420310358
+                        },
+                        {
+                                "title": "research",
+                                "startTime": 1419532758,
+                                "endTime": 1422470358
+                        },
+                        {
+                                "title": "design",
+                                "startTime": 1420137558,
+                                "endTime": 1422124758
+                        },
+                        {
+                                "title": "implementation",
+                                "startTime": 1420742358,
+                                "endTime": 1422815958
+                        },
+                        {
+                                "title": "followup",
+                                "startTime": 1421347158,
+                                "endTime": 1423766358
                         }
                 ],
                 "updates": [
                         {
                                 "type": "document edited",
-                                "created": 2740955638,
-                                "user_id": "user14"
+                                "created": 1419187413
+                        },
+                        {
+                                "type": "project created",
+                                "created": 1422155720
                         },
                         {
                                 "type": "document uploaded",
-                                "created": 2481907792,
-                                "user_id": "user9"
+                                "created": 1423537012
                         },
                         {
                                 "type": "project updated",
-                                "created": 2743647174,
-                                "user_id": "user16"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 2448750944,
-                                "user_id": "user14"
+                                "created": 1419693570
                         },
                         {
                                 "type": "document uploaded",
-                                "created": 1896813137,
-                                "user_id": "user18"
+                                "created": 1419376071
                         }
                 ],
                 "roadmap": "refresh",
-                "users": [
-                        {
-                                "role": "ux",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user9"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user10"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user12"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user14"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user16"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user18"
-                        }
-                ]
+                "users": []
         },
         {
-                "_id": "project2",
-                "title": "diluvial febri",
-                "progress": 0.36751759967301045,
-                "startTime": 1416370283,
-                "endTime": 1416975083,
-                "priority": 63,
+                "_id": "projectundefined",
+                "title": "subtype bipod",
+                "progress": "0.1",
+                "startTime": 1419619158,
+                "endTime": 1423766358,
+                "priority": 25,
                 "tasks": [
                         {
                                 "title": "planning",
-                                "startTime": 1416370283,
-                                "endTime": 1418616683
+                                "startTime": 1419619158,
+                                "endTime": 1422383958
                         },
                         {
                                 "title": "research",
-                                "startTime": 1417579883,
-                                "endTime": 1418703083
+                                "startTime": 1420223958,
+                                "endTime": 1421606358
                         },
                         {
                                 "title": "design",
-                                "startTime": 1418789483,
-                                "endTime": 1417579883
+                                "startTime": 1420828758,
+                                "endTime": 1423593558
                         },
                         {
                                 "title": "implementation",
-                                "startTime": 1419999083,
-                                "endTime": 1416975083
+                                "startTime": 1421433558,
+                                "endTime": 1423420758
                         },
                         {
                                 "title": "followup",
-                                "startTime": 1421208683,
-                                "endTime": 1416975083
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "project created",
-                                "created": 2053709850,
-                                "user_id": "user18"
-                        },
-                        {
-                                "type": "document edited",
-                                "created": 2705766140,
-                                "user_id": "user11"
-                        },
-                        {
-                                "type": "document edited",
-                                "created": 1545360449,
-                                "user_id": "user5"
-                        },
-                        {
-                                "type": "document uploaded",
-                                "created": 2172190012,
-                                "user_id": "user3"
-                        }
-                ],
-                "roadmap": "standalone",
-                "users": [
-                        {
-                                "role": "pm",
-                                "user_id": "user2"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user3"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user4"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user5"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user9"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user11"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user12"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user18"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user19"
-                        }
-                ]
-        },
-        {
-                "_id": "project3",
-                "title": "blister stingo",
-                "progress": 0.976845980505459,
-                "startTime": 1418875883,
-                "endTime": 1420690283,
-                "priority": 17,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1418875883,
-                                "endTime": 1421035883
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1420085483,
-                                "endTime": 1421208683
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1421295083,
-                                "endTime": 1419567083
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1422504683,
-                                "endTime": 1420431083
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1423714283,
-                                "endTime": 1420690283
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "project created",
-                                "created": 1626332346,
-                                "user_id": "user19"
-                        },
-                        {
-                                "type": "project created",
-                                "created": 1676312583,
-                                "user_id": "user16"
-                        }
-                ],
-                "roadmap": "coral",
-                "users": [
-                        {
-                                "role": "pm",
-                                "user_id": "user1"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user4"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user7"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user10"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user11"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user16"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user17"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user19"
-                        }
-                ]
-        },
-        {
-                "_id": "project4",
-                "title": "dicrotic polygamist",
-                "progress": 0.12383205343503506,
-                "startTime": 1417493483,
-                "endTime": 1419307883,
-                "priority": 65,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1417493483,
-                                "endTime": 1419048683
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1418703083,
-                                "endTime": 1419567083
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1419912683,
-                                "endTime": 1418530283
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1421122283,
-                                "endTime": 1419135083
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1422331883,
-                                "endTime": 1419307883
+                                "startTime": 1422038358,
+                                "endTime": 1423766358
                         }
                 ],
                 "updates": [
                         {
                                 "type": "document edited",
-                                "created": 1432533934,
-                                "user_id": "user19"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 2619096715,
-                                "user_id": "user17"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 1450846733,
-                                "user_id": "user10"
+                                "created": 1422237528
                         },
                         {
                                 "type": "document edited",
-                                "created": 2385182605,
-                                "user_id": "user8"
-                        },
-                        {
-                                "type": "document uploaded",
-                                "created": 1510258053,
-                                "user_id": "user6"
+                                "created": 1419901118
                         }
                 ],
                 "roadmap": "editor",
-                "users": [
-                        {
-                                "role": "dev",
-                                "user_id": "user4"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user6"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user10"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user17"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user19"
-                        }
-                ]
+                "users": []
         },
         {
-                "_id": "project5",
-                "title": "ecology smaragdite",
-                "progress": 0.7961878664093092,
-                "startTime": 1418616683,
-                "endTime": 1420171883,
+                "_id": "projectundefined",
+                "title": "sheepshank baccate",
+                "progress": "1.1",
+                "startTime": 1418409558,
+                "endTime": 1422297558,
                 "priority": 57,
                 "tasks": [
                         {
                                 "title": "planning",
-                                "startTime": 1418616683,
-                                "endTime": 1420431083
+                                "startTime": 1418409558,
+                                "endTime": 1421001558
                         },
                         {
                                 "title": "research",
-                                "startTime": 1419826283,
-                                "endTime": 1420517483
+                                "startTime": 1419014358,
+                                "endTime": 1421951958
                         },
                         {
                                 "title": "design",
-                                "startTime": 1421035883,
-                                "endTime": 1420776683
+                                "startTime": 1419619158,
+                                "endTime": 1421692758
                         },
                         {
                                 "title": "implementation",
-                                "startTime": 1422245483,
-                                "endTime": 1420517483
+                                "startTime": 1420223958,
+                                "endTime": 1421692758
                         },
                         {
                                 "title": "followup",
-                                "startTime": 1423455083,
-                                "endTime": 1420171883
+                                "startTime": 1420828758,
+                                "endTime": 1422297558
                         }
                 ],
                 "updates": [
                         {
-                                "type": "document uploaded",
-                                "created": 1783781120,
-                                "user_id": "user0"
+                                "type": "project updated",
+                                "created": 1421209122
                         },
                         {
                                 "type": "document uploaded",
-                                "created": 1702922431,
-                                "user_id": "user10"
+                                "created": 1422139544
                         },
                         {
                                 "type": "document edited",
-                                "created": 2628254798,
-                                "user_id": "user8"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 2469804349,
-                                "user_id": "user14"
-                        },
-                        {
-                                "type": "document edited",
-                                "created": 2612985686,
-                                "user_id": "user16"
-                        }
-                ],
-                "roadmap": "stability",
-                "users": [
-                        {
-                                "role": "ui",
-                                "user_id": "user0"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user10"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user12"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user14"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user16"
-                        }
-                ]
-        },
-        {
-                "_id": "project6",
-                "title": "knitted anaphrodisiac",
-                "progress": 0.46844942057505257,
-                "startTime": 1419480683,
-                "endTime": 1421467883,
-                "priority": 15,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1419480683,
-                                "endTime": 1420344683
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1420690283,
-                                "endTime": 1421208683
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1421899883,
-                                "endTime": 1420690283
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1423109483,
-                                "endTime": 1420431083
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1424319083,
-                                "endTime": 1421467883
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "project updated",
-                                "created": 1430949897,
-                                "user_id": "user2"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 1809034726,
-                                "user_id": "user2"
-                        }
-                ],
-                "roadmap": "reading",
-                "users": [
-                        {
-                                "role": "pm",
-                                "user_id": "user1"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user2"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user12"
-                        }
-                ]
-        },
-        {
-                "_id": "project7",
-                "title": "daisy baton",
-                "progress": 0.2805279006017372,
-                "startTime": 1417752683,
-                "endTime": 1418616683,
-                "priority": 91,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1417752683,
-                                "endTime": 1419912683
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1418962283,
-                                "endTime": 1418443883
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1420171883,
-                                "endTime": 1419307883
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1421381483,
-                                "endTime": 1419653483
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1422591083,
-                                "endTime": 1418616683
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "document uploaded",
-                                "created": 2564127546,
-                                "user_id": "user7"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 2353397141,
-                                "user_id": "user13"
-                        }
-                ],
-                "roadmap": "stability",
-                "users": [
-                        {
-                                "role": "ui",
-                                "user_id": "user2"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user7"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user11"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user13"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user19"
-                        }
-                ]
-        },
-        {
-                "_id": "project8",
-                "title": "borscht stench",
-                "progress": 0.5876103813527153,
-                "startTime": 1416715883,
-                "endTime": 1418271083,
-                "priority": 50,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1416715883,
-                                "endTime": 1417839083
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1417925483,
-                                "endTime": 1418962283
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1419135083,
-                                "endTime": 1417752683
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1420344683,
-                                "endTime": 1417752683
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1421554283,
-                                "endTime": 1418271083
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "project created",
-                                "created": 1833708230,
-                                "user_id": "user18"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 1665114955,
-                                "user_id": "user17"
-                        },
-                        {
-                                "type": "project updated",
-                                "created": 2428638128,
-                                "user_id": "user8"
-                        },
-                        {
-                                "type": "document edited",
-                                "created": 2339320178,
-                                "user_id": "user6"
-                        },
-                        {
-                                "type": "document uploaded",
-                                "created": 1832094566,
-                                "user_id": "user8"
-                        },
-                        {
-                                "type": "document uploaded",
-                                "created": 1424348650,
-                                "user_id": "user19"
-                        }
-                ],
-                "roadmap": "stability",
-                "users": [
-                        {
-                                "role": "ux",
-                                "user_id": "user5"
-                        },
-                        {
-                                "role": "dev",
-                                "user_id": "user6"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user13"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user14"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user17"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user18"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user19"
-                        }
-                ]
-        },
-        {
-                "_id": "project9",
-                "title": "saloop aerodrome",
-                "progress": 0.6752903293119743,
-                "startTime": 1417407083,
-                "endTime": 1419567083,
-                "priority": 40,
-                "tasks": [
-                        {
-                                "title": "planning",
-                                "startTime": 1417407083,
-                                "endTime": 1418616683
-                        },
-                        {
-                                "title": "research",
-                                "startTime": 1418616683,
-                                "endTime": 1418184683
-                        },
-                        {
-                                "title": "design",
-                                "startTime": 1419826283,
-                                "endTime": 1419221483
-                        },
-                        {
-                                "title": "implementation",
-                                "startTime": 1421035883,
-                                "endTime": 1418530283
-                        },
-                        {
-                                "title": "followup",
-                                "startTime": 1422245483,
-                                "endTime": 1419567083
-                        }
-                ],
-                "updates": [
-                        {
-                                "type": "project created",
-                                "created": 1835111039,
-                                "user_id": "user7"
-                        },
-                        {
-                                "type": "document edited",
-                                "created": 1797938203,
-                                "user_id": "user3"
-                        },
-                        {
-                                "type": "document uploaded",
-                                "created": 1512138280,
-                                "user_id": "user7"
+                                "created": 1418505693
                         },
                         {
                                 "type": "project created",
-                                "created": 1884815570,
-                                "user_id": "user4"
+                                "created": 1420650960
                         },
                         {
                                 "type": "project updated",
-                                "created": 2561962868,
-                                "user_id": "user18"
+                                "created": 1421252421
                         }
                 ],
                 "roadmap": "standalone",
-                "users": [
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "pluviometer perspicacious",
+                "progress": "0.1",
+                "startTime": 1419187158,
+                "endTime": 1423420758,
+                "priority": 90,
+                "tasks": [
                         {
-                                "role": "ux",
-                                "user_id": "user0"
+                                "title": "planning",
+                                "startTime": 1419187158,
+                                "endTime": 1421260758
                         },
                         {
-                                "role": "dev",
-                                "user_id": "user2"
+                                "title": "research",
+                                "startTime": 1419791958,
+                                "endTime": 1421692758
                         },
                         {
-                                "role": "ux",
-                                "user_id": "user3"
+                                "title": "design",
+                                "startTime": 1420396758,
+                                "endTime": 1422038358
                         },
                         {
-                                "role": "ux",
-                                "user_id": "user4"
+                                "title": "implementation",
+                                "startTime": 1421001558,
+                                "endTime": 1422988758
                         },
                         {
-                                "role": "ui",
-                                "user_id": "user7"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user8"
-                        },
-                        {
-                                "role": "ux",
-                                "user_id": "user11"
-                        },
-                        {
-                                "role": "ui",
-                                "user_id": "user12"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user15"
-                        },
-                        {
-                                "role": "pm",
-                                "user_id": "user18"
+                                "title": "followup",
+                                "startTime": 1421606358,
+                                "endTime": 1423420758
                         }
-                ]
+                ],
+                "updates": [
+                        {
+                                "type": "project updated",
+                                "created": 1422676560
+                        },
+                        {
+                                "type": "project created",
+                                "created": 1420474897
+                        },
+                        {
+                                "type": "document uploaded",
+                                "created": 1422006293
+                        }
+                ],
+                "roadmap": "refresh",
+                "users": []
+        },
+        {
+                "_id": "projectundefined",
+                "title": "anatase fuchsin",
+                "progress": "0.1",
+                "startTime": 1418841558,
+                "endTime": 1423507158,
+                "priority": 62,
+                "tasks": [
+                        {
+                                "title": "planning",
+                                "startTime": 1418841558,
+                                "endTime": 1421779158
+                        },
+                        {
+                                "title": "research",
+                                "startTime": 1419446358,
+                                "endTime": 1420655958
+                        },
+                        {
+                                "title": "design",
+                                "startTime": 1420051158,
+                                "endTime": 1422643158
+                        },
+                        {
+                                "title": "implementation",
+                                "startTime": 1420655958,
+                                "endTime": 1422643158
+                        },
+                        {
+                                "title": "followup",
+                                "startTime": 1421260758,
+                                "endTime": 1423507158
+                        }
+                ],
+                "updates": [
+                        {
+                                "type": "project updated",
+                                "created": 1422664793
+                        },
+                        {
+                                "type": "project updated",
+                                "created": 1423195470
+                        }
+                ],
+                "roadmap": "coral",
+                "users": []
         }
 ]

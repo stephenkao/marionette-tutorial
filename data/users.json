@@ -1,264 +1,217 @@
 [
-	{
-		"_id": "user0",
-		"imageUrl": "http://lorempixel.com/200/200/technics/7",
-		"displayName": "Cherie Vaughan",
-		"email": "cherievaughan@assurity.com",
-		"projects": [
-			{
-				"_id": "project4"
-			},
-			{
-				"_id": "project8"
-			},
-			{
-				"_id": "project0"
-			}
-		]
-	},
-	{
-		"_id": "user1",
-		"imageUrl": "http://lorempixel.com/200/200/technics/10",
-		"displayName": "Selma Dickerson",
-		"email": "selmadickerson@assurity.com",
-		"projects": [
-			{
-				"_id": "project9"
-			},
-			{
-				"_id": "project2"
-			},
-			{
-				"_id": "project6"
-			}
-		]
-	},
-	{
-		"_id": "user2",
-		"imageUrl": "http://lorempixel.com/200/200/fashion/5",
-		"displayName": "Marietta Mcknight",
-		"email": "mariettamcknight@assurity.com",
-		"projects": [
-			{
-				"_id": "project2"
-			}
-		]
-	},
-	{
-		"_id": "user3",
-		"imageUrl": "http://lorempixel.com/200/200/food/7",
-		"displayName": "Louise Hickman",
-		"email": "louisehickman@assurity.com",
-		"projects": [
-			{
-				"_id": "project9"
-			}
-		]
-	},
-	{
-		"_id": "user4",
-		"imageUrl": "http://lorempixel.com/200/200/food/4",
-		"displayName": "Petra Massey",
-		"email": "petramassey@assurity.com",
-		"projects": [
-			{
-				"_id": "project8"
-			}
-		]
-	},
-	{
-		"_id": "user5",
-		"imageUrl": "http://lorempixel.com/200/200/cats/1",
-		"displayName": "Robbins Carney",
-		"email": "robbinscarney@assurity.com",
-		"projects": [
-			{
-				"_id": "project6"
-			},
-			{
-				"_id": "project1"
-			}
-		]
-	},
-	{
-		"_id": "user6",
-		"imageUrl": "http://lorempixel.com/200/200/people/8",
-		"displayName": "Ramona Camacho",
-		"email": "ramonacamacho@assurity.com",
-		"projects": [
-			{
-				"_id": "project2"
-			}
-		]
-	},
-	{
-		"_id": "user7",
-		"imageUrl": "http://lorempixel.com/200/200/city/10",
-		"displayName": "Kristine Huber",
-		"email": "kristinehuber@assurity.com",
-		"projects": [
-			{
-				"_id": "project4"
-			},
-			{
-				"_id": "project2"
-			},
-			{
-				"_id": "project7"
-			}
-		]
-	},
-	{
-		"_id": "user8",
-		"imageUrl": "http://lorempixel.com/200/200/business/3",
-		"displayName": "Ortiz Hyde",
-		"email": "ortizhyde@assurity.com",
-		"projects": [
-			{
-				"_id": "project0"
-			},
-			{
-				"_id": "project3"
-			}
-		]
-	},
-	{
-		"_id": "user9",
-		"imageUrl": "http://lorempixel.com/200/200/nature/1",
-		"displayName": "Jennings Lindsey",
-		"email": "jenningslindsey@assurity.com",
-		"projects": [
-			{
-				"_id": "project8"
-			}
-		]
-	},
-	{
-		"_id": "user10",
-		"imageUrl": "http://lorempixel.com/200/200/technics/4",
-		"displayName": "Chandra Sawyer",
-		"email": "chandrasawyer@assurity.com",
-		"projects": [
-			{
-				"_id": "project7"
-			},
-			{
-				"_id": "project8"
-			},
-			{
-				"_id": "project9"
-			}
-		]
-	},
-	{
-		"_id": "user11",
-		"imageUrl": "http://lorempixel.com/200/200/city/5",
-		"displayName": "Hopkins Cochran",
-		"email": "hopkinscochran@assurity.com",
-		"projects": [
-			{
-				"_id": "project2"
-			}
-		]
-	},
-	{
-		"_id": "user12",
-		"imageUrl": "http://lorempixel.com/200/200/abstract/6",
-		"displayName": "Olsen Mcneil",
-		"email": "olsenmcneil@assurity.com",
-		"projects": [
-			{
-				"_id": "project3"
-			}
-		]
-	},
-	{
-		"_id": "user13",
-		"imageUrl": "http://lorempixel.com/200/200/nightlife/3",
-		"displayName": "Macias Davis",
-		"email": "maciasdavis@assurity.com",
-		"projects": [
-			{
-				"_id": "project7"
-			},
-			{
-				"_id": "project4"
-			},
-			{
-				"_id": "project6"
-			}
-		]
-	},
-	{
-		"_id": "user14",
-		"imageUrl": "http://lorempixel.com/200/200/city/2",
-		"displayName": "Russo Graves",
-		"email": "russograves@assurity.com",
-		"projects": [
-			{
-				"_id": "project3"
-			},
-			{
-				"_id": "project0"
-			}
-		]
-	},
-	{
-		"_id": "user15",
-		"imageUrl": "http://lorempixel.com/200/200/transport/1",
-		"displayName": "Woods Pope",
-		"email": "woodspope@assurity.com",
-		"projects": [
-			{
-				"_id": "project4"
-			}
-		]
-	},
-	{
-		"_id": "user16",
-		"imageUrl": "http://lorempixel.com/200/200/cats/10",
-		"displayName": "Curtis Short",
-		"email": "curtisshort@assurity.com",
-		"projects": [
-			{
-				"_id": "project0"
-			},
-			{
-				"_id": "project7"
-			}
-		]
-	},
-	{
-		"_id": "user17",
-		"imageUrl": "http://lorempixel.com/200/200/business/9",
-		"displayName": "Greta Ramsey",
-		"email": "gretaramsey@assurity.com",
-		"projects": [
-			{
-				"_id": "project8"
-			}
-		]
-	},
-	{
-		"_id": "user18",
-		"imageUrl": "http://lorempixel.com/200/200/nature/3",
-		"displayName": "Angie Patrick",
-		"email": "angiepatrick@assurity.com",
-		"projects": [
-			{
-				"_id": "project1"
-			}
-		]
-	},
-	{
-		"_id": "user19",
-		"imageUrl": "http://lorempixel.com/200/200/city/7",
-		"displayName": "Hartman Woods",
-		"email": "hartmanwoods@assurity.com",
-		"projects": [
-			{
-				"_id": "project6"
-			}
-		]
-	}
+        {
+                "_id": "user0",
+                "privilege": 4,
+                "displayName": "Garek margarine",
+                "projects": [
+                        "project10",
+                        "project5",
+                        "project3",
+                        "project1"
+                ]
+        },
+        {
+                "_id": "user1",
+                "privilege": 4,
+                "displayName": "Kelley logician",
+                "projects": [
+                        "project6",
+                        "project1",
+                        "project5",
+                        "project8"
+                ]
+        },
+        {
+                "_id": "user2",
+                "privilege": 4,
+                "displayName": "Steffen saddlery",
+                "projects": [
+                        "project4",
+                        "project1",
+                        "project3"
+                ]
+        },
+        {
+                "_id": "user3",
+                "privilege": 1,
+                "displayName": "Ardelle endogen",
+                "projects": [
+                        "project3",
+                        "project4",
+                        "project0",
+                        "project7",
+                        "project7"
+                ]
+        },
+        {
+                "_id": "user4",
+                "privilege": 3,
+                "displayName": "Pen mystique",
+                "projects": [
+                        "project10",
+                        "project6",
+                        "project6",
+                        "project3",
+                        "project1"
+                ]
+        },
+        {
+                "_id": "user5",
+                "privilege": 4,
+                "displayName": "Moselle duello",
+                "projects": [
+                        "project2",
+                        "project4"
+                ]
+        },
+        {
+                "_id": "user6",
+                "privilege": 4,
+                "displayName": "Lanie janitress",
+                "projects": [
+                        "project10",
+                        "project1",
+                        "project9",
+                        "project5",
+                        "project6"
+                ]
+        },
+        {
+                "_id": "user7",
+                "privilege": 4,
+                "displayName": "Loutitia bearskin",
+                "projects": [
+                        "project10",
+                        "project0"
+                ]
+        },
+        {
+                "_id": "user8",
+                "privilege": 3,
+                "displayName": "Marwin downs",
+                "projects": [
+                        "project5",
+                        "project5"
+                ]
+        },
+        {
+                "_id": "user9",
+                "privilege": 4,
+                "displayName": "Sissie mycol",
+                "projects": [
+                        "project8",
+                        "project10",
+                        "project10",
+                        "project0"
+                ]
+        },
+        {
+                "_id": "user10",
+                "privilege": 4,
+                "displayName": "Dalston antiquated",
+                "projects": [
+                        "project10",
+                        "project5",
+                        "project6",
+                        "project9"
+                ]
+        },
+        {
+                "_id": "user11",
+                "privilege": 1,
+                "displayName": "Catarina butyric",
+                "projects": [
+                        "project5",
+                        "project6",
+                        "project0"
+                ]
+        },
+        {
+                "_id": "user12",
+                "privilege": 3,
+                "displayName": "Rick jughead",
+                "projects": [
+                        "project1",
+                        "project6",
+                        "project0",
+                        "project3"
+                ]
+        },
+        {
+                "_id": "user13",
+                "privilege": 2,
+                "displayName": "Tersina lineament",
+                "projects": [
+                        "project5",
+                        "project0",
+                        "project4",
+                        "project1"
+                ]
+        },
+        {
+                "_id": "user14",
+                "privilege": 3,
+                "displayName": "Sergent behavior",
+                "projects": [
+                        "project8",
+                        "project10",
+                        "project5",
+                        "project0",
+                        "project2"
+                ]
+        },
+        {
+                "_id": "user15",
+                "privilege": 1,
+                "displayName": "Julie circumjacent",
+                "projects": [
+                        "project8",
+                        "project7",
+                        "project1"
+                ]
+        },
+        {
+                "_id": "user16",
+                "privilege": 1,
+                "displayName": "Leighton dandruff",
+                "projects": [
+                        "project2",
+                        "project1",
+                        "project7"
+                ]
+        },
+        {
+                "_id": "user17",
+                "privilege": 4,
+                "displayName": "Margo nightwalker",
+                "projects": [
+                        "project6",
+                        "project6",
+                        "project7",
+                        "project5"
+                ]
+        },
+        {
+                "_id": "user18",
+                "privilege": 3,
+                "displayName": "Saunders cognation",
+                "projects": [
+                        "project8",
+                        "project1",
+                        "project3",
+                        "project0",
+                        "project4"
+                ]
+        },
+        {
+                "_id": "user19",
+                "privilege": 1,
+                "displayName": "Mirilla buoyage",
+                "projects": [
+                        "project8",
+                        "project0",
+                        "project7",
+                        "project9"
+                ]
+        }
 ]
