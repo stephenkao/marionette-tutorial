@@ -140,11 +140,12 @@
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.loadNpmTasks('grunt-soy');
 		grunt.loadNpmTasks('grunt-nodemon');
+		grunt.loadNpmTasks('grunt-shell');
 
 		////////// 'Development' mode
 		grunt.registerTask('run', function () {
 			// Generate all existing assets
-			grunt.task.run('production');
+//			grunt.task.run('production');
 
 			grunt.task.run('concurrent');
 		});

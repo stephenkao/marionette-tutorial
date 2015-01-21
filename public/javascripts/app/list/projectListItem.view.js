@@ -5,12 +5,14 @@
  */
 define([
 	// Libraries
+	'underscore',
 	'backbone.marionette',
 	'lib/xdate',
 	// Templates
 	'templates/lesir/components/list/project'
 ], function (
 	// Libraries
+	_,
 	Marionette,
 	XDate
 ) {
@@ -36,7 +38,7 @@ define([
 				startDate: startDate.toString('MM / dd / yy'),
 				endDate: endDate.toString('MM / dd / yy'),
 				duration: Math.floor(startDate.diffMonths(endDate)),
-				usernames: ['smelly', 'dumbo'],
+				usernames: _.pluck(this.model.get('users'), 'displayName').join(' ,'),
 				progressString: (project.progress * 100) + '%',
 				progressPercentage: project.progress
 			};

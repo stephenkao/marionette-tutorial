@@ -1,20 +1,23 @@
-/*global require, global, module */
+/*global require, global, module, process */
 
 (function () {
+	'use strict';
+
 	var _ = require('underscore'),
 		eden = require('node-eden'),
 		consts = require('./_consts.js'),
+		jf = require('jsonfile'),
 		Project;
 
 	Project = {
 		/**
-		 * Given an index, create a project
+		 * Given an index, create a random project
 		 *
 		 * @param {number} index
 		 * @return {!Object}
 		 */
 		createProject: function (index) {
-			var projectId = 'project' + i,
+			var projectId = 'project' + index,
 				title = [eden.word(), eden.word()].join(' '),
 				userIds = _.uniq(global.projectUserLookup[projectId]),
 				tasks = [],
@@ -63,15 +66,54 @@
 			return {
 				_id: projectId,
 				title: title,
-				progress: (_.random(0.1, 0.9)).toFixed(1),
+				progress: Math.random().toFixed(2),
 				startTime: startTime,
 				endTime: endTime,
 				priority: _.random(10, 90),
 				tasks: tasks,
 				updates: updates,
-				roadmap: _.sample(consts.PROJECT_ROADMAPS),
+				roadmap_id: 'roadmap' + _.random(0, consts.NUM_ROADMAPS - 1),
 				users: users
 			};
+		},
+
+		////////// AJAX routes
+		/**
+		 * Retrieve all projects (shallow population)
+		 *
+		 * @return {!Array.<!Object>}
+		 */
+		getProjects: function () {
+			var projects = jf.readFileSync(process.cwd() + '/data/projects.json');
+			projects = _.map(projects, function (project) {
+				return Project.getProject(project._id);
+			});
+			return projects;
+		},
+		/**
+		 * Retrieve a project by id (shallow population)
+		 *
+		 * @param {number} projectId
+		 * @return {!Object}
+		 */
+		getProject: function (projectId) {
+			var projects = _.indexBy(jf.readFileSync(process.cwd() + '/data/projects.json'), '_id'),
+				users = _.indexBy(jf.readFileSync(process.cwd() + '/data/users.json'), '_id'),
+				thisProject = projects[projectId];
+
+			// Populate users list
+			thisProject.users = _.map(thisProject.users, function (userReference) {
+				var userId = userReference.user_id;
+				delete userReference.user_id;
+				return _.clone(users[userId]);
+			});
+
+			// Populate updates list
+			this.updates = _.map(thisProject.updates, function (updateReference) {
+				updateReference.user = _.clone(users[updateReference.user_id]);
+			});
+
+			return thisProject;
 		}
 	};
 

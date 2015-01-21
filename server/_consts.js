@@ -11,8 +11,9 @@
 		WEEK_SPAN: 60 * 60 * 24 * 7,
 		MONTH_SPAN: 60 * 60 * 24 * 7 * 4,
 
-		NUM_USERS: 20,
+		NUM_USERS: 40,
 		NUM_PROJECTS: 10,
+		NUM_ROADMAPS: 5,
 
 		PROJECT_ROLES: [
 			'ui',

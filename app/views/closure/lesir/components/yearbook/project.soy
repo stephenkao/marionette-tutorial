@@ -2,11 +2,11 @@
 
 /**
  * @param title
- * @param currentPhase
+ * @param currentTask
  * @param? priority
  */
 {template .project}
-	<li class="project {$currentPhase}">
+	<li class="project {$currentTask}">
 		{if $priority and $priority > 30}
 			{let $priorityClass: $priority > 50 ? 'high' : 'medium' /}
 			<div class="project__marker {$priorityClass}"></div>

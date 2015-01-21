@@ -1,9 +1,10 @@
-/*global require, global, module */
+/*global require, global, module, process */
 
 (function () {
 	var _ = require('underscore'),
 		eden = require('node-eden'),
 		consts = require('./_consts.js'),
+		jf = require('jsonfile'),
 		User;
 
 	User = {
@@ -25,7 +26,7 @@
 
 			// Generate this user's project ids
 			for (i = 0; i < numProjects; ++i) {
-				var pId = 'project' + _.random(0, consts.NUM_PROJECTS);
+				var pId = 'project' + _.random(0, consts.NUM_PROJECTS - 1);
 				if (!projectUserLookup.hasOwnProperty(pId)) {
 					projectUserLookup[pId] = [];
 				}
@@ -39,9 +40,60 @@
 			return {
 				_id: uId,
 				privilege: _.random(1, 4),
-				displayName: [firstName, eden.word()].join(' '),
+				displayName: [firstName, lastName].join(' '),
+				imageUrl: [
+					'http://lorempixel.com/200/200',
+					_.sample([
+						'abstract',
+						'animals',
+						'business',
+						'cats',
+						'city',
+						'food',
+						'nightlife',
+						'fashion',
+						'people',
+						'nature',
+						'sports',
+						'technics',
+						'transport'
+					]),
+					_.random(1, 10)
+				].join('/'),
 				projects: projects
 			};
+		},
+
+		////////// AJAX routes
+		/**
+		 * Retrieve all users (shallow population)
+		 *
+		 * @return {!Object}
+		 */
+		getUsers: function () {
+			var users = jf.readFileSync(process.cwd() + '/data/users.json');
+			users = _.map(users, function (user) {
+				return User.getUser(user._id);
+			});
+			return users;
+		},
+		/**
+		 * Retrieve a user by id (shallow population)
+		 *
+		 * @param {number} userId
+		 * @return {!Object}
+		 */
+		getUser: function (userId) {
+			var users = _.indexBy(jf.readFileSync(process.cwd() + '/data/users.json'), '_id'),
+				projects = _.indexBy(jf.readFileSync(process.cwd() + '/data/projects.json'), '_id'),
+				thisUser = users[userId];
+
+			// Populate projects list
+			thisUser.projects = _.map(thisUser.projects, function (projectReference, key) {
+				return projects[projectReference];
+			});
+
+			return thisUser;
 		}
 	};
 

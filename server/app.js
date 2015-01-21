@@ -4,108 +4,46 @@
 	var express = require('express'),
 		_ = require('underscore'),
 		fs = require('fs'),
+
+		consts = require('../server/_consts.js'),
+		User = require('../server/_user'),
+		Project = require('../server/_project'),
+		Roadmap = require('../server/_roadmap'),
+		Role = require('../server/_role'),
+
 		app = express(),
 		httpConfig = {
 			PORT: 8888,
 			ADDRESS: '127.0.0.1'
-		},
-		populateProject = function (projectId) {
-			var newProjectObj = _.clone(projectsLookup[projectId]),
-				// Populate users list
-				usersList = _.map(newProjectObj.users, function (userRecord) {
-					var userId = userRecord.user_id,
-						populatedUser = usersLookup[userId];
-
-					console.log(userId);
-					delete userRecord.user_id;
-
-					for (var key in populatedUser) {
-						userRecord[key] = populatedUser[key];
-					}
-
-					return userRecord;
-				}),
-				// Populate updates list
-				updatesList = _.map(newProjectObj.updates, function (updateRecord) {
-					var userId = updateRecord.user,
-					    populatedUser = usersLookup[userId];
-					updateRecord.user = populatedUser;
-					return updateRecord;
-				});
-
-			newProjectObj.users = usersList;
-			newProjectObj.updates = updatesList;
-			return newProjectObj;
-		},
-		populateUser = function (userId) {
-			// Don't overwrite the original object, you dum dum!
-			var newUserObj = _.clone(usersLookup[userId]);
-
-			if (newUserObj.hasOwnProperty('projects')) {
-				var projectIds = _.uniq(_.pluck(newUserObj.projects, '_id')),
-					userProjects = [];
-
-				_.each(projectIds, function (id) {
-					userProjects.push(projectsLookup[id]);
-				});
-
-				newUserObj.projects = userProjects;
-			}
-
-			return newUserObj;
-		},
-		roadmapsJson = require(__dirname + '/data/roadmaps.json'),
-		roadmapsLookup = _.indexBy(roadmapsJson, '_id'),
-		usersJson = require(__dirname + '/data/users.json'),
-		usersLookup = _.indexBy(usersJson, '_id'),
-		projectsJson = require(__dirname + '/data/projects.json'),
-		projectsLookup = _.indexBy(projectsJson, '_id');
+		};
 
 	////////// AJAX calls
 	app
 		.get('/users', function (request, response) {
-			var newUsersJson = [];
-
-			// Swap project ids for project objects
-			newUsersJson = _.map(usersJson, function (userObj) {
-				return populateUser(userObj._id);
-			});
-
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(newUsersJson));
+			response.end(JSON.stringify(User.getUsers()));
+		})
+		.get('/user/:id', function (request, response) {
+			response.setHeader('Content-Type', 'application/json');
+			response.end(JSON.stringify(User.getUser('user' + request.params.id)));
 		})
 		.get('/projects', function (request, response) {
-			var newProjectsJson = [];
-
-			// Swap user ids for user objects
-			newProjectsJson = _.map(projectsJson, function (projectObj) {
-				return populateProject(projectObj._id);
-			});
-
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(newProjectsJson));
+			response.end(JSON.stringify(Project.getProjects()));
 		})
 		.get('/project/:id', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(populateProject('project' + request.params.id)));
+			response.end(JSON.stringify(Project.getProject('project' + request.params.id)));
 		})
 		.get('/roadmaps', function (request, response) {
-			var groupedProjects = _.groupBy(projectsJson, 'roadmap'),
-				roadmapsJson = _.map(groupedProjects, function (projects, title) {
-					return {
-						title: title,
-						projects: projects
-					};
-				});
-
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(roadmapsJson, 'roadmap'));
+			response.end(JSON.stringify(Roadmap.getRoadmaps()));
 		});
 
 
 	////////// Static files
 	app.get(/^(.+)$/, function(request, response){
-		response.sendFile(__dirname + request.params[0]);
+		response.sendFile(process.cwd() + '/' + request.params[0]);
 	});
 
 	// "Start listening, not talking"
