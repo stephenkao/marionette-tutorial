@@ -6,15 +6,13 @@
 define([
 	// Libraries
 	'backbone.marionette',
-	// Singletons
-	'singleton/stringUtils',
+	'lib/xdate',
 	// Templates
 	'templates/lesir/components/list/project'
 ], function (
 	// Libraries
 	Marionette,
-	// Singletons
-	stringUtils
+	XDate
 ) {
 	'use strict';
 
@@ -28,14 +26,16 @@ define([
 			change: 'render'
 		},
 		serializeData: function () {
-			var project = this.model.attributes;
+			var project = this.model.attributes,
+				startDate = new XDate(project.startTime),
+				endDate = new XDate(project.endTime);
 
 			return {
 				_id: project._id.replace(/project/g, ''),
 				title: project.title,
-				startDate: stringUtils.formatDate(project.startTime),
-				endDate: stringUtils.formatDate(project.endTime),
-				duration: stringUtils.getTimeDifference(project.startTime, project.endTime),
+				startDate: startDate.toString('MM / dd / yy'),
+				endDate: endDate.toString('MM / dd / yy'),
+				duration: Math.floor(startDate.diffMonths(endDate)),
 				usernames: ['smelly', 'dumbo'],
 				progressString: (project.progress * 100) + '%',
 				progressPercentage: project.progress

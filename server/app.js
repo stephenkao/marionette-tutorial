@@ -9,20 +9,6 @@
 			PORT: 8888,
 			ADDRESS: '127.0.0.1'
 		},
-		// Simulated AJAX
-		_readFile = function (filename, onSuccess, onError) {
-			fs.readFile(filename, function (error, data) {
-				if (error) {
-					if (onError) {
-						onError(error);
-					} else {
-						console.log(error);
-					}
-				} else {
-					onSuccess(data);
-				}
-			});
-		},
 		populateProject = function (projectId) {
 			var newProjectObj = _.clone(projectsLookup[projectId]),
 				// Populate users list

@@ -8,10 +8,10 @@
 		eden = require('node-eden'),
 		jf = require('jsonfile'),
 
-		consts = require('./_consts.js'),
-		User = require('./_user.gen'),
-		Project = require('./_project.gen'),
-		Role = require('./_role.gen'),
+		consts = require('../server/_consts.js'),
+		User = require('../server/_user'),
+		Project = require('../server/_project'),
+		Role = require('../server/_role'),
 
 		usersJson = [],
 		projectsJson = [],

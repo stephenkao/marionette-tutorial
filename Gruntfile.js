@@ -126,7 +126,7 @@
 			},
 			nodemon: {
 				run: {
-					script: 'server.js'
+					script: 'server/app.js'
 				}
 			}
 		});
