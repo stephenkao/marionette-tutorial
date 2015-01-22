@@ -23,7 +23,7 @@
 				tasks = [],
 				users = [],
 				updates = [],
-				numUpdates = _.random(2, 5),
+				memo = '',
 				startTime, endTime, taskStartTime, taskEndTime,
 				i;
 
@@ -55,12 +55,18 @@
 			endTime = taskEndTime;
 
 			// Populate this project's updates
-			for (i = 0; i < numUpdates; ++i) {
+			for (i = 0; i < _.random(2, 5); ++i) {
 				updates.push({
 					type: _.sample(consts.UPDATE_TYPES),
 					created: _.random(endTime, startTime),
 					user_id: _.sample(userIds)
 				});
+			}
+
+			// Generate the nonsensical memo
+			for (i = 0; i < _.random(25, 50); ++i) {
+				var wordGen = [eden.adam, eden.eve, eden.word];
+				memo += _.sample(wordGen)() + ' ';
 			}
 
 			return {
@@ -73,7 +79,8 @@
 				tasks: tasks,
 				updates: updates,
 				roadmap_id: 'roadmap' + _.random(0, consts.NUM_ROADMAPS - 1),
-				users: users
+				users: users,
+				memo: memo
 			};
 		},
 

@@ -1,9 +1,7 @@
 ////////////////////////////////////////////////// YearbookApp
 .user--yearbook {
 	padding-bottom: 0 !important;  // @override Foundation's block-grid padding
-	margin-bottom: 106px;
-
-
+	@include margin-trailer(2);
 
 	.user__contents {
 		margin-left: auto;
@@ -15,9 +13,6 @@
 	}
 
 	.user__name {
-		@extend %font--project__datumkey;
-		@extend %ellipsis;
-
 		margin-bottom: 4px;
 	}
 
@@ -34,8 +29,6 @@
 
 		li {
 			$project-height: 24px;
-
-			@extend %font--project__datumvalue;
 
 			height: $project-height;
 			padding: 0 10px;
@@ -54,5 +47,11 @@
 	.project__marker {
 		top: 0;
 		left: -6px;
+	}
+	.project__title {
+		color: $white;
+	}
+	.project__priority {
+		text-transform: capitalize;
 	}
 }

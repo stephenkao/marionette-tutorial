@@ -22,6 +22,7 @@ define([
 
 		////////// Initialization
 		tagName: 'ul',
+		className: 'row',
 		itemView: RoadmapListItemView
 	});
 

@@ -16,15 +16,16 @@
  */
 {template .userListItem}
 	<div class="user__contents">
-		<p class="user__name">{$displayName}</p>
+		<p class="user__name gamma ellipsis">{$displayName}</p>
 		<div class="user__image-wrap">
-			<img class="user__image" src={$imageUrl} />
+			<img class="user__image" src="{$imageUrl}" />
 		</div>
 
 		{if $projects and length($projects)}
 			<ul class="projectlist">
 				{foreach $project in $projects}
 					{call .project}
+						{param id: $project._id /}
 						{param title: $project.title /}
 						{param currentTask: $project.currentTask /}
 						{param priority: $project.priority /}

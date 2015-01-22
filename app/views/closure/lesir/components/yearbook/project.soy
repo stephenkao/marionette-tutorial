@@ -1,16 +1,19 @@
 {namespace lesir.components.yearbook}
 
 /**
+ * @param id
  * @param title
  * @param currentTask
  * @param? priority
  */
 {template .project}
 	<li class="project {$currentTask}">
-		{if $priority and $priority > 30}
-			{let $priorityClass: $priority > 50 ? 'high' : 'medium' /}
-			<div class="project__marker {$priorityClass}"></div>
-		{/if}
-		<p class="project__title ellipsis">{$title}</p>
+		<a href="/#/project/{$id}">
+			{if $priority and $priority > 33}
+				{let $priorityClass: $priority > 66 ? 'high' : 'medium' /}
+				<div class="project__marker {$priorityClass}"></div>
+			{/if}
+			<p class="project__title delta ellipsis">{$title}</p>
+		</a>
 	</li>
 {/template}

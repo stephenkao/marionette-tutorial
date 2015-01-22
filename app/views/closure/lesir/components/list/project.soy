@@ -13,39 +13,35 @@
  * @param progressString
  */
 {template .projectListItem}
-	<section class="project__data columns">
-		<a href="#project/{$_id}">
+	<section class="columns project__data">
+		<a href="/#/project/project{$_id}">
 			<div class="project__marker"></div>
 
-			<div class="row">
-				<h3 class="columns large-2 project__datum project__title">{$title}</h3>
+			<div class="row project__stats">
+				<h3 class="columns large-3 project__datum project__title alpha">{$title}</h3>
 
-				<div class="columns large-1 project__datum"></div>
+				<div class="columns large-3 project__datum project__dates">
+					<span class="delta">{$startDate}</span>
+					<span>—</span>
+					<span class="delta">{$endDate}</span>
+					<span class="gamma">({$duration} {$duration > 1 ? 'mths' : 'mth'})</span>
+				</div>
 
-				<div class="columns large-4 project__datum">
-					<span class="project__datum--key">Start</span>
-					<span class="project__datum--value">{$startDate}</span>
-					—
-					<span class="project__datum--key">End</span>
-					<span class="project__datum--value">{$endDate}</span>
+				<div class="columns large-5 project__datum">
+					<span class="zeta">{$usernames}</span>
 				</div>
 
 				<div class="columns large-1 project__datum">
-					<span class="project__datum--key">{$duration} months</span>
-				</div>
-
-				<div class="columns large-1 project__datum"></div>
-
-				<div class="columns large-2 project__datum">
-					<span class="project__datum--value">{$usernames}</span>
-				</div>
-
-				<div class="columns large-1 project__datum">
-					<span class="project__datum--key">{$progressString}</span>
+					<span class="gamma">{$progressString}</span>
 				</div>
 			</div>
-			<div class="row">
-				<progress class="columns small-12 project__progress" value="{$progressPercentage}" max="1">{$progressString}</progress>
+
+			<div class="row project__progress">
+				<div class="columns small-12">
+					<progress class="project__progressbar" value="{$progressPercentage}" max="1">
+						{$progressString}
+					</progress>
+				</div>
 			</div>
 		</a>
 	</section>

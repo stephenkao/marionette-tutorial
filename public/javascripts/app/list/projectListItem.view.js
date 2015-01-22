@@ -37,9 +37,9 @@ define([
 				title: project.title,
 				startDate: startDate.toString('MM / dd / yy'),
 				endDate: endDate.toString('MM / dd / yy'),
-				duration: Math.floor(startDate.diffMonths(endDate)),
-				usernames: _.pluck(this.model.get('users'), 'displayName').join(' ,'),
-				progressString: (project.progress * 100) + '%',
+				duration: Math.ceil(startDate.diffMonths(endDate)),
+				usernames: _.pluck(this.model.get('users'), 'displayName').join(', '),
+				progressString: (project.progress * 100).toFixed(0) + '%',
 				progressPercentage: project.progress
 			};
 		}

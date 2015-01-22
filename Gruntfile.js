@@ -150,9 +150,10 @@
 		grunt.loadNpmTasks('grunt-run');
 
 		////////// 'Installation' mode
-		grunt.registerTask('generate', [
-			'run:generate'
-		]);
+		grunt.registerTask('generate', function () {
+			grunt.file.mkdir('data');
+			grunt.task.run('run:generate');
+		});
 
 		////////// 'Development' mode
 		grunt.registerTask('development', function () {

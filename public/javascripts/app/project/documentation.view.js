@@ -17,12 +17,7 @@ define([
 	var DocumentationView = Marionette.ItemView.extend({
 
 		////////// Initialization
-		template: lesir.components.project.documentation,
-		className: 'row',
-
-		serializeData: function () {
-			debugger;
-		}
+		template: lesir.components.project.documentation
 	});
 
 	return DocumentationView;

@@ -47,6 +47,11 @@ define([
 		 */
 		initialize: function (projectId) {
 			this.projectModel = new ProjectModel(projectId);
+
+			this.listenTo(this.projectModel, 'sync', function () {
+				this.onModelFetch();
+			}.bind(this));
+
 			this.graphView = new GraphView({
 				model: this.projectModel
 			});
@@ -56,10 +61,13 @@ define([
 			this.updateListView = new UpdateListView({
 				collection: this.projectModel.get('updates')
 			});
-		},
-		onRender: function () {
+
 			this.projectModel.fetch();
+		},
+		onModelFetch: function () {
 			this.timelineRegion.show(this.graphView);
+			// HACK
+			this.graphView.trigger('dom:added');
 			this.documentationRegion.show(this.documentationView);
 			this.historyRegion.show(this.updateListView);
 		}

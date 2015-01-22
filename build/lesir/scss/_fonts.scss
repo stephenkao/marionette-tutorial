@@ -263,6 +263,7 @@
 	@extend %font--oswald-regular;
 
 	font-size: 11px;
+	line-height: 1.2em;
 	color: $black;
 }
 %font--eta {
@@ -292,29 +293,4 @@
 }
 .eta {
 	@extend %font--eta;
-}
-
-
-// 'Roadmap'
-%font--roadmap__title {
-	@extend %font--playfair-bolditalic;
-
-	font-size: 14px;
-	color: $black;
-}
-
-// User list, progress percentage, et cetera
-%font--project__datumkey {
-	@extend %font--playfair-italic;
-
-	font-size: 14px;
-	line-height: 18px;
-	color: $black;
-}
-%font--project__datumvalue {
-	@extend %font--oswald-regular;
-
-	font-size: 14px;
-	letter-spacing: 2px;
-	color: $black;
 }

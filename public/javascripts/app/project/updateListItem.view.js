@@ -27,8 +27,8 @@ define([
 
 		serializeData: function () {
 			return {
-				title: this.model.get('title'),
-				date: new XDate(this.model.get('created')),
+				title: this.model.get('type'),
+				date: new XDate(this.model.get('created')).toString('MM / dd / yy'),
 				user: this.model.get('user').displayName
 			};
 		}

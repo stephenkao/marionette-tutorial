@@ -74,7 +74,7 @@ define([
 			require(['app/gantt/gantt.app'], function (GanttApp) {
 				var projectApp = new GanttApp({id: projectId});
 				MarionetteApp.contentRegion.show(projectApp);
-				MarionetteApp.trigger('project:dom:added');
+				MarionetteApp.trigger('gantt:dom:added');
 			});
 		}
 	});

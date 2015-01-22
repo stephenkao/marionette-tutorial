@@ -25,7 +25,7 @@
 		})
 		.get('/user/:id', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(User.getUser('user' + request.params.id)));
+			response.end(JSON.stringify(User.getUser(request.params.id)));
 		})
 		.get('/projects', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
@@ -33,7 +33,7 @@
 		})
 		.get('/project/:id', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify(Project.getProject('project' + request.params.id)));
+			response.end(JSON.stringify(Project.getProject(request.params.id)));
 		})
 		.get('/roadmaps', function (request, response) {
 			response.setHeader('Content-Type', 'application/json');

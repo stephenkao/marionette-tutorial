@@ -34,7 +34,7 @@
 	global.projectUserLookup = {};
 
 	// Generate the users
-	filename = './data/users.json';
+	filename = 'data/users.json';
 	for (i = 0; i < consts.NUM_USERS; ++i) {
 		usersJson.push(User.createUser(i));
 	}
@@ -42,7 +42,7 @@
 	console.log(filename + ': SUCCESS');
 
 	// Generate the projects
-	filename = './data/projects.json';
+	filename = 'data/projects.json';
 	for (i = 0; i < consts.NUM_PROJECTS; ++i) {
 		projectsJson.push(Project.createProject(i));
 	}
@@ -50,13 +50,13 @@
 	console.log(filename + ': SUCCESS');
 
 	// Populate the roadmaps
-	filename = './data/roadmaps.json';
+	filename = 'data/roadmaps.json';
 	roadmapsJson = Roadmap.populateRoadmaps();
 	jf.writeFileSync(filename, roadmapsJson);
 	console.log(filename + ': SUCCESS');
 
 	// Populate the roles
-	filename = './data/roles.json';
+	filename = 'data/roles.json';
 	rolesJson = Role.populateRoles();
 	jf.writeFileSync(filename, rolesJson);
 	console.log(filename + ': SUCCESS');

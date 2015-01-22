@@ -47,7 +47,6 @@ define([
 			this.set('endTime', endTime * 1000);
 
 			this.set('tasks', new Backbone.Collection());
-			this.set('tasks', new Backbone.Collection());
 			this.set('updates', new Backbone.Collection());
 		},
 		parse: function (response) {
@@ -58,6 +57,7 @@ define([
 
 			// Save updates
 			updateRecords.forEach(function (updateRecord) {
+				updateRecord.created = updateRecord.created * 1000;
 				updateCollection.add(updateRecord);
 			});
 			updateCollection.trigger('reset');
@@ -73,6 +73,13 @@ define([
 				taskCollection.add(taskRecord);
 			});
 			taskCollection.trigger('reset');
+
+			response.startTime = response.startTime * 1000;
+			response.endTime = response.endTime * 1000;
+			response.updates = updateCollection;
+			response.tasks = taskCollection;
+
+			return response;
 		},
 
 		////////// Personnel

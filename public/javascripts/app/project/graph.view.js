@@ -5,8 +5,10 @@
  */
 define([
 	// Libraries
-	'lib/d3',
+	'underscore',
 	'backbone.marionette',
+	'lib/d3',
+	'lib/xdate',
 	// Components
 	'app/marionetteApp',
 	// Templates
@@ -15,8 +17,10 @@ define([
 	'lib/gantt-chart-d3v2'
 ], function (
 	// Libraries
-	d3,
+	_,
 	Marionette,
+	d3,
+	XDate,
 	// Components
 	MarionetteApp
 ) {
@@ -27,26 +31,44 @@ define([
 		////////// Initialization
 		template: lesir.components.project.graph,
 		initialize: function () {
-			this.listenTo(MarionetteApp, 'project:dom:added', this.onDomAdded);
-			this.listenTo(this.model.get('tasks'), 'reset', this.onDomAdded);
+			this.listenTo(this, 'dom:added', this.onDomAdded);
+		},
+
+		serializeData: function () {
+			var project = this.model.attributes,
+				startDate = new XDate(project.startTime),
+				endDate = new XDate(project.endTime);
+
+			return {
+				project: {
+					title: project.title,
+					priority: project.priority,
+					users: project.users,
+					memo: project.memo
+				},
+				roadmap: {
+					title: "WHATEVER"
+				},
+				startDate: startDate.toString('MM / dd / yy'),
+				endDate: endDate.toString('MM / dd / yy'),
+				duration: Math.ceil(startDate.diffMonths(endDate))
+			};
 		},
 
 		onDomAdded: function () {
-			var phaseCollection = this.model.get('tasks');
+			var taskCollection = this.model.get('tasks');
 
-			if (!phaseCollection.length) {
+			if (!taskCollection.length) {
 				return;
 			}
 
 			var gantt = d3.gantt('.js_graph-region')
-				    .taskTypes(phaseCollection.pluck('title'))
-				    .taskStatus(phaseCollection.pluck('status'));
+					.taskTypes(taskCollection.pluck('title'));
 
-			gantt(phaseCollection.models.map(function(model) {
+			gantt(taskCollection.models.map(function(model) {
 				return model.attributes;
 			}));
 		}
-
 	});
 
 
