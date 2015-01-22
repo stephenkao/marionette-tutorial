@@ -48,9 +48,11 @@
 		@include shape(diamond, 6px, red);
 	}
 }
-
 .project__dates span {
 	margin-right: 0.2em;
+}
+.project__priority {
+	text-transform: capitalize;
 }
 
 @import "components/header";

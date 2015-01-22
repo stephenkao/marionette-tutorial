@@ -18,8 +18,8 @@ define(['lib/d3'], function (d3) {
 			left: 0
 		};
 		var selection = d3.select(selector);
-		var timeDomainStart = d3.time.day.offset(new Date(),-3);
-		var timeDomainEnd = d3.time.hour.offset(new Date(),+3);
+		var timeDomainStart = d3.time.day.offset(new Date(), -3);
+		var timeDomainEnd = d3.time.hour.offset(new Date(), +3);
 		var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
 		var tasks = [];
 		var taskTypes = [];
