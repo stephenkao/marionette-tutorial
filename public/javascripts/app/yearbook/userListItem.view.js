@@ -36,7 +36,7 @@ define([
 						currentTask;
 
 					// Determine the current task of the project
-					currentTask = _.findWhere(project.tasks, function (task) {
+					currentTask = _.find(project.tasks, function (task) {
 						return (today < task.endTime && today > task.startTime);
 					});
 

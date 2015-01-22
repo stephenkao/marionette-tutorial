@@ -121,12 +121,19 @@
 					'watch:javascript',
 					'watch:sass',
 					'watch:soy',
-					'nodemon:run'
+					'nodemon:server'
 				]
 			},
 			nodemon: {
-				run: {
+				server: {
 					script: 'server/app.js'
+				}
+			},
+			run: {
+				generate: {
+					args: [
+						'scripts/generate.js'
+					]
 				}
 			}
 		});
@@ -140,13 +147,17 @@
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.loadNpmTasks('grunt-soy');
 		grunt.loadNpmTasks('grunt-nodemon');
-		grunt.loadNpmTasks('grunt-shell');
+		grunt.loadNpmTasks('grunt-run');
+
+		////////// 'Installation' mode
+		grunt.registerTask('generate', [
+			'run:generate'
+		]);
 
 		////////// 'Development' mode
-		grunt.registerTask('run', function () {
-			// Generate all existing assets
-//			grunt.task.run('production');
-
+		grunt.registerTask('development', function () {
+			// Generate all existing assets first!
+			grunt.task.run('production');
 			grunt.task.run('concurrent');
 		});
 

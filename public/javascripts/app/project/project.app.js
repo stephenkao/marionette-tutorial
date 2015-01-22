@@ -50,7 +50,9 @@ define([
 			this.graphView = new GraphView({
 				model: this.projectModel
 			});
-			this.documentationView = new DocumentationView();
+			this.documentationView = new DocumentationView({
+				model: this.projectModel
+			});
 			this.updateListView = new UpdateListView({
 				collection: this.projectModel.get('updates')
 			});

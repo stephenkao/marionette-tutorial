@@ -33,6 +33,7 @@
 				projectUserLookup[pId].push(uId);
 				projects.push(pId);
 			}
+			projects = _.uniq(projects);
 
 			// Save the project ids in the lookup for ~relational stuff~
 			userProjectLookup[uId] = projects;

@@ -6,13 +6,13 @@
 define([
 	// Libraries
 	'backbone.marionette',
-	// Singletons
-	'singleton/stringUtils',
+	'lib/xdate',
 	// Templates
 	'templates/lesir/components/project/update'
 ], function (
 	// Libraries
 	Marionette,
+	XDate,
 	// Singletons
 	stringUtils
 ) {
@@ -28,7 +28,7 @@ define([
 		serializeData: function () {
 			return {
 				title: this.model.get('title'),
-				date: stringUtils.formatDate(this.model.get('timestamp') * 1000),
+				date: new XDate(this.model.get('created')),
 				user: this.model.get('user').displayName
 			};
 		}

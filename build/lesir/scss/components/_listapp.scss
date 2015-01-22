@@ -1,18 +1,9 @@
 ////////////////////////////////////////////////// ListApp
-.roadmap--listitem {
-	border-bottom: 1px solid rgb(229, 229, 229);
-	margin-bottom: 26px;
+.roadmap__title {
+	@include margin-trailer(1);
 
-	.roadmap__title {
-		@extend %font--playfair-bolditalic;
-
-		margin-bottom: 20px;
-
-		font-size: 14px;
-		letter-spacing: 1px;
-	}
+	text-transform: capitalize;
 }
-
 .roadmap__projectlist {
 	margin-left: 0; // @override Foundation ul li ul, ul li ol margin
 }

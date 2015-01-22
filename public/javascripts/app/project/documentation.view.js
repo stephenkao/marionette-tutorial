@@ -18,7 +18,11 @@ define([
 
 		////////// Initialization
 		template: lesir.components.project.documentation,
-		className: 'row'
+		className: 'row',
+
+		serializeData: function () {
+			debugger;
+		}
 	});
 
 	return DocumentationView;

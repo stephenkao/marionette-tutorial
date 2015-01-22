@@ -134,7 +134,7 @@ define(['lib/d3'], function (d3) {
 				);
 			svg.selectAll('.grid line')
 				.attr('stroke-dasharray', '2, 8')
-				.attr('y1', margin.top)
+				.attr('y1', 0)
 				.attr('y2', 300 - margin.bottom); // WHAT?
 
 			var svgTasks = svg.selectAll('.chart').data(tasks, keyFunction).enter().append('g')
@@ -155,7 +155,6 @@ define(['lib/d3'], function (d3) {
 					return y.rangeBand();
 				})
 				.attr('width', function(d) {
-					console.log([d.endDate, d.startDate, x(d.endDate) - x(d.startDate)]);
 					return (x(d.endDate) - x(d.startDate));
 				});
 			// Add task labels
@@ -176,7 +175,7 @@ define(['lib/d3'], function (d3) {
 				.transition()
 				.call(xAxis);
 
-			// Add 'today'
+			// Add 'today' spotlight
 			var today = new Date(),
 				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
 				dayWidth = x(tomorrow) - x(today);
@@ -184,57 +183,13 @@ define(['lib/d3'], function (d3) {
 				.attr('class', 'spotlight')
 				.attr('transform', 'translate(' + x(new Date().getTime()) + ', 0)')
 				.attr('width', dayWidth)
-				.attr('height', height - margin.top) // WHAT?
+				.attr('height', height - margin.top - margin.bottom)
 				.style('fill', 'yellow')
 				.style('opacity', 0.4);
 
 			return gantt;
 
 		};
-
-/*
-		gantt.redraw = function(tasks) {
-			initTimeDomain();
-			initAxis();
-
-			var svg = d3.select("svg");
-
-			var ganttChartGroup = svg.select(".gantt-chart");
-			var rect = ganttChartGroup.selectAll("rect").data(tasks, keyFunction);
-
-			rect.enter()
-				.insert("rect",":first-child")
-				.attr("rx", 5)
-				.attr("ry", 5)
-				.attr("class", function(d){
-					if (taskStatus[d.status] == null) {
-						return "bar";
-					}
-
-					return taskStatus[d.status];
-				})
-				.transition()
-				.attr("y", 0)
-				.attr("transform", rectTransform)
-				.attr("height", function(d) { return y.rangeBand(); })
-				.attr("width", function(d) {
-					return (x(d.endDate) - x(d.startDate));
-				});
-
-			rect.transition()
-				.attr("transform", rectTransform)
-				.attr("height", function(d) { return y.rangeBand(); })
-				.attr("width", function(d) {
-					return (x(d.endDate) - x(d.startDate));
-				});
-
-			rect.exit().remove();
-
-			svg.select(".x").transition().call(xAxis);
-
-			return gantt;
-		};
-*/
 
 		gantt.margin = function(value) {
 			if (!arguments.length)
