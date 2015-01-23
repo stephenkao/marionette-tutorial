@@ -21,7 +21,7 @@ define([
 	// Components
 	MarionetteApp,
 	RoadmapCollection,
-	RoadmapListView,
+	RoadmapChartView,
 	GraphView
 ) {
 	'use strict';
@@ -45,7 +45,7 @@ define([
 		 */
 		initialize: function () {
 			this.roadmapCollection = new RoadmapCollection();
-			this.roadmapListView = new RoadmapListView({
+			this.roadmapChartView = new RoadmapChartView({
 				collection: this.roadmapCollection
 			});
 		},

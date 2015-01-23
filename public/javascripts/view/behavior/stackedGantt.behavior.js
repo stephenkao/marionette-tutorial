@@ -1,28 +1,22 @@
 /*global define */
 
 /**
- * A Behavior that allows for Ganttification (project level)
+ * A Behavior that allows for Ganttification (roadmap level)
  */
 define([
 	// Libraries
 	'underscore',
-	'backbone.marionette',
-	'lib/d3'
+	'lib/d3',
+	'lib/backbone.marionette'
 ], function (
 	// Libraries
 	_,
-	Marionette,
-	d3
+	d3,
+	Marionette
 ) {
 	'use strict';
 
-	////////// Type definitions
-	/**
-	 * @typedef {!{title: !string, startTime: number, endTime: number}}
-	 * typedef for 'TaskRecord'
-	 */
-
-	var GanttBehavior = Marionette.Behavior.extend({
+	var StackedGanttBehavior = Marionette.Behavior.extend({
 
 		////////// Initialization
 		defaults: {
@@ -42,23 +36,23 @@ define([
 				start: 0,
 				end: 0
 			},
-			tasks: [],
+			projects: [],
 			// The intended selector of the element in which the graph will be rendered
 			selector: ''
 		},
 		initialize: function () {
-			this.listenTo(this.view, 'tasks:set', this.onTasksSet);
+			this.listenTo(this.view, 'projects:set', this.onProjectsSet);
 		},
 
 		////////// Bookkeeping
 		/**
-		 * Set the tasks for this Gantt chart,
-		 * thereby setting off a cataclysmic chain reaction of (re-)initialization!!!
+		 * Set the projects for this Gantt chart
+		 * and initialize all that good schtuff.
 		 *
-		 * @param {!Array.<!TaskRecord>}
+		 * @param {!Array.<!ProjectRecord>}
 		 */
-		onTasksSet: function (tasks) {
-			this.options.tasks = tasks;
+		onProjectsSet: function (projects) {
+			this.options.projects = projects;
 			this.redraw();
 		},
 		/**
@@ -67,17 +61,17 @@ define([
 		 * VOID->VOID
 		 */
 		_initializeTimeDomain: function () {
-			var tasks = this.options.tasks;
+			var projects = this.options.projects;
 
-			tasks.sort(function(a, b) {
+			projects.sort(function(a, b) {
 				return a.endDate - b.endDate;
 			});
-			this.options.timeRange.end = tasks[tasks.length - 1].endDate;
+			this.options.timeRange.end = projects[projects.length - 1].endDate;
 
-			tasks.sort(function(a, b) {
+			projects.sort(function(a, b) {
 				return a.startDate - b.startDate;
 			});
-			this.options.timeRange.start = tasks[0].startDate;
+			this.options.timeRange.start = projects[0].startDate;
 		},
 		/**
 		 * Initialize the axes and scale functions
@@ -155,21 +149,6 @@ define([
 		 * VOID->VOID
 		 */
 		_drawGridLines: function () {
-			this.svg.append('g')
-				.attr('class', 'grid')
-				.transition()
-				.call(function () {
-					return d3.svg.axis()
-						.scale(this.xScale)
-						.orient('top')
-						.ticks(d3.time.days);
-					}.bind(this)()
-					.tickSize(-this.options.height, 0, 0)
-					.tickFormat(''));
-			this.svg.selectAll('.grid line')
-				.attr('stroke-dasharray', '4, 10')
-				.attr('y1', 0)
-				.attr('y2', this.options.height - this.options.margin.bottom);
 		},
 		/**
 		 * Render the x-axis of this graph
@@ -177,11 +156,6 @@ define([
 		 * VOID->VOID
 		 */
 		_drawAxes: function () {
-			this.svg.append('g')
-				.attr('class', 'axis--x')
-				.attr('transform', 'translate(0, 0)')
-				.transition()
-				.call(this.xAxis);
 		},
 		/**
 		 * Render the actual tasks of this graph
@@ -189,38 +163,6 @@ define([
 		 * VOID->VOID
 		 */
 		_drawTasks: function () {
-			// TODO: Add a key function for quick references
-			var svgTasks = this.svg.selectAll('.chart').data(this.options.tasks).enter().append('g')
-				.attr('class', 'task')
-				.attr('transform', function (taskDatum) {
-					return 'translate(' + this.xScale(taskDatum.startDate) + ', ' + this.yScale(taskDatum.taskName) + ')';
-				}.bind(this))
-				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endDate) - this.xScale(taskDatum.startDate));
-				}.bind(this));
-
-			// Render task rectangles
-			svgTasks.append('rect')
-				.attr('class', function(taskDatum) {
-					return taskDatum.title;
-				})
-				.attr('height', function() {
-					return this.yScale.rangeBand();
-				}.bind(this))
-				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endDate) - this.xScale(taskDatum.startDate));
-				}.bind(this));
-
-			// Render task labels
-			svgTasks.append('text')
-				.attr('x', '1em')
-				.attr('y', '16') // HACK
-				.classed('zeta', true)
-				.style('text-transform', 'uppercase')
-				.style('fill', 'white')
-				.text(function(taskDatum) {
-					return taskDatum.title;
-				});
 		},
 		/**
 		 * Render the spotlight that highlights today in this graph
@@ -228,18 +170,8 @@ define([
 		 * VOID->VOID
 		 */
 		_drawSpotlight: function () {
-			var today = new Date(),
-				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
-				dayWidth = this.xScale(tomorrow) - this.xScale(today);
-			this.svg.append('rect')
-				.attr('class', 'spotlight')
-				.attr('transform', 'translate(' + this.xScale(new Date().getTime()) + ', 0)')
-				.attr('width', dayWidth)
-				.attr('height', this.options.height)
-				.style('fill', 'yellow')
-				.style('opacity', 0.4);
 		}
 	});
 
-	return GanttBehavior;
+	return StackedGanttBehavior;
 });
