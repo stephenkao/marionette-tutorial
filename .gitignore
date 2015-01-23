@@ -10,3 +10,5 @@ target/streams/
 npm-debug.log
 .DS_Store
 public/javascripts/test/
+
+data/
