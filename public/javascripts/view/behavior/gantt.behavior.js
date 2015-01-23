@@ -87,11 +87,11 @@ define([
 		_initializeAxes: function () {
 			this.xScale = d3.time.scale()
 				.domain([ this.options.timeRange.start, this.options.timeRange.end ])
-				.range([ 0, this.options.width ]).clamp(true);
+				.range([0, this.options.width]).clamp(true);
 
 			this.yScale = d3.scale.ordinal()
 				.domain(_(this.options.tasks).pluck('title'))
-				.rangeRoundBands([ 0, this.options.height - this.options.margin.top - this.options.margin.bottom ], 0.4);
+				.rangeRoundBands([0, this.options.height], 0.4);
 
 			this.xAxis = d3.svg.axis()
 				.scale(this.xScale)
@@ -138,8 +138,7 @@ define([
 				    .append('g')
 					.attr('class', 'gantt-chart')
 					.attr('width', width + margin.left + margin.right)
-					.attr('height', height + margin.top + margin.bottom)
-					.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
+					.attr('height', height + margin.top + margin.bottom);
 			}
 
 			this._initializeTimeDomain();
@@ -168,7 +167,7 @@ define([
 					.tickSize(-this.options.height, 0, 0)
 					.tickFormat(''));
 			this.svg.selectAll('.grid line')
-				.attr('stroke-dasharray', '2, 8')
+				.attr('stroke-dasharray', '4, 10')
 				.attr('y1', 0)
 				.attr('y2', this.options.height - this.options.margin.bottom);
 		},
@@ -215,7 +214,7 @@ define([
 			// Render task labels
 			svgTasks.append('text')
 				.attr('x', '1em')
-				.attr('y', '1.4em')
+				.attr('y', '16') // HACK
 				.classed('zeta', true)
 				.style('text-transform', 'uppercase')
 				.style('fill', 'white')
@@ -236,7 +235,7 @@ define([
 				.attr('class', 'spotlight')
 				.attr('transform', 'translate(' + this.xScale(new Date().getTime()) + ', 0)')
 				.attr('width', dayWidth)
-				.attr('height', this.options.height - this.options.margin.top - this.options.margin.bottom)
+				.attr('height', this.options.height)
 				.style('fill', 'yellow')
 				.style('opacity', 0.4);
 		}

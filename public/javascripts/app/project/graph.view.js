@@ -79,15 +79,6 @@ define([
 			this.trigger('tasks:set', taskCollection.models.map(function (model) {
 				return model.attributes;
 			}));
-
-/*
-			var gantt = d3.gantt('.js_graph-region')
-					.taskTypes(taskCollection.pluck('title'));
-
-			gantt(taskCollection.models.map(function(model) {
-				return model.attributes;
-			}));
-*/
 		}
 	});
 
