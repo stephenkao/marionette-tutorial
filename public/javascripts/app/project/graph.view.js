@@ -11,10 +11,10 @@ define([
 	'lib/xdate',
 	// Components
 	'app/marionetteApp',
+	// Behaviors,
+	'view/behavior/gantt.behavior',
 	// Templates
-	'templates/lesir/components/project/graph',
-	// Non-returning
-	'lib/gantt-chart-d3v2'
+	'templates/lesir/components/project/graph'
 ], function (
 	// Libraries
 	_,
@@ -22,7 +22,9 @@ define([
 	d3,
 	XDate,
 	// Components
-	MarionetteApp
+	MarionetteApp,
+	// Behaviors
+	GanttBehavior
 ) {
 	'use strict';
 
@@ -30,6 +32,18 @@ define([
 
 		////////// Initialization
 		template: lesir.components.project.graph,
+		behaviors: {
+			GanttBehavior: {
+				behaviorClass: GanttBehavior,
+				margin: {
+					top: 30,
+					right: 0,
+					bottom: 30,
+					left: 0
+				},
+				selector: '.js_graph-region'
+			}
+		},
 		initialize: function () {
 			this.listenTo(this, 'dom:added', this.onDomAdded);
 		},
@@ -62,12 +76,18 @@ define([
 				return;
 			}
 
+			this.trigger('tasks:set', taskCollection.models.map(function (model) {
+				return model.attributes;
+			}));
+
+/*
 			var gantt = d3.gantt('.js_graph-region')
 					.taskTypes(taskCollection.pluck('title'));
 
 			gantt(taskCollection.models.map(function(model) {
 				return model.attributes;
 			}));
+*/
 		}
 	});
 
