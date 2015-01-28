@@ -16,23 +16,40 @@
 
 	<body>
 		<!-- pre-rendered -->
-		<header id="js_navbar" class="navbar">
+		<nav id="js_navbar" class="navbar">
 			<div class="row navbar__contents">
-				<h1><a href="#">Le Sir's Management Tool</a></h1>
+				<a href="/#/list">
+					<img class="logo" src="/target/images/logo.svg" />
+					<h1>Le Sir's Management Tool</h1>
+				</a>
 
-				<div class="welcome">
-					Welcome, D. Fault!
-				</div>
+				<div class="right">
+					<div class="welcome">
+						Welcome, D. Fault!
+					</div>
 
-				<nav>
-					<ul class="inline-list">
-						<li><a href="#list">A</a></li>
-						<li><a href="#yearbook">B</a></li>
-						<li><a href="#gantt">C</a></li>
+					<ul class="nav-list inline-list">
+						<li>
+							<a href="/#/list">
+								<img class="navicon navicon--list" src="/target/images/list.svg" />
+							</a>
+						</li>
+
+						<li>
+							<a href="/#/yearbook">
+								<img class="navicon navicon--yearbook" src="/target/images/yearbook.svg" />
+							</a>
+						</li>
+
+						<li>
+							<a href="/#/gantt">
+								<img class="navicon navicon--gantt" src="/target/images/gantt.svg" />
+							</a>
+						</li>
 					</ul>
-				</nav>
+				</div>
 			</div>
-		</header>
+		</nav>
 		<!-- /pre-rendered -->
 
 		<div id="js_content" class="row"></div>

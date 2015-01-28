@@ -1,18 +1,26 @@
 ////////////////////////////////////////////////// Header
 .navbar {
-	$vertical-padding: 10px;
+	@include padding-leader(1);
+	@include padding-trailer(1);
+	@include margin-trailer(3);
 
-	border-bottom: 1px solid black;
-	margin-bottom: 76px;
+	border-bottom: 1px solid $black;
 
 	.navbar__contents {
-		padding: 50px 0 $vertical-padding 0;
-
 		position: relative;
 	}
 
 	////////// Header text
-	h1 a {
+	.logo,
+	h1 {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	.logo {
+		width: 64px;
+		margin-right: 0.2em;
+	}
+	h1 {
 		@extend %font--oswald-regular;
 
 		font-size: 36px;
@@ -21,8 +29,9 @@
 		letter-spacing: 2px;
 	}
 
+
 	.welcome,
-	nav {
+	.nav-list {
 		position: absolute;
 		right: 0;
 	}
@@ -30,26 +39,17 @@
 	.welcome {
 		@extend %font--oswald-regular;
 
-		top: $vertical-padding;
+		top: 0;
 
 		font-size: 14px;
 	}
+	.nav-list {
+		margin-bottom: 0;
 
-	////////// Navigational buttons
-	nav {
-		bottom: $vertical-padding;
-
-		.inline-list {
-			// @override Foundation
-			margin-bottom: 0;
-
-			li {
-				width: 21px;
-				height: 20px;
-				margin-left: 13px;
-
-				background-color: black;
-			}
-		}
+		bottom: 0;
+	}
+	.navicon {
+		width: 20px;
+		height: 20px;
 	}
 }
