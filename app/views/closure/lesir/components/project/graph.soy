@@ -18,21 +18,21 @@
 		{/if}
 	{/let}
 
-	<div class="row">
-		<h2 class="large-12 columns alpha">{$project.title}</h2>
+	<div class="row large-collapse">
+		<h2 class="alpha">{$project.title}</h2>
 		<div class="project__marker {$priority}"></div>
 	</div>
 
-	<div class="row roadmap__row">
-		<div class="large-4 columns">
+	<div class="row large-collapse roadmap__row">
+		<div class="small-4 columns">
 			<h3 class="beta">{$roadmap.title}</h3>
 		</div>
 
-		<div class="large-2 columns">
+		<div class="small-2 columns">
 			<span class="project__priority epsilon">{$priority} Priority</span>
 		</div>
 
-		<div class="large-6 columns">
+		<div class="small-6 columns">
 			<p class="gamma">
 				{if $project.users and length($project.users)}
 					{foreach $user in $project.users}
@@ -43,8 +43,8 @@
 		</div>
 	</div>
 
-	<div class="row roadmap__row">
-		<div class="large-4 columns project__dates">
+	<div class="row large-collapse roadmap__row">
+		<div class="small-4 columns project__dates">
 			<span class="gamma">Start</span>
 			<span class="delta">{$startDate}</span>
 			<span>—</span>
@@ -52,18 +52,18 @@
 			<span class="delta">{$endDate}</span>
 		</div>
 
-		<div class="large-2 columns">
+		<div class="small-2 columns">
 			<span class="delta">{$duration} {$duration > 1 ? 'months' : 'month'}</span>
 		</div>
 
-		<div class="large-6 columns">
+		<div class="small-6 columns">
 			{if $project.memo}
 				<p class="zeta">{$project.memo}</p>
 			{/if}
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="large-12 columns graph js_graph-region"></div>
+	<div class="row large-collapse">
+		<div class="small-12 columns graph js_graph-region"></div>
 	</div>
 {/template}
