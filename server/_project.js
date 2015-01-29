@@ -106,6 +106,7 @@
 		getProject: function (projectId) {
 			var projects = _.indexBy(jf.readFileSync(consts.FILES.PROJECTS), '_id'),
 				users = _.indexBy(jf.readFileSync(consts.FILES.USERS), '_id'),
+				roadmaps = _.indexBy(jf.readFileSync(consts.FILES.ROADMAPS), '_id'),
 				thisProject = projects[projectId];
 
 			// Populate users list
@@ -115,10 +116,13 @@
 				return _.clone(users[userId]);
 			});
 
-			// Populate updates list
-			this.updates = _.map(thisProject.updates, function (updateReference) {
+			// Populate user references in updates list
+			thisProject.updates = _.each(thisProject.updates, function (updateReference) {
 				updateReference.user = _.clone(users[updateReference.user_id]);
 			});
+
+			// Populate roadmaps
+			thisProject.roadmap = roadmaps[thisProject.roadmap_id];
 
 			return thisProject;
 		}
