@@ -37,9 +37,9 @@ define([
 		/**
 		 * Initialize this Model and instantiate the nested Collections/Models
 		 *
-		 * VOID->VOID
+		 * @param {ProjectRecord=} record
 		 */
-		initialize: function () {
+		initialize: function (record) {
 			// Translate timestamps into milliseconds for JavaScript
 			var startTime = this.get('startTime'),
 				endTime = this.get('endTime');
@@ -48,6 +48,10 @@ define([
 
 			this.set('tasks', new Backbone.Collection());
 			this.set('updates', new Backbone.Collection());
+
+			if (record) {
+				this.parse(record);
+			}
 		},
 		parse: function (response) {
 			var updateRecords = response.updates,
