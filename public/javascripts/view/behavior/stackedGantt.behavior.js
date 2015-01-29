@@ -25,10 +25,10 @@ define([
 			width: 0,
 			// The intended margin of this.svg
 			margin: {
-				top: 0,
+				top: 30,
 				right: 0,
-				bottom: 0,
-				left: 0
+				bottom: 30,
+				left: 250
 			},
 			timeRange: {
 				start: 0,
@@ -78,13 +78,11 @@ define([
 		 */
 		_initializeAxes: function () {
 			var today = new Date().getTime(),
-				monthSpan = 60 * 60 * 24 * 7 * 4,
 				projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
 				projectTitles = _.pluck(projects, 'title');
 
 			this.xScale = d3.time.scale()
 				.domain([this.options.timeRange.start, this.options.timeRange.end])
-//				.domain([today - (2 * monthSpan), today + (2 * monthSpan)])
 				.range([0, this.options.width]).clamp(true);
 
 			this.yScale = d3.scale.ordinal()
@@ -126,25 +124,31 @@ define([
 			if (!this.svg) {
 				var selection = d3.select(this.options.selector),
 					margin = this.options.margin,
+					totalWidth, totalHeight,
 					width, height,
 					totalProjects = _.flatten(_.pluck(this.options.roadmaps, 'projects'));
 
 				// Derive the estimated height and width of the graph
-				width = this.options.width = parseInt(selection.style('width'), 10);
+				width = totalWidth = parseInt(selection.style('width'), 10);
+				width = width - margin.left - margin.right;
+				this.options.width = width;
 				// @TODO: Do this better!!!!
-				height = this.options.height = Math.max(totalProjects.length * 10, parseInt(selection.style('height'), 10));
+				height = totalHeight = Math.max(totalProjects.length * 50, parseInt(selection.style('height'), 10));
+				height = height - margin.top - margin.bottom;
+				this.options.height = height;
 
 				// Add the top-level svg and g elements
 				this.svg = selection.append('svg')
 					.attr('class', 'chart')
-					.attr('viewBox', [0, 0, width, height].join(' '))
+					.attr('viewBox', [0, 0, totalWidth, totalHeight].join(' '))
 					.attr('preserveAspectRatio', 'xMidYMid')
-					.attr('width', width + margin.left + margin.right)
-					.attr('height', height + margin.top + margin.bottom)
+					.attr('width', totalWidth)
+					.attr('height', totalHeight)
 				    .append('g')
 					.attr('class', 'gantt-chart')
-					.attr('width', width + margin.left + margin.right)
-					.attr('height', height + margin.top + margin.bottom);
+					.attr('width', width)
+					.attr('height', height)
+					.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 			}
 
 			this._initializeTimeDomain();
@@ -189,6 +193,10 @@ define([
 				.transition()
 				.call(this.yAxis);
 
+			this.svg.selectAll('.axis--y text')
+				.attr('class', 'alpha')
+				.style('text-transform', 'uppercase');
+
 			this.svg.append('g')
 				.attr('class', 'axis--x')
 				.attr('transform', 'translate(0, 0)')
@@ -200,13 +208,57 @@ define([
 		 *
 		 * VOID->VOID
 		 */
-		_drawTasks: function () {},
+		_drawTasks: function () {
+			// Make a pseudo-reverse-lookup from task to project (title)
+			var projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
+				// I AM SO SORRY FOR THIS
+				tasks = _.flatten(_.map(projects, function (project) {
+					return _.each(project.tasks, function (task) {
+						task.projectTitle = project.title;
+						return task;
+					});
+				})),
+				svgTasks;
+
+			svgTasks = this.svg.selectAll('.chart').data(tasks).enter().append('g')
+				.attr('class', 'task')
+				.attr('transform', function (taskDatum) {
+					return 'translate(' + this.xScale(taskDatum.startTime) + ', ' + this.yScale(taskDatum.projectTitle) + ')';
+				}.bind(this))
+				.attr('width', function(taskDatum) {
+					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
+				}.bind(this));
+
+			// Render task rectangles
+			svgTasks.append('rect')
+				.attr('class', function(taskDatum) {
+					return taskDatum.title;
+				})
+				.attr('height', function() {
+					return this.yScale.rangeBand();
+				}.bind(this))
+				.attr('width', function(taskDatum) {
+					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
+				}.bind(this));
+		},
 		/**
 		 * Render the spotlight that highlights today in this graph
 		 *
 		 * VOID->VOID
 		 */
-		_drawSpotlight: function () {}
+		_drawSpotlight: function () {
+			var today = new Date(),
+				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
+				dayWidth = this.xScale(tomorrow) - this.xScale(today);
+
+			this.svg.append('rect')
+				.attr('class', 'spotlight')
+				.attr('transform', 'translate(' + this.xScale(new Date().getTime()) + ', 0)')
+				.attr('width', dayWidth)
+				.attr('height', this.options.height)
+				.style('fill', 'yellow')
+				.style('opacity', 0.4);
+		}
 	});
 
 	return StackedGanttBehavior;
