@@ -9,28 +9,24 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Components
-	'app/marionetteApp',
 	'collection/roadmap.collection',
-	'app/gantt/roadmapList.view',
-	'app/gantt/graph.view',
+	'app/gantt/roadmapGraph.view',
 	// Templates
 	'templates/lesir/components/gantt/app'
 ], function (
 	// Libraries
 	Marionette,
 	// Components
-	MarionetteApp,
 	RoadmapCollection,
-	RoadmapChartView,
-	GraphView
+	RoadmapGraphView
 ) {
 	'use strict';
 
 	var GanttAppLayout = Marionette.Layout.extend({
 
 		////////// App components
-		projectCollection: null,
-		roadmapListView: null,
+		roadmapCollection: null,
+		roadmapChartView: null,
 
 		////////// Initialization
 		className: 'app app--gantt',
@@ -45,15 +41,14 @@ define([
 		 */
 		initialize: function () {
 			this.roadmapCollection = new RoadmapCollection();
-			this.roadmapChartView = new RoadmapChartView({
+			this.roadmapChartView = new RoadmapGraphView({
 				collection: this.roadmapCollection
 			});
 		},
 		onRender: function () {
-			this.contentRegion.show(this.roadmapListView);
+			this.contentRegion.show(this.roadmapChartView);
 			this.roadmapCollection.fetch({reset: true});
 		}
-
 	});
 
 	return GanttAppLayout;

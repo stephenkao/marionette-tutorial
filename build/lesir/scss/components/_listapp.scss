@@ -19,8 +19,6 @@
 
 	.roadmap__title {
 		@include margin-trailer(1);
-
-		text-transform: capitalize;
 	}
 
 	.project--listitem {

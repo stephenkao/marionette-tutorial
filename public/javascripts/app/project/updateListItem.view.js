@@ -12,9 +12,7 @@ define([
 ], function (
 	// Libraries
 	Marionette,
-	XDate,
-	// Singletons
-	stringUtils
+	XDate
 ) {
 	'use strict';
 

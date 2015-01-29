@@ -26,8 +26,6 @@ define([
 
 		////////// Initialization
 		defaults: {
-			// The top-level <svg> d3 selection
-			svg: null,
 			// The intended height and width of this.svg
 			height: 0,
 			width: 0,
@@ -135,10 +133,10 @@ define([
 					.attr('preserveAspectRatio', 'xMidYMid')
 					.attr('width', width + margin.left + margin.right)
 					.attr('height', height + margin.top + margin.bottom)
-				    .append('g')
-					.attr('class', 'gantt-chart')
-					.attr('width', width + margin.left + margin.right)
-					.attr('height', height + margin.top + margin.bottom);
+					.append('g')
+						.attr('class', 'gantt-chart')
+						.attr('width', width + margin.left + margin.right)
+						.attr('height', height + margin.top + margin.bottom);
 			}
 
 			this._initializeTimeDomain();

@@ -6,13 +6,13 @@
 define([
 	// Libraries
 	'underscore',
-	'lib/d3',
-	'lib/backbone.marionette'
+	'backbone.marionette',
+	'lib/d3'
 ], function (
 	// Libraries
 	_,
-	d3,
-	Marionette
+	Marionette,
+	d3
 ) {
 	'use strict';
 
@@ -20,8 +20,6 @@ define([
 
 		////////// Initialization
 		defaults: {
-			// The top-level <svg> d3 selection
-			svg: null,
 			// The intended height and width of this.svg
 			height: 0,
 			width: 0,
@@ -36,42 +34,42 @@ define([
 				start: 0,
 				end: 0
 			},
-			projects: [],
+			roadmaps: [],
 			// The intended selector of the element in which the graph will be rendered
 			selector: ''
 		},
 		initialize: function () {
-			this.listenTo(this.view, 'projects:set', this.onProjectsSet);
+			this.listenTo(this.view, 'roadmaps:set', this.onRoadmapsSet);
 		},
 
 		////////// Bookkeeping
 		/**
-		 * Set the projects for this Gantt chart
-		 * and initialize all that good schtuff.
+		 * Set the roadmaps to redraw this Gantt chart
 		 *
-		 * @param {!Array.<!ProjectRecord>}
+		 * @param {!Array.<!RoadmapRecord>} roadmaps
 		 */
-		onProjectsSet: function (projects) {
-			this.options.projects = projects;
+		onRoadmapsSet: function (roadmaps) {
+			this.options.roadmaps = roadmaps;
 			this.redraw();
 		},
+
 		/**
-		 * Initialize the time domain, given all the tasks
+		 * Initialize the time domain, given all projects
 		 *
 		 * VOID->VOID
 		 */
 		_initializeTimeDomain: function () {
-			var projects = this.options.projects;
+			var projects = _.flatten(_.pluck(this.options.roadmaps, 'projects'));
 
 			projects.sort(function(a, b) {
-				return a.endDate - b.endDate;
+				return a.endTime - b.endTime;
 			});
-			this.options.timeRange.end = projects[projects.length - 1].endDate;
+			this.options.timeRange.end = projects[projects.length - 1].endTime;
 
 			projects.sort(function(a, b) {
-				return a.startDate - b.startDate;
+				return a.startTime - b.startTime;
 			});
-			this.options.timeRange.start = projects[0].startDate;
+			this.options.timeRange.start = projects[0].startTime;
 		},
 		/**
 		 * Initialize the axes and scale functions
@@ -79,13 +77,25 @@ define([
 		 * VOID->VOID
 		 */
 		_initializeAxes: function () {
+			var today = new Date().getTime(),
+				monthSpan = 60 * 60 * 24 * 7 * 4,
+				projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
+				projectTitles = _.pluck(projects, 'title');
+
 			this.xScale = d3.time.scale()
 				.domain([this.options.timeRange.start, this.options.timeRange.end])
+//				.domain([today - (2 * monthSpan), today + (2 * monthSpan)])
 				.range([0, this.options.width]).clamp(true);
 
 			this.yScale = d3.scale.ordinal()
-				.domain(_(this.options.tasks).pluck('title'))
+				.domain(projectTitles)
 				.rangeRoundBands([0, this.options.height], 0.4);
+
+			this.yAxis = d3.svg.axis()
+				.scale(this.yScale)
+				.orient('left')
+				.tickSize(0)
+				.tickValues(projectTitles);
 
 			this.xAxis = d3.svg.axis()
 				.scale(this.xScale)
@@ -116,11 +126,13 @@ define([
 			if (!this.svg) {
 				var selection = d3.select(this.options.selector),
 					margin = this.options.margin,
-					width, height;
+					width, height,
+					totalProjects = _.flatten(_.pluck(this.options.roadmaps, 'projects'));
 
 				// Derive the estimated height and width of the graph
 				width = this.options.width = parseInt(selection.style('width'), 10);
-				height = this.options.height = parseInt(selection.style('height'), 10);
+				// @TODO: Do this better!!!!
+				height = this.options.height = Math.max(totalProjects.length * 10, parseInt(selection.style('height'), 10));
 
 				// Add the top-level svg and g elements
 				this.svg = selection.append('svg')
@@ -149,6 +161,22 @@ define([
 		 * VOID->VOID
 		 */
 		_drawGridLines: function () {
+			this.svg.append('g')
+				.attr('class', 'grid')
+				.transition()
+				.call(function () {
+					return d3.svg.axis()
+						.scale(this.xScale)
+						.orient('top')
+						.ticks(d3.time.months);
+					}.bind(this)()
+					.tickSize(-this.options.height, 0, 0)
+					.tickFormat(''));
+
+			this.svg.selectAll('.grid line')
+				.attr('stroke-dasharray', '4, 10')
+				.attr('y1', 0)
+				.attr('y2', this.options.height - this.options.margin.bottom);
 		},
 		/**
 		 * Render the x-axis of this graph
@@ -156,21 +184,29 @@ define([
 		 * VOID->VOID
 		 */
 		_drawAxes: function () {
+			this.svg.append('g')
+				.attr('class', 'axis--y')
+				.transition()
+				.call(this.yAxis);
+
+			this.svg.append('g')
+				.attr('class', 'axis--x')
+				.attr('transform', 'translate(0, 0)')
+				.transition()
+				.call(this.xAxis);
 		},
 		/**
 		 * Render the actual tasks of this graph
 		 *
 		 * VOID->VOID
 		 */
-		_drawTasks: function () {
-		},
+		_drawTasks: function () {},
 		/**
 		 * Render the spotlight that highlights today in this graph
 		 *
 		 * VOID->VOID
 		 */
-		_drawSpotlight: function () {
-		}
+		_drawSpotlight: function () {}
 	});
 
 	return StackedGanttBehavior;

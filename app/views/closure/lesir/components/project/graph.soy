@@ -2,7 +2,7 @@
 
 /**
  * @param project // {title, priority, users}
- * @param roadmap // {title}
+ * @param roadmapTitle
  * @param startDate
  * @param endDate
  * @param duration
@@ -24,15 +24,15 @@
 	</div>
 
 	<div class="row large-collapse roadmap__row">
-		<div class="columns small-4">
-			<h3 class="beta">{$roadmap.title}</h3>
+		<div class="columns small-12 medium-4">
+			<h3 class="roadmap__title beta">{$roadmapTitle} Roadmap</h3>
 		</div>
 
-		<div class="columns small-2">
+		<div class="columns small-12 medium-2">
 			<span class="project__priority epsilon">{$priority} Priority</span>
 		</div>
 
-		<div class="columns small-6">
+		<div class="columns small-12 medium-6">
 			<p class="gamma">
 				{if $project.users and length($project.users)}
 					{foreach $user in $project.users}
@@ -44,7 +44,7 @@
 	</div>
 
 	<div class="row large-collapse roadmap__row">
-		<div class="columns small-4 project__dates">
+		<div class="columns small-12 medium-4 project__dates">
 			<span class="gamma">Start</span>
 			<span class="delta">{$startDate}</span>
 			<span>—</span>
@@ -52,11 +52,11 @@
 			<span class="delta">{$endDate}</span>
 		</div>
 
-		<div class="small-2 columns">
+		<div class="small-12 medium-2 columns">
 			<span class="delta">{$duration} {$duration > 1 ? 'months' : 'month'}</span>
 		</div>
 
-		<div class="small-6 columns">
+		<div class="small-12 medium-6 columns">
 			{if $project.memo}
 				<p class="zeta">{$project.memo}</p>
 			{/if}

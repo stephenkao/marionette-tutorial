@@ -10,6 +10,7 @@
 
 * {
 	@include box-sizing(border-box);
+
 	text-rendering: optimizeLegibility;
 }
 
@@ -36,7 +37,6 @@
 }
 
 ////////////////////////////////////////////////// Project
-
 .project__marker {
 	position: absolute;
 
@@ -55,7 +55,44 @@
 	text-transform: capitalize;
 }
 
+////////////////////////////////////////////////// Roadmap
+.roadmap__title {
+	text-transform: capitalize;
+}
+
+////////////////////////////////////////////////// SVG styles
+.gantt-chart {
+	.axis--x {
+		text {
+			@extend %font--eta;
+		}
+
+		.domain {
+			display: none;
+		}
+	}
+	.planning {
+		fill: $planning-color;
+	}
+	.research {
+		fill: $research-color;
+	}
+	.design {
+		fill: $design-color;
+	}
+	.implementation {
+		fill: $implementation-color;
+	}
+	.followup {
+		fill: $followup-color;
+	}
+	.grid line {
+		stroke: lightGray;
+	}
+}
+
 @import "components/header";
 @import "components/listapp";
 @import "components/yearbookapp";
 @import "components/projectapp";
+@import "components/ganttapp";

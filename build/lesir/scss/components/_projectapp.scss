@@ -33,33 +33,6 @@
 		min-height: 200px;
 		padding: 0;
 	}
-	.axis--x {
-		text {
-			@extend %font--eta;
-		}
-
-		.domain {
-			display: none;
-		}
-	}
-	.planning {
-		fill: $planning-color;
-	}
-	.research {
-		fill: $research-color;
-	}
-	.design {
-		fill: $design-color;
-	}
-	.implementation {
-		fill: $implementation-color;
-	}
-	.followup {
-		fill: $followup-color;
-	}
-	.grid line {
-		stroke: lightGray;
-	}
 
 	////////// Documentation section
 	.documentation-region button {

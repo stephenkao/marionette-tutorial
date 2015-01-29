@@ -64,12 +64,8 @@ define([
 
 			// Save tasks
 			taskRecords.forEach(function (taskRecord) {
-				// Extend the task record so the D3 Gantt library can understand it
-				taskRecord = _.extend(taskRecord, {
-					startDate: new Date(taskRecord.startTime * 1000),
-					endDate: new Date(taskRecord.endTime * 1000),
-					taskName: taskRecord.title
-				});
+				taskRecord.startTime *= 1000;
+				taskRecord.endTime *= 1000;
 				taskCollection.add(taskRecord);
 			});
 			taskCollection.trigger('reset');
