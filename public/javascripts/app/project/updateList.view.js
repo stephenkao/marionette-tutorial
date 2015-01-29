@@ -1,4 +1,4 @@
-/*global define */
+/*global define, lesir */
 
 /**
  * @author Stephen Kao
@@ -7,7 +7,9 @@ define([
 	// Libraries
 	'backbone.marionette',
 	// Components
-	'app/project/updateListItem.view'
+	'app/project/updateListItem.view',
+	// Templates
+	'templates/lesir/components/project/history'
 ], function (
 	// Libraries
 	Marionette,
@@ -16,12 +18,14 @@ define([
 ) {
 	'use strict';
 
-	var UpdateListView = Marionette.CollectionView.extend({
+	var UpdateListView = Marionette.CompositeView.extend({
 
 		////////// Initialization
 		tagName: 'ul',
 		className: 'updatelist',
-		itemView: UpdateListItemView
+		template: lesir.components.project.history,
+		itemView: UpdateListItemView,
+		itemViewContainer: '.js_historylist'
 	});
 
 	return UpdateListView;

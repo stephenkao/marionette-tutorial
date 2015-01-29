@@ -24,15 +24,15 @@
 	</div>
 
 	<div class="row large-collapse roadmap__row">
-		<div class="small-4 columns">
+		<div class="columns small-4">
 			<h3 class="beta">{$roadmap.title}</h3>
 		</div>
 
-		<div class="small-2 columns">
+		<div class="columns small-2">
 			<span class="project__priority epsilon">{$priority} Priority</span>
 		</div>
 
-		<div class="small-6 columns">
+		<div class="columns small-6">
 			<p class="gamma">
 				{if $project.users and length($project.users)}
 					{foreach $user in $project.users}
@@ -44,7 +44,7 @@
 	</div>
 
 	<div class="row large-collapse roadmap__row">
-		<div class="small-4 columns project__dates">
+		<div class="columns small-4 project__dates">
 			<span class="gamma">Start</span>
 			<span class="delta">{$startDate}</span>
 			<span>—</span>
