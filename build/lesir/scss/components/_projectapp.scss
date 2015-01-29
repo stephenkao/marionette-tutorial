@@ -69,6 +69,7 @@
 
 	.button--kickoff {
 		background-color: $black;
+		text-transform: capitalize;
 
 		&:hover {
 			background-color: #404040;
@@ -82,6 +83,7 @@
 	}
 	.button--complete {
 		color: #F7e279;
+		text-transform: uppercase;
 	}
 
 	////////// Updates section

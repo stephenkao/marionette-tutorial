@@ -1,6 +1,8 @@
 {namespace lesir.components.project}
 
 /**
+ * @param projectTitle
+ * @param lastUpdateTime
  */
 {template .documentation}
 	<div class="row large-collapse">
@@ -10,10 +12,10 @@
 	<div class="row large-collapse">
 		<div class="columns small-12 large-5 large-collapse">
 			<button class="button--kickoff">
-				<span class="eta">Flagging / Pending Kickoff Sheet</span>
+				<span class="project__title eta">{$projectTitle} Kickoff Sheet</span>
 				<br />
 				<span class="beta">Updated</span>
-				<span class="delta">12 / 05 /14</span>
+				<span class="delta">{$lastUpdateTime}</span>
 			</button>
 		</div>
 
