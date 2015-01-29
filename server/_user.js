@@ -72,7 +72,7 @@
 		 * @return {!Object}
 		 */
 		getUsers: function () {
-			var users = jf.readFileSync(process.cwd() + '/data/users.json');
+			var users = jf.readFileSync(consts.FILES.USERS);
 			users = _.map(users, function (user) {
 				return User.getUser(user._id);
 			});
@@ -85,8 +85,8 @@
 		 * @return {!Object}
 		 */
 		getUser: function (userId) {
-			var users = _.indexBy(jf.readFileSync(process.cwd() + '/data/users.json'), '_id'),
-				projects = _.indexBy(jf.readFileSync(process.cwd() + '/data/projects.json'), '_id'),
+			var users = _.indexBy(jf.readFileSync(consts.FILES.USERS), '_id'),
+				projects = _.indexBy(jf.readFileSync(consts.FILES.PROJECTS), '_id'),
 				thisUser = users[userId];
 
 			// Populate projects list

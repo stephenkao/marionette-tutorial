@@ -19,7 +19,7 @@
 		 * @return {!Object}
 		 */
 		populateRoadmaps: function () {
-			var projects = jf.readFileSync(process.cwd() + '/data/projects.json'),
+			var projects = jf.readFileSync(consts.FILES.PROJECTS),
 				roadmapsLookup = _.groupBy(projects, 'roadmap_id');
 
 			return _.map(roadmapsLookup, function (projects, key) {
@@ -33,7 +33,7 @@
 
 		////////// AJAX routes
 		getRoadmaps: function () {
-			var roadmaps = jf.readFileSync(process.cwd() + '/data/roadmaps.json');
+			var roadmaps = jf.readFileSync(consts.FILES.ROADMAPS);
 
 			roadmaps = _.map(roadmaps, function (roadmap) {
 				roadmap.projects = _.map(roadmap.projects, function (projectId) {
