@@ -55,7 +55,7 @@ define([
 		 * Set the tasks for this Gantt chart,
 		 * thereby setting off a cataclysmic chain reaction of (re-)initialization!!!
 		 *
-		 * @param {!Array.<!TaskRecord>}
+		 * @param {!Array.<!TaskRecord>} tasks
 		 */
 		onTasksSet: function (tasks) {
 			this.options.tasks = tasks;
@@ -70,14 +70,14 @@ define([
 			var tasks = this.options.tasks;
 
 			tasks.sort(function(a, b) {
-				return a.endDate - b.endDate;
+				return a.endTime - b.endTime;
 			});
-			this.options.timeRange.end = tasks[tasks.length - 1].endDate;
+			this.options.timeRange.end = tasks[tasks.length - 1].endTime;
 
 			tasks.sort(function(a, b) {
-				return a.startDate - b.startDate;
+				return a.startTime - b.startTime;
 			});
-			this.options.timeRange.start = tasks[0].startDate;
+			this.options.timeRange.start = tasks[0].startTime;
 		},
 		/**
 		 * Initialize the axes and scale functions
@@ -193,10 +193,10 @@ define([
 			var svgTasks = this.svg.selectAll('.chart').data(this.options.tasks).enter().append('g')
 				.attr('class', 'task')
 				.attr('transform', function (taskDatum) {
-					return 'translate(' + this.xScale(taskDatum.startDate) + ', ' + this.yScale(taskDatum.taskName) + ')';
+					return 'translate(' + this.xScale(taskDatum.startTime) + ', ' + this.yScale(taskDatum.title) + ')';
 				}.bind(this))
 				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endDate) - this.xScale(taskDatum.startDate));
+					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
 				}.bind(this));
 
 			// Render task rectangles
@@ -208,7 +208,7 @@ define([
 					return this.yScale.rangeBand();
 				}.bind(this))
 				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endDate) - this.xScale(taskDatum.startDate));
+					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
 				}.bind(this));
 
 			// Render task labels

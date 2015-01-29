@@ -60,9 +60,7 @@ define([
 					users: project.users,
 					memo: project.memo
 				},
-				roadmap: {
-					title: "WHATEVER"
-				},
+				roadmapTitle: project.roadmap.title,
 				startDate: startDate.toString('MM / dd / yy'),
 				endDate: endDate.toString('MM / dd / yy'),
 				duration: Math.ceil(startDate.diffMonths(endDate))
