@@ -27,13 +27,13 @@
 				startTime, endTime, taskStartTime, taskEndTime,
 				i;
 
-			// Set a random startTime (4~6 weeks before TODAY);
-			startTime = consts.TODAY - (consts.DAY_SPAN * _.random(24, 42));
+			// Set a random startTime (1~6 weeks before TODAY);
+			startTime = consts.TODAY - (consts.DAY_SPAN * _.random(7, 42));
 
 			// Populate this project's tasks
 			tasks = consts.TASK_TYPES.map(function (taskTitle, index) {
-				// Generate a random task length (2~5 weeks)
-				var taskLength = consts.DAY_SPAN * _.random(14, 35);
+				// Generate a random task length (2~4 weeks)
+				var taskLength = consts.DAY_SPAN * _.random(14, 28);
 				taskStartTime = startTime + (index * consts.WEEK_SPAN);
 				taskEndTime = taskStartTime + taskLength;
 
