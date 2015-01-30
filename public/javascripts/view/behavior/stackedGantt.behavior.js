@@ -77,8 +77,7 @@ define([
 		 * VOID->VOID
 		 */
 		_initializeAxes: function () {
-			var today = new Date().getTime(),
-				projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
+			var projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
 				projectTitles = _.pluck(projects, 'title');
 
 			this.xScale = d3.time.scale()
@@ -87,7 +86,7 @@ define([
 
 			this.yScale = d3.scale.ordinal()
 				.domain(projectTitles)
-				.rangeRoundBands([0, this.options.height], 0.4);
+				.rangeRoundBands([0, this.options.height], 0.6);
 
 			this.yAxis = d3.svg.axis()
 				.scale(this.yScale)
@@ -133,7 +132,7 @@ define([
 				width = width - margin.left - margin.right;
 				this.options.width = width;
 				// @TODO: Do this better!!!!
-				height = totalHeight = Math.max(totalProjects.length * 50, parseInt(selection.style('height'), 10));
+				height = totalHeight = Math.max(totalProjects.length * 60, parseInt(selection.style('height'), 10));
 				height = height - margin.top - margin.bottom;
 				this.options.height = height;
 
@@ -149,6 +148,8 @@ define([
 					.attr('width', width)
 					.attr('height', height)
 					.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+				this.svgZoomable = this.svg.append('g').attr('class', 'zoomable');
 			}
 
 			this._initializeTimeDomain();
@@ -159,13 +160,19 @@ define([
 			this._drawTasks();
 			this._drawSpotlight();
 		},
+
+//		onZoom: function () {
+//			this.svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+//		},
+
 		/**
 		 * Render the dotted grid lines of this graph
 		 *
 		 * VOID->VOID
 		 */
 		_drawGridLines: function () {
-			this.svg.append('g')
+//			this.svg.append('g')
+			this.svgZoomable.append('g')
 				.attr('class', 'grid')
 				.transition()
 				.call(function () {
@@ -177,7 +184,8 @@ define([
 					.tickSize(-this.options.height, 0, 0)
 					.tickFormat(''));
 
-			this.svg.selectAll('.grid line')
+//			this.svg.selectAll('.grid line')
+			this.svgZoomable.selectAll('.grid line')
 				.attr('stroke-dasharray', '4, 10')
 				.attr('y1', 0)
 				.attr('y2', this.options.height - this.options.margin.bottom);
@@ -197,7 +205,8 @@ define([
 				.attr('class', 'alpha')
 				.style('text-transform', 'uppercase');
 
-			this.svg.append('g')
+//			this.svg.append('g')
+			this.svgZoomable.append('g')
 				.attr('class', 'axis--x')
 				.attr('transform', 'translate(0, 0)')
 				.transition()
@@ -210,24 +219,48 @@ define([
 		 */
 		_drawTasks: function () {
 			// Make a pseudo-reverse-lookup from task to project (title)
-			var projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
-				// I AM SO SORRY FOR THIS
-				tasks = _.flatten(_.map(projects, function (project) {
-					return _.each(project.tasks, function (task) {
-						task.projectTitle = project.title;
-						return task;
-					});
-				})),
+			var that = this,
+				projects = _.flatten(_.pluck(that.options.roadmaps, 'projects')),
+				tasks = [],
+				svgTaskContainer,
 				svgTasks;
 
-			svgTasks = this.svg.selectAll('.chart').data(tasks).enter().append('g')
+			// @TODO: Add task-less roadmaps as projects
+			// This is a workaround to get roadmaps on the y-axis!
+			// But since no roadmaps will ever be assigned tasks,
+			// it should be O.K.A.Y.
+
+			// I AM SO SORRY FOR THIS
+			tasks = _.flatten(_.map(projects, function (project) {
+				return _.each(project.tasks, function (task) {
+					task.projectTitle = project.title;
+					return task;
+				});
+			}));
+
+			var zoom = d3.behavior.zoom()
+				.scaleExtent([1, 1])
+				.x(this.xScale)
+				.on('zoom', function () {
+					this.svgZoomable.attr('transform', 'translate(' + (d3.event.translate[0] + 10) + ', 0)scale(' + d3.event.scale + ')');
+				}.bind(this));
+
+//			svgTaskContainer = that.svg.append('g')
+			svgTaskContainer = that.svgZoomable.append('g')
+				.attr('class', 'task-container')
+				.call(zoom);
+
+			svgTasks = svgTaskContainer.selectAll('.task').data(tasks).enter().append('g')
 				.attr('class', 'task')
 				.attr('transform', function (taskDatum) {
-					return 'translate(' + this.xScale(taskDatum.startTime) + ', ' + this.yScale(taskDatum.projectTitle) + ')';
+					return 'translate(' + that.xScale(taskDatum.startTime) + ', ' + that.yScale(taskDatum.projectTitle) + ')';
 				}.bind(this))
 				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
+					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime));
 				}.bind(this));
+
+			// @TODO: THING
+			that.svgTasks = svgTasks;
 
 			// Render task rectangles
 			svgTasks.append('rect')
@@ -235,10 +268,10 @@ define([
 					return taskDatum.title;
 				})
 				.attr('height', function() {
-					return this.yScale.rangeBand();
+					return that.yScale.rangeBand();
 				}.bind(this))
 				.attr('width', function(taskDatum) {
-					return (this.xScale(taskDatum.endTime) - this.xScale(taskDatum.startTime));
+					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime));
 				}.bind(this));
 		},
 		/**
@@ -249,15 +282,25 @@ define([
 		_drawSpotlight: function () {
 			var today = new Date(),
 				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
-				dayWidth = this.xScale(tomorrow) - this.xScale(today);
+				svgTodayGroup;
 
-			this.svg.append('rect')
+//			svgTodayGroup = this.svg.append('g')
+			svgTodayGroup = this.svgZoomable.append('g')
+				.attr('transform', 'translate(' + this.xScale(new Date().getTime()) + ', 0)');
+
+			svgTodayGroup.append('rect')
 				.attr('class', 'spotlight')
-				.attr('transform', 'translate(' + this.xScale(new Date().getTime()) + ', 0)')
-				.attr('width', dayWidth)
+				.attr('width', 1)
 				.attr('height', this.options.height)
-				.style('fill', 'yellow')
+				.style('fill', 'black')
 				.style('opacity', 0.4);
+
+			svgTodayGroup.append('text')
+				.text('Today')
+				.attr('class', 'eta')
+				.style('fill', '#555')
+				.attr('dy', '1em')
+				.attr('dx', '0.4em');
 		}
 	});
 
