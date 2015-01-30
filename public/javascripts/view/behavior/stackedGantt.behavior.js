@@ -78,10 +78,25 @@ define([
 		 */
 		_initializeAxes: function () {
 			var projects = _.flatten(_.pluck(this.options.roadmaps, 'projects')),
-				projectTitles = _.pluck(projects, 'title');
+				roadmapsLookup = _.indexBy(this.options.roadmaps, '_id'),
+//				projectTitles = _.pluck(projects, 'title');
+				projectTitles = [];
+
+			projectTitles = _.groupBy(projects, 'roadmap_id');
+			projectTitles = _.flatten(_.map(projectTitles, function (projects, roadmapId) {
+				var roadmapTitle = roadmapsLookup[roadmapId].title;
+
+				projects.unshift({
+					title: roadmapTitle
+				});
+
+				return projects;
+			}));
+			projectTitles = _.pluck(projectTitles, 'title');
 
 			this.xScale = d3.time.scale()
 				.domain([this.options.timeRange.start, this.options.timeRange.end])
+//				.domain([-this.options.width / 2, this.options.width / 2])
 				.range([0, this.options.width]).clamp(true);
 
 			this.yScale = d3.scale.ordinal()
@@ -132,7 +147,7 @@ define([
 				width = width - margin.left - margin.right;
 				this.options.width = width;
 				// @TODO: Do this better!!!!
-				height = totalHeight = Math.max(totalProjects.length * 60, parseInt(selection.style('height'), 10));
+				height = totalHeight = Math.max(totalProjects.length *70, parseInt(selection.style('height'), 10));
 				height = height - margin.top - margin.bottom;
 				this.options.height = height;
 
@@ -161,9 +176,9 @@ define([
 			this._drawSpotlight();
 		},
 
-//		onZoom: function () {
-//			this.svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-//		},
+		onZoom: function () {
+			this.svgZoomable.attr('transform', 'translate(' + (d3.event.translate[0] + 10) + ', 0)scale(' + d3.event.scale + ')');
+		},
 
 		/**
 		 * Render the dotted grid lines of this graph
@@ -201,8 +216,16 @@ define([
 				.transition()
 				.call(this.yAxis);
 
+			// @TODO: Pass the entire project/roadmap object as datum
+			// and return custom class based on datum.tasks.length
+			var roadmapsLookup = _.indexBy(this.options.roadmaps, 'title');
 			this.svg.selectAll('.axis--y text')
-				.attr('class', 'alpha')
+				.attr('class', function (title) {
+					if (roadmapsLookup.hasOwnProperty(title)) {
+						return 'beta';
+					}
+					return 'alpha';
+				})
 				.style('text-transform', 'uppercase');
 
 //			this.svg.append('g')
@@ -225,15 +248,20 @@ define([
 				svgTaskContainer,
 				svgTasks;
 
-			// @TODO: Add task-less roadmaps as projects
-			// This is a workaround to get roadmaps on the y-axis!
-			// But since no roadmaps will ever be assigned tasks,
-			// it should be O.K.A.Y.
-
 			// I AM SO SORRY FOR THIS
 			tasks = _.flatten(_.map(projects, function (project) {
-				return _.each(project.tasks, function (task) {
+				var projectTasks = project.tasks;
+
+				return _.each(projectTasks, function (task, index) {
+					// Set project title so it can be placed on the chart appropriately
 					task.projectTitle = project.title;
+
+					// If this is NOT the last task, then set the end date to the start date of the next task
+					// This is just for visual truncation and not for anything fa-YUN-see ~
+					if (index < projectTasks.length - 1) {
+						task.endTime = projectTasks[index + 1].startTime;
+					}
+
 					return task;
 				});
 			}));
@@ -241,9 +269,7 @@ define([
 			var zoom = d3.behavior.zoom()
 				.scaleExtent([1, 1])
 				.x(this.xScale)
-				.on('zoom', function () {
-					this.svgZoomable.attr('transform', 'translate(' + (d3.event.translate[0] + 10) + ', 0)scale(' + d3.event.scale + ')');
-				}.bind(this));
+				.on('zoom', this.onZoom.bind(this));
 
 //			svgTaskContainer = that.svg.append('g')
 			svgTaskContainer = that.svgZoomable.append('g')
@@ -256,16 +282,24 @@ define([
 					return 'translate(' + that.xScale(taskDatum.startTime) + ', ' + that.yScale(taskDatum.projectTitle) + ')';
 				}.bind(this))
 				.attr('width', function(taskDatum) {
-					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime));
+					return that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime);
 				}.bind(this));
 
 			// @TODO: THING
 			that.svgTasks = svgTasks;
 
 			// Render task rectangles
+			var today = new Date().getTime();
 			svgTasks.append('rect')
 				.attr('class', function(taskDatum) {
 					return taskDatum.title;
+				})
+				.style('stroke', 'white')
+				.style('fill', function (taskDatum) {
+					if (taskDatum.endTime < today) {
+						return 'black';
+					}
+					return 'auto';
 				})
 				.attr('height', function() {
 					return that.yScale.rangeBand();
@@ -281,8 +315,8 @@ define([
 		 */
 		_drawSpotlight: function () {
 			var today = new Date(),
-				tomorrow = new Date(today.getTime() + 60 * 60 * 24 * 1000),
-				svgTodayGroup;
+				svgTodayGroup,
+				spotlightColor = 'red';
 
 //			svgTodayGroup = this.svg.append('g')
 			svgTodayGroup = this.svgZoomable.append('g')
@@ -292,13 +326,14 @@ define([
 				.attr('class', 'spotlight')
 				.attr('width', 1)
 				.attr('height', this.options.height)
-				.style('fill', 'black')
+				.style('fill', spotlightColor)
 				.style('opacity', 0.4);
 
 			svgTodayGroup.append('text')
-				.text('Today')
+				.text('today')
 				.attr('class', 'eta')
-				.style('fill', '#555')
+				.style('fill', spotlightColor)
+				.style('font-size', '0.6em')
 				.attr('dy', '1em')
 				.attr('dx', '0.4em');
 		}
