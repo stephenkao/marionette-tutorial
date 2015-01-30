@@ -16,6 +16,20 @@ define([
 ) {
 	'use strict';
 
+	d3.selection.prototype.moveToFront = function() {
+		return this.each(function(){
+			this.parentNode.appendChild(this);
+		});
+	};
+	d3.selection.prototype.moveToBack = function() {
+		return this.each(function() {
+			var firstChild = this.parentNode.firstChild;
+			if (firstChild) {
+				this.parentNode.insertBefore(this, firstChild);
+			}
+		});
+	};
+
 	var StackedGanttBehavior = Marionette.Behavior.extend({
 
 		////////// Initialization
@@ -283,10 +297,56 @@ define([
 				}.bind(this))
 				.attr('width', function(taskDatum) {
 					return that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime);
-				}.bind(this));
+				}.bind(this))
+				.on('mouseover', function () {
+					d3.select(this)
+						.moveToFront()
+						.select('.task-tooltip').style('display', 'block');
+				})
+				.on('mouseleave', function () {
+					d3.select(this)
+						.moveToBack()
+						.select('.task-tooltip').style('display', 'none');
+				});
 
 			// @TODO: THING
 			that.svgTasks = svgTasks;
+
+			var tooltipPadding = 20;
+
+			// Render task tooltips
+			var svgTooltips = svgTasks.append('g')
+				.attr('class', 'task-tooltip')
+				.style('display', 'none');
+
+			svgTooltips.append('rect')
+				.style('fill', 'black')
+				.attr('transform', function () {
+					return 'translate(' + (-tooltipPadding / 2) + ', ' + (-tooltipPadding * 1.5) + ')';
+				}.bind(this))
+				.attr('height', function() {
+					return that.yScale.rangeBand() + tooltipPadding * 2;
+				}.bind(this))
+				.attr('width', function(taskDatum) {
+					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime)) + tooltipPadding;
+				}.bind(this));
+
+			svgTooltips.append('text')
+				.text(function (datum) {
+					return datum.title;
+				})
+				.classed('task-title', true)
+				.classed('zeta', true)
+				.style('fill', 'white')
+				.style('text-transform', 'uppercase')
+				.attr('text-anchor', 'middle')
+				.attr('dy', function () {
+					return -tooltipPadding / 2;
+				})
+				.attr('dx', function (taskDatum) {
+					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime)) / 2 ;
+				});
+
 
 			// Render task rectangles
 			var today = new Date().getTime();
@@ -314,8 +374,7 @@ define([
 		 * VOID->VOID
 		 */
 		_drawSpotlight: function () {
-			var today = new Date(),
-				svgTodayGroup,
+			var svgTodayGroup,
 				spotlightColor = 'red';
 
 //			svgTodayGroup = this.svg.append('g')
