@@ -321,6 +321,8 @@ define([
 
 			svgTooltips.append('rect')
 				.style('fill', 'black')
+				.style('stroke-width', '2')
+				.style('stroke', 'white')
 				.attr('transform', function () {
 					return 'translate(' + (-tooltipPadding / 2) + ', ' + (-tooltipPadding * 1.5) + ')';
 				}.bind(this))
@@ -346,7 +348,6 @@ define([
 				.attr('dx', function (taskDatum) {
 					return (that.xScale(taskDatum.endTime) - that.xScale(taskDatum.startTime)) / 2 ;
 				});
-
 
 			// Render task rectangles
 			var today = new Date().getTime();
