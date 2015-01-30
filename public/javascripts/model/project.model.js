@@ -49,7 +49,8 @@ define([
 			this.set('tasks', new Backbone.Collection());
 			this.set('updates', new Backbone.Collection());
 
-			if (record) {
+			// Hacky: The record might be passed into initialize from the containing Collection
+			if (record && record.hasOwnProperty('updates')) {
 				this.parse(record);
 			}
 		},
